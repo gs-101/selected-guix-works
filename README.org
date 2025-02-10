@@ -40,7 +40,7 @@ Another candidate would definitely be Prot(esilaos)'s new font, Aporetic[fn:5].
 
 ** Window Management
 
-- =hyprpaper=
+- =hyprpaper= ::
 
   Hyprpaper[fn:6] is the wallpaper utility of the Hyprland[fn:7] ecosystem. It allows for fast wallpaper switches through the use of Unix sockets.
 
