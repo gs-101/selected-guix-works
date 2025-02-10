@@ -1,0 +1,55 @@
+#+title: Selected Guix Works
+#+OPTIONS: f:t
+
+Guix channel featuring many packages that will probably make their way upstream, as I'll probably not package proprietary software (and even if I did, I'd just upstream it to Nonguix instead).
+
+Modules are in the layout of Guix source.
+
+* Channel Definition
+
+Use this for adding this channel to your configuration:
+
+#+begin_src scheme
+  (cons* (channel
+          (name 'selected-guix-works)
+          (url "https://github.com/gs-101/selected-guix-works.git")
+          (branch "main")
+          (introduction
+           (make-channel-introduction
+            "5d1270d51c64457d61cd46ec96e5599176f315a4"
+            (openpgp-fingerprint
+             "C780 21F7 34E4 07EB 9090  0CF1 4ACA 6D6F 89AB 3162"))))
+         %default-channels)
+#+end_src
+
+* Packages
+
+** Backgrounds
+
+Currently features and will only feature my backgrounds[fn:1] repository. It currently contains the Guix backgrounds[fn:2], which are licensed under the Creative Commons Attribution-ShareAlike license.
+
+On installation, they can be found under =/run/current-system/profile/share/backgrounds=, separated into folders.
+
+** Fonts
+
+- =font-microsoft-cascadia-next= ::
+
+  My favourite font. In Guix, packages suffixed with =-next= indicate that they're a later version than the one available. The reason Cascadia Code[fn:3] hasn't been updated in Guix is because Nerd Fonts[fn:4] aren't currently packaged (which would be a difficult process, as there's many licenses involved).
+
+Another candidate would definitely be Prot(esilaos)'s new font, Aporetic[fn:5].
+
+** Window Management
+
+- =hyprpaper=
+
+  Hyprpaper[fn:6] is the wallpaper utility of the Hyprland[fn:7] ecosystem. It allows for fast wallpaper switches through the use of Unix sockets.
+
+* References
+
+[fn:1] Santos, G. (2025) “Gs-101/backgrounds.” Available at: https://github.com/gs-101/backgrounds (Accessed: February 10, 2025).
+[fn:2] Courtès, L. (2024) “Guix/guix-artwork.” Free Software Foundation. Available at: https://git.savannah.gnu.org/cgit/guix/guix-artwork.git (Accessed: February 10, 2025).
+[fn:3] “Microsoft/cascadia-code” (2025). Microsoft. Available at: https://github.com/microsoft/cascadia-code (Accessed: February 10, 2025).
+[fn:4] McIntyre, R.L. (2025) “Ryanoasis/nerd-fonts.” Available at: https://github.com/ryanoasis/nerd-fonts (Accessed: February 10, 2025).
+[fn:5] Stavrou, P. (2025) “Protesilaos/aporetic.” Available at: https://github.com/protesilaos/aporetic (Accessed: February 10, 2025).
+[fn:6] “Hyprwm/hyprpaper” (2025). Hypr Development. Available at: https://github.com/hyprwm/hyprpaper (Accessed: February 10, 2025).
+[fn:7] “Hyprwm/hyprland” (2025). Hypr Development. Available at: https://github.com/hyprwm/Hyprland (Accessed: February 10, 2025).
