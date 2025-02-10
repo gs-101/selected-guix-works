@@ -46,6 +46,12 @@ Another candidate would definitely be Prot(esilaos)'s new font, Aporetic[fn:5].
 
   Hyprpaper[fn:6] is the wallpaper utility of the Hyprland[fn:7] ecosystem. It allows for fast wallpaper switches through the use of Unix sockets.
 
+* The Name
+
+The name comes from the Aphex Twin album series “Selected Ambient Works”. I have an interest in ambient-like music, such as drone metal, so I had to check out his work, and I have to say I quite enjoyed it.
+
+My favourite of his works is “Expert Knob Twiddlers”, it has an album cover as silly as its name.
+
 * References
 
 [fn:1] Santos, G. (2025) “Gs-101/backgrounds.” Available at: https://github.com/gs-101/backgrounds (Accessed: February 10, 2025).
