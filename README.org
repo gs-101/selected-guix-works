@@ -47,9 +47,15 @@ Another candidate would definitely be Prot(esilaos)'s new font, Aporetic[fn:5].
 * References
 
 [fn:1] Santos, G. (2025) “Gs-101/backgrounds.” Available at: https://github.com/gs-101/backgrounds (Accessed: February 10, 2025).
+
 [fn:2] Courtès, L. (2024) “Guix/guix-artwork.” Free Software Foundation. Available at: https://git.savannah.gnu.org/cgit/guix/guix-artwork.git (Accessed: February 10, 2025).
+
 [fn:3] “Microsoft/cascadia-code” (2025). Microsoft. Available at: https://github.com/microsoft/cascadia-code (Accessed: February 10, 2025).
+
 [fn:4] McIntyre, R.L. (2025) “Ryanoasis/nerd-fonts.” Available at: https://github.com/ryanoasis/nerd-fonts (Accessed: February 10, 2025).
+
 [fn:5] Stavrou, P. (2025) “Protesilaos/aporetic.” Available at: https://github.com/protesilaos/aporetic (Accessed: February 10, 2025).
+
 [fn:6] “Hyprwm/hyprpaper” (2025). Hypr Development. Available at: https://github.com/hyprwm/hyprpaper (Accessed: February 10, 2025).
+
 [fn:7] “Hyprwm/hyprland” (2025). Hypr Development. Available at: https://github.com/hyprwm/Hyprland (Accessed: February 10, 2025).
