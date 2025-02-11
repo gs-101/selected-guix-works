@@ -70,3 +70,24 @@
      "Hyprpaper is the wallpaper utility of the Hyprland ecosystem.  It uses IPC to for
 quickly switching between different wallpapers.")
     (license license:bsd-3)))
+
+(define-public hyprpolkitagent
+  (package
+    (name "hyprpolkitagent")
+    (version "0.1.2")
+    (source (origin
+              (method git-fetch)
+              (uri (git-reference
+                    (url "https://github.com/hyprwm/hyprpolkitagent")
+                    (commit (string-append "v" version))))
+              (file-name (git-file-name name version))
+              (sha256
+               (base32
+                "151r6s04yy3digl3g6gs49xx41yv4xldmbnqr87gp5nz705hjsd6"))))
+    (build-system cmake-build-system)
+    (arguments
+     (list #:tests? #f))
+    (native-inputs
+     (list pkg-config))
+    (inputs
+     (list hyprutils))))
