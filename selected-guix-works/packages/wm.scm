@@ -32,6 +32,9 @@
   #:use-module (gnu packages pkg-config)
   #:use-module (gnu packages gtk)
   #:use-module (gnu packages gcc)
+  #:use-module (gnu packages qt)
+  #:use-module (gnu packages vulkan)
+  #:use-module (gnu packages polkit)
 
   #:use-module (guix build-system cmake))
 
@@ -69,4 +72,37 @@
     (description
      "Hyprpaper is the wallpaper utility of the Hyprland ecosystem.  It uses IPC to for
 quickly switching between different wallpapers.")
+    (license license:bsd-3)))
+
+(define-public hyprpolkitagent
+  (package
+    (name "hyprpolkitagent")
+    (version "0.1.2")
+    (source (origin
+              (method git-fetch)
+              (uri (git-reference
+                    (url "https://github.com/hyprwm/hyprpolkitagent")
+                    (commit (string-append "v" version))))
+              (file-name (git-file-name name version))
+              (sha256
+               (base32
+                "0zqiskgn57zcrljpyk0py24izf77yngnj7586mb51rb1b4yd4n9b"))))
+    (build-system cmake-build-system)
+    (arguments
+     '(#:tests? #f))
+    (native-inputs
+     (list pkg-config
+           qtdeclarative
+           qtbase
+           vulkan-headers
+           gcc-14))
+    (inputs
+     (list hyprutils
+           polkit
+           polkit-qt6))
+    (home-page "https://wiki.hyprland.org/Hypr-Ecosystem/hyprpolkitagent/")
+    (synopsis "Hyprland polkit agent")
+    (description
+     "@code{hyprpolkitagent} is the polkit agent of the Hyprland ecosystem.  A polkit agent
+is used for requesting authentication from the root user or a member of the @code{wheel} group.")
     (license license:bsd-3)))

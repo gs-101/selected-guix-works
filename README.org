@@ -46,6 +46,10 @@ Another candidate would definitely be Prot(esilaos)'s new font, Aporetic[fn:5].
 
   Hyprpaper[fn:6] is the wallpaper utility of the Hyprland[fn:7] ecosystem. It allows for fast wallpaper switches through the use of Unix sockets.
 
+- =hyprpolkitagent= ::
+
+  =hyprpolkitagent= is the polkit agent of the Hyprland ecosystem.
+
 * The Name
 
 The name comes from the Aphex Twin album series “Selected Ambient Works”. I have an interest in ambient-like music, such as drone metal, so I had to check out his work, and I have to say I quite enjoyed it.
@@ -67,3 +71,5 @@ My favourite of his works is “Expert Knob Twiddlers”, it has an album cover 
 [fn:6] “Hyprwm/hyprpaper” (2025). Hypr Development. Available at: https://github.com/hyprwm/hyprpaper (Accessed: February 10, 2025).
 
 [fn:7] “Hyprwm/hyprland” (2025). Hypr Development. Available at: https://github.com/hyprwm/Hyprland (Accessed: February 10, 2025).
+
+[fn:8] “Hyprwm/hyprpolkitagent” (2025). Hypr Development. Available at: https://github.com/hyprwm/hyprpolkitagent (Accessed: February 12, 2025).
