@@ -34,7 +34,7 @@
 (define-public selected-guix-works-backgrounds
   (package
     (name "selected-guix-works-backgrounds")
-    (version "1.0.0")
+    (version "1.0.1")
     (source (origin
               (method git-fetch)
               (uri (git-reference
@@ -42,11 +42,11 @@
                     (commit version)))
               (file-name (git-file-name name version))
               (sha256
-               (base32 "0lhjy5ipvw975sn1zwb5nk17qa46gx0w4473zir299hf1z3hzdv8"))))
+               (base32 "0w34ixnz48kjgwjf4vd7j0mxjmji5226q26rd82n031rzhh5r8hq"))))
     (build-system copy-build-system)
     (arguments
      (list #:install-plan
-           #~'(("." "share/backgrounds"))))
+           #~'(("backgrounds" "share/backgrounds/selected-guix-works"))))
     (home-page "https://github.com/gs-101/backgrounds")
     (synopsis "Assorted backgrounds and their licenses accumulated with time")
     (description
