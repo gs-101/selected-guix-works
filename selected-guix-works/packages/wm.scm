@@ -35,8 +35,15 @@
   #:use-module (gnu packages qt)
   #:use-module (gnu packages vulkan)
   #:use-module (gnu packages polkit)
+  #:use-module (gnu packages wm)
+  #:use-module (gnu packages web)
+  #:use-module (gnu packages image)
+  #:use-module (gnu packages xdisorg)
+  #:use-module (gnu packages gnome)
+  #:use-module (guix gexp)
 
-  #:use-module (guix build-system cmake))
+  #:use-module (guix build-system cmake)
+  #:use-module (guix build-system copy))
 
 (define-public hyprpaper
   (package
@@ -106,3 +113,35 @@ quickly switching between different wallpapers.")
      "@code{hyprpolkitagent} is the polkit agent of the Hyprland ecosystem.  A polkit agent
 is used for requesting authentication from the root user or a member of the @code{wheel} group.")
     (license license:bsd-3)))
+
+(define-public hyprshot
+  (package
+    (name "hyprshot")
+    (version "1.3.0")
+    (source (origin
+              (method git-fetch)
+              (uri (git-reference
+                    (url "https://github.com/Gustash/hyprshot")
+                    (commit version)))
+              (file-name (git-file-name name version))
+              (sha256
+               (base32
+                "0w3qhj59g31gxcairdl5fwvdyxmb9drkgbn1jjhcbvgrbncr7mpn"))))
+    (build-system copy-build-system)
+    (arguments
+     (list #:install-plan
+           #~'(("." "bin" #:include ("hyprshot")))))
+    (inputs
+     (list hyprland
+           jq
+           grim
+           slurp
+           wl-clipboard
+           libnotify
+           hyprpicker))
+    (home-page "https://github.com/Gustash/hyprshot")
+    (synopsis "Hyprland screenshot utility")
+    (description
+     "@code{hyprshot} is a simple shell script used for taking screenshots in Hyprland.
+It's primarily optimized for mouse usage, due to the ability of selection regions.")
+    (license license:gpl3)))

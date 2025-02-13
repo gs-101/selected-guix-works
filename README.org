@@ -48,7 +48,11 @@ Another candidate would definitely be Prot(esilaos)'s new font, Aporetic[fn:5].
 
 - =hyprpolkitagent= ::
 
-  =hyprpolkitagent= is the polkit agent of the Hyprland ecosystem.
+  =hyprpolkitagent=[fn:8] is the polkit agent of the Hyprland ecosystem.
+
+- =hyprshot= ::
+
+  =hyprshot=[fn:9] is a shell script designed for optimizing screenshot utilities for Hyprland. It uses Grim[fn:10] to take the screenshot, and Slurp[fn:11] to select an area.
 
 * The Name
 
@@ -73,3 +77,9 @@ My favourite of his works is “Expert Knob Twiddlers”, it has an album cover 
 [fn:7] “Hyprwm/hyprland” (2025). Hypr Development. Available at: https://github.com/hyprwm/Hyprland (Accessed: February 10, 2025).
 
 [fn:8] “Hyprwm/hyprpolkitagent” (2025). Hypr Development. Available at: https://github.com/hyprwm/hyprpolkitagent (Accessed: February 12, 2025).
+
+[fn:9] Gustash (2024) “Gustash/hyprshot.” Available at: https://github.com/Gustash/Hyprshot (Accessed: February 13, 2025).
+
+[fn:10] Ser, S. (2025) “emersion/grim.” Available at: https://sr.ht/~emersion/grim (Accessed: February 13, 2025).
+
+[fn:11] Ser, S. (2025) “emersion/slurp.” Available at: https://github.com/emersion/slurp (Accessed: February 13, 2025).
