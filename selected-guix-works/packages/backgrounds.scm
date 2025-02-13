@@ -34,7 +34,7 @@
 (define-public selected-guix-works-backgrounds
   (package
     (name "selected-guix-works-backgrounds")
-    (version "1.0.1")
+    (version "1.1.1")
     (source (origin
               (method git-fetch)
               (uri (git-reference
@@ -42,7 +42,7 @@
                     (commit version)))
               (file-name (git-file-name name version))
               (sha256
-               (base32 "0w34ixnz48kjgwjf4vd7j0mxjmji5226q26rd82n031rzhh5r8hq"))))
+               (base32 "1h8nnjrr9n5rm28wlgi0m3986p7lfnbzqqr49r2v7n3ifhzr5mpa"))))
     (build-system copy-build-system)
     (arguments
      (list #:install-plan
