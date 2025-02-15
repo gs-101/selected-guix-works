@@ -54,6 +54,26 @@ Another candidate would definitely be Prot(esilaos)'s new font, Aporetic[fn:5].
 
   =hyprshot=[fn:9] is a shell script designed for optimizing screenshot utilities for Hyprland. It uses Grim[fn:10] to take the screenshot, and Slurp[fn:11] to select an area.
 
+* Utilities
+
+This module holds procedures for simplifying configurations.
+
+- ~home-profile-package-service~ ::
+
+  Takes a string referring to the name of a package. This returns a ~simple-service~ that contains the package name, adding it to the current home profile. It turns this:
+
+  #+begin_src scheme
+    (simple-service 'home-emacs-master-pgtk-service
+                    home-profile-service-type
+                    (list (specification->package "emacs-master-pgtk")))
+  #+end_src
+
+  Into this:
+
+  #+begin_src scheme
+    (home-profile-package-service "emacs-master-pgtk")
+  #+end_src
+
 * The Name
 
 The name comes from the Aphex Twin album series “Selected Ambient Works”. I have an interest in ambient-like music, such as drone metal, so I had to check out his work, and I have to say I quite enjoyed it.
