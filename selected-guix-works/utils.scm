@@ -30,8 +30,14 @@
   #:export (home-profile-package-service))
 
 (define (home-profile-package-service package)
-  (let ((service-name (string->symbol
-                       (string-append "home-" package "-service"))))
-    (simple-service service-name
-                    home-profile-service-type
-                    (list (specification->package package)))))
+  (if (list? package)
+      (let ((service-name (string->symbol
+                           (string-append "home-" (car package) "-service"))))
+        (simple-service service-name
+                        home-profile-service-type
+                        (list (specifications->packages package))))
+      (let ((service-name (string->symbol
+                           (string-append "home-" package "-service"))))
+        (simple-service service-name
+                        home-profile-service-type
+                        (list (specification->package package))))))

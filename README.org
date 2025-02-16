@@ -74,6 +74,8 @@ This module holds procedures for simplifying configurations.
     (home-profile-package-service "emacs-master-pgtk")
   #+end_src
 
+It also supports a list of package names, with the first package being used for the name of the service.
+
 * The Name
 
 The name comes from the Aphex Twin album series “Selected Ambient Works”. I have an interest in ambient-like music, such as drone metal, so I had to check out his work, and I have to say I quite enjoyed it.
