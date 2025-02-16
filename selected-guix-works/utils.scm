@@ -24,6 +24,7 @@
 
 (define-module (selected-guix-works utils)
   #:use-module (gnu services)
+  #:use-module (gnu home services)
 
   #:export (home-profile-package-service))
 
