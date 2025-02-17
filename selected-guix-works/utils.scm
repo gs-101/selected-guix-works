@@ -35,7 +35,7 @@
                            (string-append "home-" (car package) "-service"))))
         (simple-service service-name
                         home-profile-service-type
-                        (list (specifications->packages package))))
+                        (specifications->packages package)))
       (let ((service-name (string->symbol
                            (string-append "home-" package "-service"))))
         (simple-service service-name
