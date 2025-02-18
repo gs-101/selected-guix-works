@@ -134,7 +134,7 @@ is used for requesting authentication from the root user or a member of the @cod
     (inputs
      (list hyprland
            jq))
-    (propagted-inputs
+    (propagated-inputs
      (list grim
            slurp
            wl-clipboard
