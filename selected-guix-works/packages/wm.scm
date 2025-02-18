@@ -133,8 +133,9 @@ is used for requesting authentication from the root user or a member of the @cod
            #~'(("." "bin" #:include ("hyprshot")))))
     (inputs
      (list hyprland
-           jq
-           grim
+           jq))
+    (propagted-inputs
+     (list grim
            slurp
            wl-clipboard
            libnotify
