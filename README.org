@@ -40,6 +40,10 @@ On a system installation, they can be found under =/run/current-system/profile/s
 
 Another candidate would definitely be Prot(esilaos)'s new font, Aporetic[fn:5].
 
+*** Nerd Fonts
+
+Besides Cascadia Code, this channels includes all[fn:12] Nerd Fonts. A meta package is available under the name of =fonts-nerd-fonts=, with all other packages following the same naming convention (=fonts-nerd-fonts-inconsolata=).
+
 ** Window Management
 
 - =hyprpaper= ::
@@ -105,3 +109,5 @@ My favourite of his works is “Expert Knob Twiddlers”, it has an album cover 
 [fn:10] Ser, S. (2025) “emersion/grim.” Available at: https://sr.ht/~emersion/grim (Accessed: February 13, 2025).
 
 [fn:11] Ser, S. (2025) “emersion/slurp.” Available at: https://github.com/emersion/slurp (Accessed: February 13, 2025).
+
+[fn:12] CaskaydiaCove and CaskaydiaMono are excluded, as regualr Cascadia Code already includes Nerd Fonts.
