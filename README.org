@@ -106,4 +106,4 @@ My favourite of his works is “Expert Knob Twiddlers”, it has an album cover 
 
 [fn:11] Ser, S. (2025) “emersion/slurp.” Available at: https://github.com/emersion/slurp (Accessed: February 13, 2025).
 
-[fn:12] CaskaydiaCove and CaskaydiaMono are excluded, as regualr Cascadia Code already includes Nerd Fonts.
+[fn:12] CaskaydiaCove and CaskaydiaMono are excluded, as regular Cascadia Code already includes Nerd Fonts.
