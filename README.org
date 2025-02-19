@@ -40,21 +40,21 @@ On a system installation, they can be found under =/run/current-system/profile/s
 
 *** Nerd Fonts
 
-Besides Cascadia Code, this channels includes all[fn:12] Nerd Fonts. A meta package is available under the name of =fonts-nerd-fonts=, with all other packages following the same naming convention (=fonts-nerd-fonts-inconsolata=).
+Besides Cascadia Code, this channels includes all[fn:11] Nerd Fonts. A meta package is available under the name of =fonts-nerd-fonts=, with all other packages following the same naming convention (=fonts-nerd-fonts-inconsolata=).
 
 ** Window Management
 
 - =hyprpaper= ::
 
-  Hyprpaper[fn:6] is the wallpaper utility of the Hyprland[fn:7] ecosystem. It allows for fast wallpaper switches through the use of Unix sockets.
+  Hyprpaper[fn:5] is the wallpaper utility of the Hyprland[fn:6] ecosystem. It allows for fast wallpaper switches through the use of Unix sockets.
 
 - =hyprpolkitagent= ::
 
-  =hyprpolkitagent=[fn:8] is the polkit agent of the Hyprland ecosystem.
+  =hyprpolkitagent=[fn:7] is the polkit agent of the Hyprland ecosystem.
 
 - =hyprshot= ::
 
-  =hyprshot=[fn:9] is a shell script designed for optimizing screenshot utilities for Hyprland. It uses Grim[fn:10] to take the screenshot, and Slurp[fn:11] to select an area.
+  =hyprshot=[fn:8] is a shell script designed for optimizing screenshot utilities for Hyprland. It uses Grim[fn:9] to take the screenshot, and Slurp[fn:10] to select an area.
 
 * Utilities
 
@@ -94,16 +94,16 @@ My favourite of his works is “Expert Knob Twiddlers”, it has an album cover 
 
 [fn:4] McIntyre, R.L. (2025) “Ryanoasis/nerd-fonts.” Available at: https://github.com/ryanoasis/nerd-fonts (Accessed: February 10, 2025).
 
-[fn:6] “Hyprwm/hyprpaper” (2025). Hypr Development. Available at: https://github.com/hyprwm/hyprpaper (Accessed: February 10, 2025).
+[fn:5] “Hyprwm/hyprpaper” (2025). Hypr Development. Available at: https://github.com/hyprwm/hyprpaper (Accessed: February 10, 2025).
 
-[fn:7] “Hyprwm/hyprland” (2025). Hypr Development. Available at: https://github.com/hyprwm/Hyprland (Accessed: February 10, 2025).
+[fn:6] “Hyprwm/hyprland” (2025). Hypr Development. Available at: https://github.com/hyprwm/Hyprland (Accessed: February 10, 2025).
 
-[fn:8] “Hyprwm/hyprpolkitagent” (2025). Hypr Development. Available at: https://github.com/hyprwm/hyprpolkitagent (Accessed: February 12, 2025).
+[fn:7] “Hyprwm/hyprpolkitagent” (2025). Hypr Development. Available at: https://github.com/hyprwm/hyprpolkitagent (Accessed: February 12, 2025).
 
-[fn:9] Gustash (2024) “Gustash/hyprshot.” Available at: https://github.com/Gustash/Hyprshot (Accessed: February 13, 2025).
+[fn:8] Gustash (2024) “Gustash/hyprshot.” Available at: https://github.com/Gustash/Hyprshot (Accessed: February 13, 2025).
 
-[fn:10] Ser, S. (2025) “emersion/grim.” Available at: https://sr.ht/~emersion/grim (Accessed: February 13, 2025).
+[fn:9] Ser, S. (2025) “emersion/grim.” Available at: https://sr.ht/~emersion/grim (Accessed: February 13, 2025).
 
-[fn:11] Ser, S. (2025) “emersion/slurp.” Available at: https://github.com/emersion/slurp (Accessed: February 13, 2025).
+[fn:10] Ser, S. (2025) “emersion/slurp.” Available at: https://github.com/emersion/slurp (Accessed: February 13, 2025).
 
-[fn:12] CaskaydiaCove and CaskaydiaMono are excluded, as regular Cascadia Code already includes Nerd Fonts.
+[fn:11] CaskaydiaCove and CaskaydiaMono are excluded, as regular Cascadia Code already includes Nerd Fonts.
