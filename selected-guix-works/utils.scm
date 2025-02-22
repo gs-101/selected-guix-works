@@ -23,13 +23,4 @@
 ;;; Code:
 
 (define-module (selected-guix-works utils)
-  #:use-module (gnu services)
-
-  #:export (profile-package-service))
-
-(define (profile-package-service package)
-  (let ((service-name (string->symbol
-                       (string-append "home-" package "-service"))))
-    (simple-service service-name
-                    home-profile-service-type
-                    (list (specification->package package)))))
+  #:use-module (gnu services))
