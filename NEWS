@@ -1,19 +1,19 @@
 (channel-news
  (version 0)
- (entry (tag "feature")
-        (title (en "Introduce channel news file")
-               (pt "Introduzir arquivo de notícias do canal"))
-        (body (en "This is the first post of the selected-guix-works channel.
+ (entry
+  (title (en "Introduce channel news file")
+         (pt "Introduzir arquivo de notícias do canal"))
+  (body (en "This is the first post of the selected-guix-works channel.
 News will be used to announce breaking changes, such as the removal of packages.")
-              (pt "Esse é o primeiro post do canal selected-guix-works.
+        (pt "Esse é o primeiro post do canal selected-guix-works.
 Notícias serão utilizadas para anúnciar mudanças significativas, como a remoção de pacotes.")))
- (entry (tag "feature")
-        (commit "1ec83d95736c2146f96a1125c68f805c2164fafa")
-        (title (en "Remove font-microsoft-cascadia-next")
-               (pt "Remover font-microsoft-cascadia-next"))
-        (body (en "The font-microsoft-cascadia-next package was removed from this channel,
+ (entry
+  (commit "1ec83d95736c2146f96a1125c68f805c2164fafa")
+  (title (en "Remove font-microsoft-cascadia-next")
+         (pt "Remover font-microsoft-cascadia-next"))
+  (body (en "The font-microsoft-cascadia-next package was removed from this channel,
 as upstream updated the original font-microsoft-cascadia package to the same version that was featured here.
 Now, Nerd Fonts icons have (an additional?) a way to be used with only regular Guix.")
-              (pt "O pacote font-microsoft-cascadia-next foi removido desse canal,
+        (pt "O pacote font-microsoft-cascadia-next foi removido desse canal,
 porque a fonte atualizou o pacote original font-microsoft-cascadia para a mesma versão sediada aqui.
 Agora, ícones Nerd Fonts possuem uma maneira (adicional?) de ser usada com apenas o Guix original."))))
