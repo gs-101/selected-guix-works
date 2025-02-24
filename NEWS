@@ -1,6 +1,7 @@
 (channel-news
  (version 0)
  (entry
+  (commit "41c5d98877968cd74a6b1a7b289258b113694f3a")
   (title (en "Introduce channel news file")
          (pt "Introduzir arquivo de notícias do canal"))
   (body (en "This is the first post of the selected-guix-works channel.
