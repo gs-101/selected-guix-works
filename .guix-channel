@@ -1,3 +1,4 @@
 (channel
  (version 0)
- (url "https://github.com/gs-101/selected-guix-works.git"))
+ (url "https://github.com/gs-101/selected-guix-works.git")
+ (news-file "NEWS"))

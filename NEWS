@@ -1,0 +1,9 @@
+(channel-news
+ (version 0)
+ (entry (tag "feature")
+        (title (en "Introduce channel news file")
+               (pt "Introduzir arquivo de notícias do canal"))
+        (body (en "This is the first post of the selected-guix-works channel.
+News will be used to announce breaking changes, such as the removal of packages.")
+              (pt "Esse é o primeiro post do canal selected-guix-works.
+Notícias serão utilizadas para anúnciar mudanças significativas, como a remoção de pacotess."))))
