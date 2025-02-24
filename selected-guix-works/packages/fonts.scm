@@ -34,24 +34,6 @@
             make-nerd-font
             make-nerd-font-reserved-name))
 
-(define-public font-microsoft-cascadia-next
-  (package
-    (inherit font-microsoft-cascadia)
-    (name "font-microsoft-cascadia-next")
-    (version "2407.24")
-    (source (origin
-              (method url-fetch/zipbomb)
-              (uri (string-append
-                    "https://github.com/microsoft/cascadia-code/"
-                    "releases/download/v"
-                    version
-                    "/CascadiaCode-"
-                    version
-                    ".zip"))
-              (sha256
-               (base32
-                "0x441jjkswz6vidg6kdv9rmbqlm7dqcvsm4higs67nw66gp6hyp6"))))))
-
 (define nerd-fonts-version "3.3.0")
 
 (define (make-nerd-font pkg hash synopsis description)
