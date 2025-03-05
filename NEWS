@@ -17,4 +17,13 @@ as upstream updated the original font-microsoft-cascadia package to the same ver
 Now, Nerd Fonts icons have (an additional?) a way to be used with only regular Guix.")
         (pt "O pacote font-microsoft-cascadia-next foi removido desse canal,
 porque a fonte atualizou o pacote original font-microsoft-cascadia para a mesma versão sediada aqui.
-Agora, ícones Nerd Fonts possuem uma maneira (adicional?) de ser usada com apenas o Guix original."))))
+Agora, ícones Nerd Fonts possuem uma maneira (adicional?) de ser usada com apenas o Guix original.")))
+ (entry (commit "1e4e9c13fcebf8ce310862271a07b1428b7ec68c")
+        (title (en "Add home-ripgrep-service-type")
+               (pt "Adicionar home-ripgrep-service-type"))
+        (body (en "This channel features home configuration services now!
+Though, this first addition is rather simple.  It's for ripgrep, whose configuration
+file consists of only command-line arguments.  The documentation can be found on the README.")
+              (pt "Esse canal agora tem serviços para a configuração HOME!
+Mas, esse primeiro serviço é um tanto simples.  É para o ripgrep, cuja configuração
+consiste apenas de argumentos para o commando.  A documentação está presente no README."))))
