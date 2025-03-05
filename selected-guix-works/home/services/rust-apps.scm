@@ -46,7 +46,7 @@
 
 (define (home-ripgrep-configuration-serialize-boolean field-name value)
   (when value
-    (string-append #$(serialize field-name) "\n")))
+    #~(string-append #$(serialize field-name) "\n")))
 
 (define (home-ripgrep-configuration-serialize-string field-name value)
   #~(string-append #$(serialize field-name) "=" #$value "\n"))
