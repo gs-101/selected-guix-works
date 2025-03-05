@@ -52,6 +52,276 @@ This channel includes all[fn:10] Nerd Fonts[fn:3]. A meta package is available u
 
   =hyprshot=[fn:7] is a shell script designed for optimizing screenshot utilities for Hyprland. It uses Grim[fn:8] to take the screenshot, and Slurp[fn:9] to select an area.
 
+* Services
+
+** Home
+
+- ~home-ripgrep-service-type~ ::
+
+  Service used to configure =ripgrep=[fn:11], a search tool inspired by =grep=. =ripgrep='s configuration consists of its command flags.
+
+  Below is the documentation of this service (based on the Guix manual format):
+
+  The =(selected-guix-works home services rust-apps)= module provides services for configuring applications built on Rust.
+
+  Currently, the only available service is for [[https://github.com/BurntSushi/ripgrep][ripgrep]], a fast file-searching tool inspired by [[https://www.man7.org/linux/man-pages/man1/grep.1.html][grep]].
+
+  The service reference is given bellow.
+
+  - Variable: ~home-ripgrep-service-type~ ::
+
+    This is the service type for =ripgrep=. Its value must be a ~home-ripgrep-configuration~, as shown below. It provides the ~RIPGREP_CONFIG_PATH~ environemnt variable, to set the configuration file's path (as =ripgrep= doesn't have a predefined one), and the =~/.config/ripgrep/config= file.
+
+    As an example, here is how you would configure =ripgrep= to search inside compressed files, while 5 lines shown as context before and after a match:
+
+    #+begin_src scheme
+      (service home-ripgrep-service-type
+               (home-ripgrep-configuration
+                (search-zip? #t)
+                (context 5)))
+    #+end_src
+
+  - Variable: ~home-ripgrep-configuration~ ::
+
+    Fields were picked by choice, based on if they were useful to put in a configuration file or not. Here they are:
+
+    - ~pre~ (type: maybe-string) ::
+
+      Run a command before search, searching its output instead of files.
+
+    - ~pre-glob~ (type: maybe-string) ::
+
+      Run the command defined on ~pre~ only on the specified globs.
+
+    - ~search-zip?~ (type: maybe-boolean) ::
+
+      Wether to search the inside compressed files.
+
+    - ~crlf?~ (type: maybe-boolean) ::
+      
+      Wether to treat ‘\r\n’ as a line terminator. This is what is used in Windows.
+
+    - ~engine~ (type: maybe-string) ::
+
+      Specify the regular expression engine. Accepted values are:
+
+      - ~default~
+      - ~pcre2~
+      - ~auto~
+
+      ~pcre2~ is useful for features such as look-around or backreferences.
+
+    - ~fixed-strings?~ (type: maybe-boolean) ::
+
+      Wether to treat all patterns as string literals, to avoid escaping.
+
+    - ~max-count~ (type: maybe-integer) ::
+
+      Limit the number of matching lines per file by the given number. 0 disables search altogether.
+
+    - ~mmap?~ (type: maybe-boolean) ::
+
+      Wether to search using memory maps. =ripgrep= does this automatically, and it's useful for searching singile files.
+
+    - ~multiline?~ (type: maybe-boolean) ::
+
+      Wether to search across multiple lines. This allows for regualr expressions containing ‘\n’.
+
+    - ~multiline-dotall?~ (type: maybe-boolean) ::
+
+      Wether using ‘.’ to match any character should also match line terminators.
+
+    - ~regex-size-limit~ (type: maybe-string) ::
+
+      The maximum size a compiled regular expression can have. Useful when one explicitly wants =ripgrep= to spend a longer time building a regex matcher. The value is a number with a suffix, which are:
+
+      - =K= :: Kilobytes
+      - =M= :: Megabytes
+      - =G= :: Gigabytes
+
+      No suffix is assumed to be bytes.
+
+    - ~smart-case?~ (type: maybe-boolean) ::
+
+      Wether to enable case-sensitive search only when a pattern character is capitalized.
+
+    - ~text?~ (type: maybe-boolean) ::
+
+      Wether to search binary files as if they were text. Beware, as this may end up passing escape sequences to your terminal.
+
+    - ~threads~ (type: maybe-integer) ::
+
+      The number of threads used for search. The default of ~0~ chooses the number automatically.
+
+    - ~word-regexp?~ (type: maybe-boolean) ::
+
+      Wether to show only matches surrounded by word boundaries. This is the equivalent of surrounding every match with ‘\b{start-half}’ and ‘\b{end-half}’.
+
+    - ~binary?~ (type: maybe-boolean) ::
+
+      Wether to search binary files, without converting them to text. Stops search when a match is found.
+
+    - ~follow?~ (type: maybe-boolean) ::
+
+      Wether to follow symbolic links.
+
+    - ~glob~ (type maybe-string) ::
+
+      Define a glob, for including or excluding matches.
+
+    - ~hidden?~ (type: maybe-boolean) ::
+
+      Wether to search hidden files or directories (those prefixed with a ‘.’);
+
+    - ~max-depth~ (type: maybe-integer) ::
+
+      The maximum depth search can descend.
+
+    - ~max-filesize~ (type: maybe-string) ::
+
+      The maximum files size that can be searched. Does not apply to directories.
+      Follows the same schema of ~regex-size-limit~:
+
+      - =K= :: Kilobytes
+      - =M= :: Megabytes
+      - =G= :: Gigabytes
+
+      Where no suffix is assumed to be bytes.
+
+    - ~one-file-system?~ (type: maybe-boolean) ::
+
+      Wether to stop =ripgrep= from searching across different file systems.
+
+    - ~type~ (type: maybe-string) ::
+
+      Limit =ripgrep= to search only files of the defined types.  For a lis of supported file types, invoke =rg --type-list= in your shell.
+
+    - ~type-not~ (type: maybe-string) ::
+
+      Instruct =ripgrep= to avoid searching in files of the specified types . For a list of supported file types, invoke =rg --type-list= in your shell.
+
+    - ~type-add~ (type: maybe-string) ::
+
+      Define new =ripgrep= types.
+
+      #+begin_quote
+      [!NOTE]
+
+      At first, the plan was to use a list of alists here (and in other fields) like in ~home-bash-configuration~ aliases. I don't know how I'd do that, so this was discarded. I'll ask in my upstream submission how this could be done.
+      #+end_quote
+
+    - ~after-context~ (type: maybe-integer) ::
+
+      Show the given number of lines after the match as context.
+
+    - ~before-context~ (type: maybe-integer) ::
+
+      Show the given number of lines after the match as context.
+
+    - ~color~ (type: maybe-string) ::
+
+      When to show colors. Accepted values are:
+
+      - ~never~
+      - ~auto~
+      - ~always~
+      - ~ansi~
+
+      ~ansi~ is more compatible with Windows.
+
+    - ~colors~ (type: maybe-string) ::
+
+      Specify colors in a {type}:{attribute}:{value} structure.
+
+    - ~column?~ (type: maybe-boolean) ::
+
+      Wether to display column numbers. Enabling it also enables ~line-number?~.
+
+    - ~context~ (type: maybe-integer) ::
+
+      Shpw the given number of lines before and after the match as context.
+
+    - ~context-separator~ (type: maybe-string) ::
+
+      Separator used to separate the match from the cotnext
+
+    - ~field-context-separator~ (type: maybe-string) ::
+
+      Separator used to separate elements not part of the file, suach as the file path, line numbers and colors from the context lines.
+
+    - ~field-match-separator~ (type: maybe-string) ::
+
+      Separator used to separate elements not part of the file, such as the file path, line numbers and colors from the context lines.
+
+    - ~hyperlink-format~ (type: maybe-string) ::
+
+      "The format used to display hyperlinks to the results. A format string can be used, but there are also some predefined aliases:
+
+      - ~default~
+      - ~none~
+      - ~file~
+      - ~grep+~
+      - ~kitty~
+      - ~macvim~
+      - ~textmate~
+      - ~vscode~
+      - ~vscode-insiders~
+      - ~vscodium~
+
+    - ~include-zero?~ (type: maybe-boolean) ::
+
+      Wether to show the number of matches even if the number is zero.
+
+    - ~line-number?~ (type: maybe-boolean) ::
+
+      Wether to show line numbers. Enabled automatically with ~column?~.
+
+    - ~max-columns~ (type: maybe-integer) ::
+
+      The maximum number of columns to display in a line match.  Lines with matches over this limit will be removed from the results.
+
+    - ~max-columns-preview?~ (type: maybe-boolean) ::
+
+      Wether to show a preview of matched lines over the limit of ~max-columns~, instead of removing the matched lines.
+
+    - ~only-matching?~ (type: maybe-boolean) ::
+
+      Wether to show only the matched parts of a matching line in a separate output line.
+
+    - ~passthru?~ (type: maybe-boolean) ::
+
+      Wether to print all lines in a file with a match, highlighting the matches.
+
+    - ~sort~ (type: maybe-string) ::
+
+      Sort results in ascending order following the given criteria.
+      Accepted values are:
+
+      - ~none~
+      - ~path~
+      - ~modified~
+      - ~accessed~
+      - ~created~
+
+    - ~sort~ (type: maybe-string) ::
+
+      Sort results in descending order following the given criteria.
+      Accepted values are:
+
+      - ~none~
+      - ~path~
+      - ~modified~
+      - ~accessed~
+      - ~created~
+
+    - ~trim?~ (type: maybe-boolean) ::
+
+      Wether to trim whitespace at the beginning of each line.
+
+    - ~extra-content~ (default: "") (type: string) ::
+
+      Extra content appended as-is to the configuration file.
+
 * Utilities
 
 This module holds procedures for simplifying configurations.
@@ -101,3 +371,5 @@ My favourite of his works is “Expert Knob Twiddlers”, it has an album cover 
 [fn:9] Ser, S. (2025) “emersion/slurp.” Available at: https://github.com/emersion/slurp (Accessed: February 13, 2025).
 
 [fn:10] CaskaydiaCove and CaskaydiaMono are excluded, as regular Cascadia Code already includes Nerd Fonts.
+
+[fn:11] Gallant, A. (2025) “Burntsushi/ripgrep.” Available at: https://github.com/BurntSushi/ripgrep (Accessed: March 5, 2025).
