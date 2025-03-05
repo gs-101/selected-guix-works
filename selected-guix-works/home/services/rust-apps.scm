@@ -28,7 +28,7 @@
   #:use-module (gnu packages rust-apps)
   #:use-module (guix gexp)
   #:export (home-ripgrep-configuration
-            home-ripgrep-service))
+            home-ripgrep-service-type))
 
 (define-maybe boolean (prefix home-ripgrep-configuration-))
 (define-maybe string (prefix home-ripgrep-configuration-))
