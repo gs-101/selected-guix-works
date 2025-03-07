@@ -26,4 +26,13 @@ Though, this first addition is rather simple.  It's for ripgrep, whose configura
 file consists of only command-line arguments.  The documentation can be found on the README.")
               (pt "Esse canal agora tem serviços para a configuração HOME!
 Mas, esse primeiro serviço é um tanto simples.  É para o ripgrep, cuja configuração
-consiste apenas de argumentos para o commando.  A documentação está presente no README."))))
+consiste apenas de argumentos para o commando.  A documentação está presente no README.")))
+ (entry (commit "98f1335b6fe4b61c82f7f1a5c29c715a060a0d56")
+        (title (en "Add pay-respects")
+               (pt "Adicionar pay-respects"))
+        (body (en "pay-respects is a Rust command-line program that suggests
+command corrections, in case you typed something wrong.  You can then run
+the suggestion by pressing F (to pay respects).")
+              (pt "pay-respects é um programa de terminal escrito em Rust que
+sugere correções de comandos, caso você tenha escrito algo errado. Você pode
+executar a sugestão ao pressionar F (para prestar respeito)."))))
