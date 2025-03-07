@@ -48,15 +48,15 @@ This channel includes all[fn:10] Nerd Fonts[fn:3]. A meta package is available u
 
 - =hyprpaper= ::
 
-  Hyprpaper[fn:4] is the wallpaper utility of the Hyprland[fn:5] ecosystem. It allows for fast wallpaper switches through the use of Unix sockets.
+  hyprpaper[fn:4] is the wallpaper utility of the Hyprland[fn:5] ecosystem. It allows for fast wallpaper switches through the use of Unix sockets.
 
 - =hyprpolkitagent= ::
 
-  =hyprpolkitagent=[fn:6] is the polkit agent of the Hyprland ecosystem.
+  hyprpolkitagent[fn:6] is the polkit agent of the Hyprland ecosystem.
 
 - =hyprshot= ::
 
-  =hyprshot=[fn:7] is a shell script designed for optimizing screenshot utilities for Hyprland. It uses Grim[fn:8] to take the screenshot, and Slurp[fn:9] to select an area.
+  hyprshot[fn:7] is a shell script designed for optimizing screenshot utilities for Hyprland. It uses grim[fn:8] to take the screenshot, and slurp[fn:9] to select an area.
 
 * Services
 
@@ -64,7 +64,7 @@ This channel includes all[fn:10] Nerd Fonts[fn:3]. A meta package is available u
 
 - ~home-ripgrep-service-type~ ::
 
-  Service used to configure =ripgrep=[fn:11], a search tool inspired by =grep=. =ripgrep='s configuration consists of its command flags.
+  Service used to configure ripgrep[fn:11], a search tool inspired by =grep=. =ripgrep='s configuration consists of its command flags.
 
   Below is the documentation of this service (based on the Guix manual format):
 
