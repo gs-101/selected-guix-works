@@ -38,6 +38,12 @@ On a system installation, they can be found under =/run/current-system/profile/s
 
 This channel includes all[fn:10] Nerd Fonts[fn:3]. A meta package is available under the name of =fonts-nerd-fonts=, with all other packages following the same naming convention (=fonts-nerd-fonts-inconsolata=).
 
+** Rust Apps
+
+- =pay-respects= ::
+
+  pay-respects[fn:12] is a command line program that suggests corrections on incorrect commands. You can use the suggestion by pressing =F= (to pay respects).
+
 ** Window Management
 
 - =hyprpaper= ::
@@ -373,3 +379,5 @@ My favourite of his works is “Expert Knob Twiddlers”, it has an album cover 
 [fn:10] CaskaydiaCove and CaskaydiaMono are excluded, as regular Cascadia Code already includes Nerd Fonts.
 
 [fn:11] Gallant, A. (2025) “Burntsushi/ripgrep.” Available at: https://github.com/BurntSushi/ripgrep (Accessed: March 5, 2025).
+
+[fn:12] iff (2025) “iff/pay-respects.” Available at: https://codeberg.org/iff/pay-respects (Accessed: March 7, 2025).
