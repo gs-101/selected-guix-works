@@ -30,3 +30,32 @@
   #:use-module (selected-guix-works packages crates-io)
 
   #:use-module (guix build-system cargo))
+
+(define-public pay-respects
+  (package
+    (name "pay-respects")
+    (version "0.6.13")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "pay-respects" version))
+       (file-name (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32 "1nmscd493ilw8fdi0kmmx4k7wlq7dbcddx49bdz8qfpzayrjc2pd"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs (("rust-colored" ,rust-colored-3)
+                       ("rust-inquire" ,rust-inquire-0.7)
+                       ("rust-pay-respects-parser" ,rust-pay-respects-parser-0.3)
+                       ("rust-pay-respects-utils" ,rust-pay-respects-utils-0.1)
+                       ("rust-regex-lite" ,rust-regex-lite-0.1)
+                       ("rust-rust-i18n" ,rust-rust-i18n-3)
+                       ("rust-sys-locale" ,rust-sys-locale-0.3))
+       #:install-source? #f))
+    (home-page "https://codeberg.org/iff/pay-respects")
+    (synopsis
+     "Command suggestions, command-not-found and thefuck replacement written in Rust")
+    (description
+     "@code{pay-respects} suggests command corrections by simply pressing f
+after a mistake.")
+    (license license:agpl3+)))
