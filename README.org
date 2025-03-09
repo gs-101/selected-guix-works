@@ -101,11 +101,11 @@ This channel includes all[fn:10] Nerd Fonts[fn:3]. A meta package is available u
 
     - ~search-zip?~ (type: maybe-boolean) ::
 
-      Wether to search the inside compressed files.
+      Whether to search the inside compressed files.
 
     - ~crlf?~ (type: maybe-boolean) ::
       
-      Wether to treat ‘\r\n’ as a line terminator. This is what is used in Windows.
+      Whether to treat ‘\r\n’ as a line terminator. This is what is used in Windows.
 
     - ~engine~ (type: maybe-string) ::
 
@@ -119,7 +119,7 @@ This channel includes all[fn:10] Nerd Fonts[fn:3]. A meta package is available u
 
     - ~fixed-strings?~ (type: maybe-boolean) ::
 
-      Wether to treat all patterns as string literals, to avoid escaping.
+      Whether to treat all patterns as string literals, to avoid escaping.
 
     - ~max-count~ (type: maybe-integer) ::
 
@@ -127,15 +127,15 @@ This channel includes all[fn:10] Nerd Fonts[fn:3]. A meta package is available u
 
     - ~mmap?~ (type: maybe-boolean) ::
 
-      Wether to search using memory maps. =ripgrep= does this automatically, and it's useful for searching singile files.
+      Whether to search using memory maps. =ripgrep= does this automatically, and it's useful for searching singile files.
 
     - ~multiline?~ (type: maybe-boolean) ::
 
-      Wether to search across multiple lines. This allows for regualr expressions containing ‘\n’.
+      Whether to search across multiple lines. This allows for regualr expressions containing ‘\n’.
 
     - ~multiline-dotall?~ (type: maybe-boolean) ::
 
-      Wether using ‘.’ to match any character should also match line terminators.
+      Whether using ‘.’ to match any character should also match line terminators.
 
     - ~regex-size-limit~ (type: maybe-string) ::
 
@@ -149,11 +149,11 @@ This channel includes all[fn:10] Nerd Fonts[fn:3]. A meta package is available u
 
     - ~smart-case?~ (type: maybe-boolean) ::
 
-      Wether to enable case-sensitive search only when a pattern character is capitalized.
+      Whether to enable case-sensitive search only when a pattern character is capitalized.
 
     - ~text?~ (type: maybe-boolean) ::
 
-      Wether to search binary files as if they were text. Beware, as this may end up passing escape sequences to your terminal.
+      Whether to search binary files as if they were text. Beware, as this may end up passing escape sequences to your terminal.
 
     - ~threads~ (type: maybe-integer) ::
 
@@ -161,15 +161,15 @@ This channel includes all[fn:10] Nerd Fonts[fn:3]. A meta package is available u
 
     - ~word-regexp?~ (type: maybe-boolean) ::
 
-      Wether to show only matches surrounded by word boundaries. This is the equivalent of surrounding every match with ‘\b{start-half}’ and ‘\b{end-half}’.
+      Whether to show only matches surrounded by word boundaries. This is the equivalent of surrounding every match with ‘\b{start-half}’ and ‘\b{end-half}’.
 
     - ~binary?~ (type: maybe-boolean) ::
 
-      Wether to search binary files, without converting them to text. Stops search when a match is found.
+      Whether to search binary files, without converting them to text. Stops search when a match is found.
 
     - ~follow?~ (type: maybe-boolean) ::
 
-      Wether to follow symbolic links.
+      Whether to follow symbolic links.
 
     - ~glob~ (type maybe-string) ::
 
@@ -177,7 +177,7 @@ This channel includes all[fn:10] Nerd Fonts[fn:3]. A meta package is available u
 
     - ~hidden?~ (type: maybe-boolean) ::
 
-      Wether to search hidden files or directories (those prefixed with a ‘.’);
+      Whether to search hidden files or directories (those prefixed with a ‘.’);
 
     - ~max-depth~ (type: maybe-integer) ::
 
@@ -196,7 +196,7 @@ This channel includes all[fn:10] Nerd Fonts[fn:3]. A meta package is available u
 
     - ~one-file-system?~ (type: maybe-boolean) ::
 
-      Wether to stop =ripgrep= from searching across different file systems.
+      Whether to stop =ripgrep= from searching across different file systems.
 
     - ~type~ (type: maybe-string) ::
 
@@ -241,7 +241,7 @@ This channel includes all[fn:10] Nerd Fonts[fn:3]. A meta package is available u
 
     - ~column?~ (type: maybe-boolean) ::
 
-      Wether to display column numbers. Enabling it also enables ~line-number?~.
+      Whether to display column numbers. Enabling it also enables ~line-number?~.
 
     - ~context~ (type: maybe-integer) ::
 
@@ -276,11 +276,11 @@ This channel includes all[fn:10] Nerd Fonts[fn:3]. A meta package is available u
 
     - ~include-zero?~ (type: maybe-boolean) ::
 
-      Wether to show the number of matches even if the number is zero.
+      Whether to show the number of matches even if the number is zero.
 
     - ~line-number?~ (type: maybe-boolean) ::
 
-      Wether to show line numbers. Enabled automatically with ~column?~.
+      Whether to show line numbers. Enabled automatically with ~column?~.
 
     - ~max-columns~ (type: maybe-integer) ::
 
@@ -288,15 +288,15 @@ This channel includes all[fn:10] Nerd Fonts[fn:3]. A meta package is available u
 
     - ~max-columns-preview?~ (type: maybe-boolean) ::
 
-      Wether to show a preview of matched lines over the limit of ~max-columns~, instead of removing the matched lines.
+      Whether to show a preview of matched lines over the limit of ~max-columns~, instead of removing the matched lines.
 
     - ~only-matching?~ (type: maybe-boolean) ::
 
-      Wether to show only the matched parts of a matching line in a separate output line.
+      Whether to show only the matched parts of a matching line in a separate output line.
 
     - ~passthru?~ (type: maybe-boolean) ::
 
-      Wether to print all lines in a file with a match, highlighting the matches.
+      Whether to print all lines in a file with a match, highlighting the matches.
 
     - ~sort~ (type: maybe-string) ::
 
@@ -322,7 +322,7 @@ This channel includes all[fn:10] Nerd Fonts[fn:3]. A meta package is available u
 
     - ~trim?~ (type: maybe-boolean) ::
 
-      Wether to trim whitespace at the beginning of each line.
+      Whether to trim whitespace at the beginning of each line.
 
     - ~extra-content~ (default: "") (type: string) ::
 

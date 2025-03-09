@@ -71,10 +71,10 @@
    "Run the command defined on @code{pre} only on the specified globs.")
   (search-zip?
    maybe-boolean
-   "Wether to search inside compressed files.")
+   "Whether to search inside compressed files.")
   (crlf?
    maybe-boolean
-   "Wether to treat ‘\r\n’ as a line terminator.  This is what is used in Windows.")
+   "Whether to treat ‘\r\n’ as a line terminator.  This is what is used in Windows.")
   (engine
    maybe-string
    "Specify the regular expression engine.
@@ -82,22 +82,22 @@ Accepted values are @code{default}, @code{pcre2}, or @code{auto}.
 @code{pcre2} is useful for features such as look-around or backreferences.")
   (fixed-strings?
    maybe-boolean
-   "Wether to treat all patterns as string literals, to avoid escaping.")
+   "Whether to treat all patterns as string literals, to avoid escaping.")
   (max-count
    maybe-integer
    "Limit the number of matching lines per file by the given number.
 0 disables search altogether.")
   (mmap?
    maybe-boolean
-   "Wether to search using memory maps.  @code{ripgrep} does this automatically,
+   "Whether to search using memory maps.  @code{ripgrep} does this automatically,
 and it's useful for searching single files.")
   (multiline?
    maybe-boolean
-   "Wether to search across multiple lines.  This allows for regular expressions
+   "Whether to search across multiple lines.  This allows for regular expressions
 containing ‘\n’.")
   (multiline-dotall?
    maybe-boolean
-   "Wether using ‘.’ to match any character should also match line terminators.")
+   "Whether using ‘.’ to match any character should also match line terminators.")
   (regex-size-limit
    maybe-string
    "The maximum size a compiled regular expression can have.  Useful when one
@@ -111,11 +111,11 @@ The value is a number with a suffix, which are:
 No suffix is assumed to be bytes.")
   (smart-case?
    maybe-boolean
-   "Wether to enable case-sensitive search only when a pattern
+   "Whether to enable case-sensitive search only when a pattern
 character is capitalized.")
   (text?
    maybe-boolean
-   "Wether to search binary files as if they were text.  Beware, as this may
+   "Whether to search binary files as if they were text.  Beware, as this may
 end up passing escape sequences to your terminal.")
   (threads
    maybe-integer
@@ -123,21 +123,21 @@ end up passing escape sequences to your terminal.")
 number automatically.")
   (word-regexp?
    maybe-boolean
-   "Wether to show only matches surrounded by word boundaries.
+   "Whether to show only matches surrounded by word boundaries.
 This is the equivalent of surrounding every match with ‘\b{start-half}’ and ‘\b{end-half}’.")
   (binary?
    maybe-boolean
-   "Wether to search binary files, without converting them to text.
+   "Whether to search binary files, without converting them to text.
 Stops search when a match is found.")
   (follow?
    maybe-boolean
-   "Wether to follow symbolic links.")
+   "Whether to follow symbolic links.")
   (glob
    maybe-string
    "Define a glob, for including or excluding matches.")
   (hidden?
    maybe-boolean
-   "Wether to search hidden files or directories (those prefixed with a ‘.’).")
+   "Whether to search hidden files or directories (those prefixed with a ‘.’).")
   (max-depth
    maybe-integer
    "The maximum depth search can descend.")
@@ -153,7 +153,7 @@ Follows the same schema of @code{regex-size-limit}:
 Where no suffix is assumed to be bytes.")
   (one-file-system?
    maybe-boolean
-   "Wether to stop @code{ripgrep} from searching across different file systems.")
+   "Whether to stop @code{ripgrep} from searching across different file systems.")
   (type
    maybe-string
    "Limit @code{ripgrep} to search only files of the defined types.  For a list
@@ -182,7 +182,7 @@ Accepted values are @code{never}, @code{auto}, @code{always} and
    "Specify colors in a {type}:{attribute}:{value} structure.")
   (column?
    maybe-boolean
-   "Wether to display column numbers.  Enabling it also enables --line-number.")
+   "Whether to display column numbers.  Enabling it also enables --line-number.")
   (context
    maybe-integer
    "Show the given number of lines before and after the match as context.")
@@ -215,25 +215,25 @@ can be used, but there are also some predefined aliases:
 @end itemize")
   (include-zero?
    maybe-boolean
-   "Wether to show the number of matches even if the number is zero.")
+   "Whether to show the number of matches even if the number is zero.")
   (line-number?
    maybe-boolean
-   "Wether to show line numbers.  Enabled automatically with @code{column?}")
+   "Whether to show line numbers.  Enabled automatically with @code{column?}")
   (max-columns
    maybe-integer
    "The maximum number of columns to display in a line match.  Lines with matches
 over this limit will be removed from the results.")
   (max-columns-preview?
    maybe-boolean
-   "Wether to show a preview of matched lines over the limit of @code{max-columns},
+   "Whether to show a preview of matched lines over the limit of @code{max-columns},
 instead of removing the matched lines.")
   (only-matching?
    maybe-boolean
-   "Wether to show only the matched parts of a matching line in a separate
+   "Whether to show only the matched parts of a matching line in a separate
 output line.")
   (passthru?
    maybe-boolean
-   "Wether to print all lines in a file with a match, highlighting the matches.")
+   "Whether to print all lines in a file with a match, highlighting the matches.")
   (sort
    maybe-string
    "Sort results in ascending order following the given criteria.
@@ -256,7 +256,7 @@ Accepted values are:
 @item @code{created}")
   (trim?
    maybe-boolean
-   "Wether to trim whitespace at the beginning of each line.")
+   "Whether to trim whitespace at the beginning of each line.")
   (extra-content
    (string "")
    "Extra content to be added to the file as-is."
