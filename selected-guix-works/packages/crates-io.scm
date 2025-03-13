@@ -318,5 +318,6 @@ from YAML format using the widely-used Serde framework.")
     (home-page "https://docs.rs/siphasher")
     (synopsis "SipHash-2-4, SipHash-1-3 and 128-bit variants in pure Rust")
     (description
-     "This package provides @code{SipHash-2-4}, @code{SipHash-1-3} and 128-bit variants in pure Rust.")
+     "This package provides SipHash-2-4, SipHash-1-3 and 128-bit
+variants in pure Rust.")
     (license (list license:expat license:asl2.0))))
