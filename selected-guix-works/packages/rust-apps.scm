@@ -35,14 +35,14 @@
 (define-public pay-respects
   (package
     (name "pay-respects")
-    (version "0.6.13")
+    (version "0.6.14")
     (source
      (origin
        (method url-fetch)
        (uri (crate-uri "pay-respects" version))
        (file-name (string-append name "-" version ".tar.gz"))
        (sha256
-        (base32 "1nmscd493ilw8fdi0kmmx4k7wlq7dbcddx49bdz8qfpzayrjc2pd"))))
+        (base32 "0g3vsp6xyw5isr7l10mbljvdclh2s3cmpm7sqxf5a8ir9mfmvkz2"))))
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs (("rust-colored" ,rust-colored-3)
