@@ -176,9 +176,9 @@ emitting, and manipulation of YAML data.")
      `(#:cargo-inputs (("rust-itertools" ,rust-itertools-0.14)
                        ("rust-regex-lite" ,rust-regex-lite-0.1))))
     (home-page "https://codeberg.org/iff/pay-respects")
-    (synopsis "Utilities for the pay-respects CLI tool")
+    (synopsis "Utilities for the @code{pay-respects} CLI tool")
     (description
-     "This package provides Utilities for the pay-respects CLI tool.")
+     "This package provides utilities for the @code{pay-respects} CLI tool.")
     (license license:mpl2.0)))
 
 (define-public rust-rust-i18n-3
