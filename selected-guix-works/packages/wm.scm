@@ -25,7 +25,8 @@
 (define-module (selected-guix-works packages wm)
   #:use-module (guix packages)
   #:use-module (guix git-download)
-  #:use-module ((guix licenses) #:prefix license:)
+  #:use-module ((guix licenses)
+                #:prefix license:)
   #:use-module (gnu packages cpp)
   #:use-module (gnu packages gl)
   #:use-module (gnu packages freedesktop)
@@ -49,31 +50,28 @@
   (package
     (name "hyprpaper")
     (version "0.7.4")
-    (source (origin
-              (method git-fetch)
-              (uri (git-reference
-                    (url "https://github.com/hyprwm/hyprpaper")
-                    (commit (string-append "v" version))))
-              (file-name (git-file-name name version))
-              (sha256
-               (base32
-                "151r6s04yy3digl3g6gs49xx41yv4xldmbnqr87gp5nz705hjsd6"))))
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/hyprwm/hyprpaper")
+             (commit (string-append "v" version))))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "151r6s04yy3digl3g6gs49xx41yv4xldmbnqr87gp5nz705hjsd6"))))
     (build-system cmake-build-system)
     (arguments
-     (list #:tests? #f))
-    (native-inputs
-     (list gcc-14
-           hyprwayland-scanner
-           pkg-config))
-    (inputs
-     (list hyprutils
-           libglvnd
-           wayland
-           wayland-protocols
-           cairo
-           pango
-           hyprlang
-           hyprgraphics))
+     (list
+      #:tests? #f))
+    (native-inputs (list gcc-14 hyprwayland-scanner pkg-config))
+    (inputs (list hyprutils
+                  libglvnd
+                  wayland
+                  wayland-protocols
+                  cairo
+                  pango
+                  hyprlang
+                  hyprgraphics))
     (home-page "https://wiki.hyprland.org/Hypr-Ecosystem/hyprpaper")
     (synopsis "Hyprland wallpaper utility")
     (description
@@ -85,28 +83,20 @@ quickly switching between different wallpapers.")
   (package
     (name "hyprpolkitagent")
     (version "0.1.2")
-    (source (origin
-              (method git-fetch)
-              (uri (git-reference
-                    (url "https://github.com/hyprwm/hyprpolkitagent")
-                    (commit (string-append "v" version))))
-              (file-name (git-file-name name version))
-              (sha256
-               (base32
-                "0zqiskgn57zcrljpyk0py24izf77yngnj7586mb51rb1b4yd4n9b"))))
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/hyprwm/hyprpolkitagent")
+             (commit (string-append "v" version))))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "0zqiskgn57zcrljpyk0py24izf77yngnj7586mb51rb1b4yd4n9b"))))
     (build-system cmake-build-system)
     (arguments
      '(#:tests? #f))
-    (native-inputs
-     (list pkg-config
-           qtdeclarative
-           qtbase
-           vulkan-headers
-           gcc-14))
-    (inputs
-     (list hyprutils
-           polkit
-           polkit-qt6))
+    (native-inputs (list pkg-config qtdeclarative qtbase vulkan-headers gcc-14))
+    (inputs (list hyprutils polkit polkit-qt6))
     (home-page "https://wiki.hyprland.org/Hypr-Ecosystem/hyprpolkitagent/")
     (synopsis "Hyprland polkit agent")
     (description
@@ -118,28 +108,23 @@ is used for requesting authentication from the root user or a member of the @cod
   (package
     (name "hyprshot")
     (version "1.3.0")
-    (source (origin
-              (method git-fetch)
-              (uri (git-reference
-                    (url "https://github.com/Gustash/hyprshot")
-                    (commit version)))
-              (file-name (git-file-name name version))
-              (sha256
-               (base32
-                "0w3qhj59g31gxcairdl5fwvdyxmb9drkgbn1jjhcbvgrbncr7mpn"))))
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/Gustash/hyprshot")
+             (commit version)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "0w3qhj59g31gxcairdl5fwvdyxmb9drkgbn1jjhcbvgrbncr7mpn"))))
     (build-system copy-build-system)
     (arguments
-     (list #:install-plan
-           #~'(("." "bin" #:include ("hyprshot")))))
-    (inputs
-     (list hyprland
-           jq))
-    (propagated-inputs
-     (list grim
-           slurp
-           wl-clipboard
-           libnotify
-           hyprpicker))
+     (list
+      #:install-plan
+      #~'(("." "bin"
+           #:include ("hyprshot")))))
+    (inputs (list hyprland jq))
+    (propagated-inputs (list grim slurp wl-clipboard libnotify hyprpicker))
     (home-page "https://github.com/Gustash/hyprshot")
     (synopsis "Hyprland screenshot utility")
     (description

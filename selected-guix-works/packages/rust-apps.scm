@@ -25,7 +25,8 @@
 (define-module (selected-guix-works packages rust-apps)
   #:use-module (guix packages)
   #:use-module (guix download)
-  #:use-module ((guix licenses) #:prefix license:)
+  #:use-module ((guix licenses)
+                #:prefix license:)
   #:use-module (gnu packages crates-io)
   #:use-module (selected-guix-works packages crates-io)
 

@@ -26,7 +26,8 @@
   #:use-module (guix packages)
   #:use-module (gnu packages)
   #:use-module (guix git-download)
-  #:use-module ((guix licenses) #:prefix license:)
+  #:use-module ((guix licenses)
+                #:prefix license:)
   #:use-module (guix gexp)
 
   #:use-module (guix build-system copy))
@@ -35,21 +36,22 @@
   (package
     (name "selected-guix-works-backgrounds")
     (version "1.1.1")
-    (source (origin
-              (method git-fetch)
-              (uri (git-reference
-                    (url "https://github.com/gs-101/backgrounds")
-                    (commit version)))
-              (file-name (git-file-name name version))
-              (sha256
-               (base32 "1h8nnjrr9n5rm28wlgi0m3986p7lfnbzqqr49r2v7n3ifhzr5mpa"))))
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/gs-101/backgrounds")
+             (commit version)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "1h8nnjrr9n5rm28wlgi0m3986p7lfnbzqqr49r2v7n3ifhzr5mpa"))))
     (build-system copy-build-system)
     (arguments
-     (list #:install-plan
-           #~'(("backgrounds" "share/backgrounds/selected-guix-works"))))
+     (list
+      #:install-plan
+      #~'(("backgrounds" "share/backgrounds/selected-guix-works"))))
     (home-page "https://github.com/gs-101/backgrounds")
     (synopsis "Assorted backgrounds and their licenses accumulated with time")
-    (description
-     "Collection of backgrounds with various themes,
+    (description "Collection of backgrounds with various themes,
 and their licenses (which should be either free or open).")
     (license license:cc-by-sa4.0)))
