@@ -52,7 +52,7 @@
        (sha256
         (base32 hash))))
     (build-system font-build-system)
-    (home-page "https://nerdfonts.com")
+    (home-page "https://www.nerdfonts.com/")
     (synopsis synopsis)
     (description description)
     (license license:silofl1.1)))
@@ -74,7 +74,7 @@
        (sha256
         (base32 hash))))
     (build-system font-build-system)
-    (home-page "https://nerdfonts.com")
+    (home-page "https://www.nerdfonts.com/")
     (synopsis synopsis)
     (description description)
     (license license:silofl1.1)))
@@ -686,7 +686,7 @@ These icons are primarily used for programming.")
        (sha256
         (base32 "0h53ldrkydxaps4kv087k71xgmb40b1s2nv2kvxc4bvs3qy60y10"))))
     (build-system font-build-system)
-    (home-page "https://nerdfonts.com")
+    (home-page "https://www.nerdfonts.com/")
     (synopsis "Nerd Font including only the symbols")
     (description "Nerd Font that includes only the icons.")
     (license license:silofl1.1)))
