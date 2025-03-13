@@ -35,4 +35,19 @@ command corrections, in case you typed something wrong.  You can then run
 the suggestion by pressing F (to pay respects).")
               (pt "pay-respects é um programa de terminal escrito em Rust que
 sugere correções de comandos, caso você tenha escrito algo errado. Você pode
-executar a sugestão ao pressionar F (para prestar respeito)."))))
+executar a sugestão ao pressionar F (para prestar respeito).")))
+ (entry (commit "a12513f8bea9d11086d794d0a102f6015fd0e58d")
+        (title (en "Update pay-respects")
+               (pt "Atualizar pay-respects"))
+        (body (en "pay-respects has been recently updated.  According to
+the changelog, aliases for Nushell are now supported.  Nushell is
+officially packaged for Guix.  Also, there's a new @code{echo} mode for
+only printing suggestions instead of using them.  You can check out the
+changelog here:
+https://github.com/iffse/pay-respects/blob/v0.6.14/CHANGELOG.md")
+              (pt "pay-respects foi recentement atualizado. De cardo com
+a changelog, aliases para a Nushell são agora compatíveis.  Nushell é
+um pacote oficial para o Guix.  Além disso, tem um novo modo @code{echo}
+que apenas mostra sugestões ao invés de usá-las.  Você pode ver a
+changelog aqui:
+https://github.com/iffse/pay-respects/blob/v0.6.14/CHANGELOG.md"))))
