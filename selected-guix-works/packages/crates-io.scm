@@ -232,8 +232,8 @@ text.")
                        ("rust-serde-yml" ,rust-serde-yml-0.0.12)
                        ("rust-syn" ,rust-syn-2))))
     (home-page "https://github.com/longbridge/rust-i18n")
-    (synopsis "Macro for rust-i18n crate")
-    (description "This package provides Macro for rust-i18n crate.")
+    (synopsis "Macro for @code{rust-rust-i18n} crate")
+    (description "Macro for the @code{rust-rust-i18n} crate.")
     (license license:expat)))
 
 (define-public rust-rust-i18n-support-3
