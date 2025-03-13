@@ -79,9 +79,9 @@ library.")
        ;; 13 tests fail.
        #:tests? #f))
     (home-page "https://github.com/mackwic/colored")
-    (synopsis "The most simple way to add colors in your terminal")
+    (synopsis "Add colors in your terminal")
     (description
-     "This package provides The most simple way to add colors in your terminal.")
+     "The most simple way to add colors in your terminal.")
     (license license:mpl2.0)))
 
 (define-public rust-itertools-0.14
