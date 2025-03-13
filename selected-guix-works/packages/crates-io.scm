@@ -52,8 +52,11 @@
      `(#:cargo-inputs (("rust-rustversion" ,rust-rustversion-1)
                        ("rust-criterion" ,rust-criterion-0.5))))
     (home-page "https://github.com/fbernier/base62")
-    (synopsis "Base62 encoding/decoding library")
-    (description "This package provides a Base62 encoding/decoding library.")
+    (synopsis "Base62 encoding/decoding library in Rust")
+    (description "@code{rust-base} is a zero-dependency library for
+working with base62 encoding with Rust.  base62 is typically used for
+URL shorteners.  It can optionally use io traits from the standard
+library.")
     (license license:expat)))
 
 (define-public rust-colored-3
