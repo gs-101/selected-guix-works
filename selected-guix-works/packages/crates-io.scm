@@ -76,7 +76,7 @@ library.")
                        ("rust-ansi-term" ,rust-ansi-term-0.12)
                        ("rust-insta" ,rust-insta-1)
                        ("rust-rspec" ,rust-rspec-1))
-       ;; 13 tests fail.
+       ;; tests expect a real terminal
        #:tests? #f))
     (home-page "https://github.com/mackwic/colored")
     (synopsis "Add colors in your terminal")
