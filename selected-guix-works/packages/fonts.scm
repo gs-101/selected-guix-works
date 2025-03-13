@@ -174,8 +174,9 @@ monospace font designed for programming."))
    "0bxk8mqalg2sf8pnm85p083imcjcnzz4h5lg0920dljqbz95w1gj"
    "Nerd Fonts patched version of Commit Mono"
    "Nerd Fonts version of Commit Mono, a programming font designed
-to be as neutral as possible, so one can rather focus on the code. It also features
-smart kerning, to automatically improve the spacing between characters."))
+to be as neutral as possible, so one can rather focus on the code.
+It also features smart kerning, to automatically improve the spacing
+between characters."))
 
 (define-public font-nerd-fonts-cousine
   (make-nerd-font "cousine"
