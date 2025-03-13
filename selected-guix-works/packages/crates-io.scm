@@ -202,10 +202,10 @@ emitting, and manipulation of YAML data.")
                        ("rust-smallvec" ,rust-smallvec-1))))
     (home-page "https://github.com/longbridge/rust-i18n")
     (synopsis
-     "Rust I18n is use Rust codegen for load YAML file storage translations on compile time, and give you a t! macro for simply get translation texts")
+     "A better and simple i18n crate")
     (description
-     "This package provides Rust I18n is use Rust codegen for load YAML file storage translations on compile
-time, and give you a t! macro for simply get translation texts.")
+     "This package provides a simple and easy-to-use API for localizing
+text.")
     (license license:expat)))
 
 (define-public rust-rust-i18n-macro-3
