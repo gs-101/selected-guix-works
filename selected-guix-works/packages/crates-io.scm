@@ -293,11 +293,11 @@ text.")
                        ("rust-indoc" ,rust-indoc-2))))
     (home-page "https://serdeyml.com")
     (synopsis
-     "robust Rust library that simplifies the serialization and deserialization of Rust data structures to and from YAML format using the widely-used Serde framework.")
+     "Work with YAML using the Serde serialization framework")
     (description
-     "This package provides a robust Rust library that simplifies the serialization
-and deserialization of Rust data structures to and from YAML format using the
-widely-used Serde framework.")
+     "This package provides a robust library that simplifies the
+serialization and deserialization of Rust data structures to and
+from YAML format using the widely-used Serde framework.")
     (license (list license:expat license:asl2.0))))
 
 (define-public rust-siphasher-1
