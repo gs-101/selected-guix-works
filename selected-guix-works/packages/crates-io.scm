@@ -154,9 +154,10 @@ emitting, and manipulation of YAML data.")
                        ("rust-syn" ,rust-syn-2)
                        ("rust-toml" ,rust-toml-0.8))))
     (home-page "https://github.com/iffse/pay-respects")
-    (synopsis "Compile time rule parser for the pay-respects CLI tool")
+    (synopsis "Compile time rule parser for the @code{pay-respects} CLI tool")
     (description
-     "This package provides Compile time rule parser for the pay-respects CLI tool.")
+     "This package provides a compile time rule parser for the
+ @code{pay-respects} CLI tool.")
     (license license:mpl2.0)))
 
 (define-public rust-pay-respects-utils-0.1
