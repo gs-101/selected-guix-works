@@ -266,8 +266,8 @@ text.")
                        ("rust-toml" ,rust-toml-0.8)
                        ("rust-triomphe" ,rust-triomphe-0.1))))
     (home-page "https://github.com/longbridge/rust-i18n")
-    (synopsis "Support for rust-i18n crate")
-    (description "This package provides Support for rust-i18n crate.")
+    (synopsis "Support for @code{rust-rust-i18n} crate")
+    (description "Support for @code{rust-rust-i18n} crate.")
     (license license:expat)))
 
 (define-public rust-serde-yml-0.0.12
