@@ -127,12 +127,12 @@ library.")
                        ("rust-pretty-assertions" ,rust-pretty-assertions-1))
        ;; Has a test structure I don't know how to deal with.
        #:tests? #f))
-    (home-page "https://libyml.com")
+    (home-page "https://github.com/sebastienrousseau/libyml")
     (synopsis
-     "safe and efficient Rust library for parsing, emitting, and manipulating YAML data.")
+     "@code{libyaml} converted to Rust by using c2rust")
     (description
-     "This package provides a safe and efficient Rust library for parsing, emitting,
-and manipulating YAML data.")
+     "This package provides tools for safe and efficient parsing,
+emitting, and manipulation of YAML data.")
     (license license:expat)))
 
 (define-public rust-pay-respects-parser-0.3
