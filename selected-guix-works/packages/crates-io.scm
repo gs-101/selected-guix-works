@@ -105,7 +105,8 @@ library.")
     (synopsis
      "Extra iterator adaptors, iterator methods, free functions, and macros")
     (description
-     "This package provides Extra iterator adaptors, iterator methods, free functions, and macros.")
+     "This package provides extra iterator adaptors, iterator methods, free
+ functions, and macros.")
     (license (list license:expat license:asl2.0))))
 
 (define-public rust-libyml-0.0.5
