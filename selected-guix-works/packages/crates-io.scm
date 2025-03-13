@@ -158,14 +158,14 @@ and manipulating YAML data.")
 (define-public rust-pay-respects-utils-0.1
   (package
     (name "rust-pay-respects-utils")
-    (version "0.1.6")
+    (version "0.1.7")
     (source
      (origin
        (method url-fetch)
        (uri (crate-uri "pay-respects-utils" version))
        (file-name (string-append name "-" version ".tar.gz"))
        (sha256
-        (base32 "127qd8s8wibr69qhkr6aw7xs799vg41x2h20yfjpm72v17nrm147"))))
+        (base32 "0sw0dzw7amsq810lv443bzhcrjmvyg3z27zgya5g0ijq8g8khahv"))))
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs (("rust-itertools" ,rust-itertools-0.14)
