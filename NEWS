@@ -50,4 +50,14 @@ a changelog, aliases para a Nushell são agora compatíveis.  Nushell é
 um pacote oficial para o Guix.  Além disso, tem um novo modo @code{echo}
 que apenas mostra sugestões ao invés de usá-las.  Você pode ver a
 changelog aqui:
-https://github.com/iffse/pay-respects/blob/v0.6.14/CHANGELOG.md"))))
+https://github.com/iffse/pay-respects/blob/v0.6.14/CHANGELOG.md")))
+ (entry (commit "1d34877a28d7e45d66fcff05910ab337efeca857")
+        (title (en "Add gitu")
+               (pt "Adicionar gitu"))
+        (body (en "gitu is a Rust Terminal User Interface (TUI) for git
+inspired by the Emacs package Magit.  Despite being inspired by Magit,
+it has Vim keybinds by default (as is custom for the terminal crowd).")
+              (pt "gitu é uma interface de usuário de terminal (TUI) para
+o git, inspirado pelo pacote Magit do Emacs.  Apesar de ser inspirado no
+Magit, esse programa possui teclas estilo Vim por padrão (o que já é de
+costume para essa galera que usa terminal)."))))
