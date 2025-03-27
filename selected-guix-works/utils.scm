@@ -27,6 +27,7 @@
   #:use-module (gnu home services)
   #:use-module (gnu packages)
   #:use-module (srfi srfi-98)
+  #:use-module (guix gexp)
 
   #:export (home-profile-package-service
             local-file-from-env))
