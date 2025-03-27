@@ -354,18 +354,6 @@ This module holds procedures for simplifying configurations.
 
 It also supports a list of package names, with the first package being used for the name of the service.
 
-- ~local-file-from-env~ ::
-
-  Wrapper that enabled the use of environment variables with ~local-file~. The first argument given is the environment to be used, the second the path /starting from the environment variable/ and, like the regular ~local-file~, there's an optional parameter for a file name, and a keyword parameter telling if the file should be added recursively or not (which chould indicate a directory instead.
-
-  In this example, the configuration file for Nix is referenced:
-
-  #+begin_src scheme
-    (local-file-from-env "XDG_CONFIG_HOME" "/nix/nix.conf")
-  #+end_src
-
-  This function was written because ~local-file~ doesn't support environment variables on its path.
-
 * The Name
 
 The name comes from the Aphex Twin album series “Selected Ambient Works”. I have an interest in ambient-like music, such as drone metal, so I had to check out his work, and I have to say I quite enjoyed it.
