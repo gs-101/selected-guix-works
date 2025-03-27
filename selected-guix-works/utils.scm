@@ -48,5 +48,5 @@
 (define* (local-file-from-env env file #:optional (name (basename file))
                               #:key
                               (recursive? #f))
-  (local-file (string-append (getenv env) file) name
+  (local-file (string-append (getenv (or env "HOME")) file) name
               #:recursive? recursive?))
