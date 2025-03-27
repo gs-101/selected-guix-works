@@ -26,6 +26,7 @@
   #:use-module (gnu services)
   #:use-module (gnu home services)
   #:use-module (gnu packages)
+  #:use-module (srfi srfi-98)
 
   #:export (home-profile-package-service))
 
@@ -41,3 +42,9 @@
         (simple-service service-name
                         home-profile-service-type
                         (list (specification->package package))))))
+
+(define* (local-file-from-env env file #:optional (name (basename file))
+                              #:key
+                              (recursive? #f))
+  (local-file (string-append (getenv env) file) name
+              #:recursive? recursive?))

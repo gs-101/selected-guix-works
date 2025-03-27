@@ -80,7 +80,7 @@ This channel includes all[fn:10] Nerd Fonts[fn:3]. A meta package is available u
 
   - Variable: ~home-ripgrep-service-type~ ::
 
-    This is the service type for =ripgrep=. Its value must be a ~home-ripgrep-configuration~, as shown below. It provides the ~RIPGREP_CONFIG_PATH~ environemnt variable, to set the configuration file's path (as =ripgrep= doesn't have a predefined one), and the =~/.config/ripgrep/config= file.
+    This is the service type for =ripgrep=. Its value must be a ~home-ripgrep-configuration~, as shown below. It provides the ~RIPGREP_CONFIG_PATH~ environment variable, to set the configuration file's path (as =ripgrep= doesn't have a predefined one), and the =~/.config/ripgrep/config= file.
 
     As an example, here is how you would configure =ripgrep= to search inside compressed files, while 5 lines shown as context before and after a match:
 
@@ -353,6 +353,18 @@ This module holds procedures for simplifying configurations.
   #+end_src
 
 It also supports a list of package names, with the first package being used for the name of the service.
+
+- ~local-file-from-env~ ::
+
+  Wrapper that enabled the use of environment variables with ~local-file~. The first argument given is the environment to be used, the second the path /starting from the environment variable/ and, like the regular ~local-file~, there's an optional parameter for a file name, and a keyword parameter telling if the file should be added recursively or not (which chould indicate a directory instead.
+
+  In this example, the configuration file for Nix is referenced:
+
+  #+begin_src scheme
+    (local-file-from-env "XDG_CONFIG_HOME" "/nix/nix.conf")
+  #+end_src
+
+  This function was written because ~local-file~ doesn't support environment variables on its path.
 
 * The Name
 
