@@ -28,7 +28,8 @@
   #:use-module (gnu packages)
   #:use-module (srfi srfi-98)
 
-  #:export (home-profile-package-service))
+  #:export (home-profile-package-service
+            local-file-from-env))
 
 (define (home-profile-package-service package)
   (if (list? package)
