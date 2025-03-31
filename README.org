@@ -50,10 +50,6 @@ This channel includes all[fn:10] Nerd Fonts[fn:3]. A meta package is available u
 
 ** Window Management
 
-- =hyprpaper= ::
-
-  hyprpaper[fn:4] is the wallpaper utility of the Hyprland[fn:5] ecosystem. It allows for fast wallpaper switches through the use of Unix sockets.
-
 - =hyprpolkitagent= ::
 
   hyprpolkitagent[fn:6] is the polkit agent of the Hyprland ecosystem.

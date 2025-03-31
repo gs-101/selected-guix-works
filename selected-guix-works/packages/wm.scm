@@ -23,6 +23,7 @@
 ;;; Code:
 
 (define-module (selected-guix-works packages wm)
+  #:use-module (guix build utils)
   #:use-module (guix packages)
   #:use-module (guix git-download)
   #:use-module ((guix licenses)
@@ -40,44 +41,13 @@
   #:use-module (gnu packages web)
   #:use-module (gnu packages image)
   #:use-module (gnu packages xdisorg)
+  #:use-module (gnu packages xorg)
   #:use-module (gnu packages gnome)
   #:use-module (guix gexp)
 
   #:use-module (guix build-system cmake)
-  #:use-module (guix build-system copy))
-
-(define-public hyprpaper
-  (package
-    (name "hyprpaper")
-    (version "0.7.4")
-    (source
-     (origin
-       (method git-fetch)
-       (uri (git-reference
-             (url "https://github.com/hyprwm/hyprpaper")
-             (commit (string-append "v" version))))
-       (file-name (git-file-name name version))
-       (sha256
-        (base32 "151r6s04yy3digl3g6gs49xx41yv4xldmbnqr87gp5nz705hjsd6"))))
-    (build-system cmake-build-system)
-    (arguments
-     (list
-      #:tests? #f))
-    (native-inputs (list gcc-14 hyprwayland-scanner pkg-config))
-    (inputs (list hyprutils
-                  libglvnd
-                  wayland
-                  wayland-protocols
-                  cairo
-                  pango
-                  hyprlang
-                  hyprgraphics))
-    (home-page "https://wiki.hyprland.org/Hypr-Ecosystem/hyprpaper")
-    (synopsis "Hyprland wallpaper utility")
-    (description
-     "Hyprpaper is the wallpaper utility of the Hyprland ecosystem.  It uses IPC to for
-quickly switching between different wallpapers.")
-    (license license:bsd-3)))
+  #:use-module (guix build-system copy)
+  #:use-module (guix build-system gnu))
 
 (define-public hyprpolkitagent
   (package
@@ -131,3 +101,53 @@ is used for requesting authentication from the root user or a member of the @cod
      "@code{hyprshot} is a simple shell script used for taking screenshots in Hyprland.
 It's primarily optimized for mouse usage, due to the ability of selection regions.")
     (license license:gpl3)))
+
+(define-public hypr-dynamic-cursors
+  (let ((commit "e2c32d8108960b6eaf96918485503e90a016de4b")
+        (revision "0")) ; Has no tags
+    (package
+      (name "hypr-dynamic-cursors")
+      (version (git-version "1.0" revision commit))
+      (source
+       (origin
+         (method git-fetch)
+         (uri (git-reference
+               (url "https://github.com/VirtCode/hypr-dynamic-cursors")
+               (commit commit)))
+         (file-name (git-file-name name version))
+         (sha256
+          (base32 "1sx0x0ssqsrq72g4bp81jhinvswx5rdywhyrg8cqg9yx6wk9gmzy"))))
+      (build-system gnu-build-system)
+      (arguments
+       (list
+        #:tests? #f
+        #:phases
+        #~(modify-phases %standard-phases
+            (delete 'configure)
+            (replace 'install
+              (lambda* _
+                (install-file "out/dynamic-cursors.so"
+                              (string-append #$output "/lib")))))))
+      (native-inputs (list
+                      gcc-14
+                      hyprwayland-scanner
+                      pkg-config))
+      (inputs (list aquamarine
+                    cairo
+                    hyprcursor
+                    hyprgraphics
+                    hyprland
+                    hyprlang
+                    hyprutils
+                    libinput-minimal
+                    libxcursor
+                    libxkbcommon
+                    mesa
+                    wayland))
+      (home-page "https://wiki.hyprland.org/Hypr-Ecosystem/hyprpaper")
+      (synopsis "Hyprland plugin for customizing cursors")
+      (description
+       "@code{hypr-dynamic-cursors} implements multiple cursor gimmicks,
+such as mode where the cursor behaves as a stick, realistically moving
+across the screen.")
+      (license license:expat))))
