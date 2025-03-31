@@ -60,4 +60,13 @@ it has Vim keybinds by default (as is custom for the terminal crowd).")
               (pt "gitu é uma interface de usuário de terminal (TUI) para
 o git, inspirado pelo pacote Magit do Emacs.  Apesar de ser inspirado no
 Magit, esse programa possui teclas estilo Vim por padrão (o que já é de
-costume para essa galera que usa terminal)."))))
+costume para essa galera que usa terminal).")))
+ (entry (commit "979b85b8af0c0db322e115fd9f44f91017b44bdf")
+        (title (en "Remove hyprpaper")
+               (pt "Remover hyprpaper"))
+        (body (en "The hyprpaper package was removed from this channel,
+as the issue pertaining to it, viz. #75435, has been merged.  So, if
+you want this package, just update your Guix channel version.")
+              (pt "O pacote hyprpaper foi removido desse canal, pois o
+issue ligado à esta package, viz. #75435, foi mesclado.  Então, se você
+quiser esse pacot, é só atualizar a sua versão do canal Guix."))))
