@@ -69,4 +69,11 @@ as the issue pertaining to it, viz. #75435, has been merged.  So, if
 you want this package, just update your Guix channel version.")
               (pt "O pacote hyprpaper foi removido desse canal, pois o
 issue ligado à esta package, viz. #75435, foi mesclado.  Então, se você
-quiser esse pacot, é só atualizar a sua versão do canal Guix."))))
+quiser esse pacote, é só atualizar a sua versão do canal Guix.")))
+ (entry (commit "ed076801f2805a0a38a156e90ed7871572b267c9")
+        (title (en "New GPG Key")
+               (pt "Nova chave GPG"))
+        (body (en "This channel now features a new GPG key, that will
+be shared with my other channel, emacs-master.")
+              (pt "Esse canal agora tem uma nova chave GPG, que será
+dividida com meu outro canal, emacs-master."))))
