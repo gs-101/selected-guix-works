@@ -76,4 +76,15 @@ quiser esse pacote, é só atualizar a sua versão do canal Guix.")))
         (body (en "This channel now features a new GPG key, that will
 be shared with my other channel, emacs-master.")
               (pt "Esse canal agora tem uma nova chave GPG, que será
-dividida com meu outro canal, emacs-master."))))
+dividida com meu outro canal, emacs-master.")))
+ (entry (commit "c0735bece66e5e9cea4153a81ddf5221c903110a")
+        (title (en "Add rust-stakeholder")
+               (pt "Adicionar rust-stakeholder"))
+        (body (en "rust-stakeholder is a terminal output program in the likes
+of @command{cmatrix} and @command{no-more-secrets}.  It generates terminal
+output that may seem significant to non-technical users, but is actually
+nothing.  Makes for a nice screensaver.")
+              (pt "rust-stakeholder é um programa de output de terminal
+parecido com o @command{cmatrix} e o @command{no-more-secrets}.  Ele gera
+output de terminal que pode parecer significante para usuários não-técnicos,
+mas que na verdade não é nada.  Pode ser um bom screensaver."))))
