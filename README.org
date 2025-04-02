@@ -58,6 +58,10 @@ This channel includes all[fn:10] Nerd Fonts[fn:3]. A meta package is available u
 
   gitu[fn:13] is a terminal user interface for Git inspired by Magit[fn:14]. It features Vim-like keybinds by default, but [[https://github.com/altsem/gitu/blob/master/src/default_config.toml][that can be configured]].
 
+- =rust-stakeholder= ::
+
+  rust-stakeholder[fn:15] is a joke program that generates nonsensical terminal output that makes it seem like you're busy. Makes for a nice screensaver.
+
 ** Window Management
 
 - =hyprpolkitagent= ::
@@ -395,3 +399,5 @@ My favourite of his works is “Expert Knob Twiddlers”, it has an album cover 
 [fn:13] altsem (2025) “altsem/gitu.” Available at: https://github.com/altsem/gitu (Accessed: March 14, 2025).
 
 [fn:14] “magit/magit” (2025). Magit. Available at: https://github.com/magit/magit (Accessed: March 15, 2025).
+
+[fn:15] giacomo- b (2025) “Giacomo-b/rust-stakeholder.” Available at: https://github.com/giacomo-b/rust-stakeholder (Accessed: April 2, 2025).
