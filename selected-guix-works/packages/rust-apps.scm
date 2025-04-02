@@ -33,6 +33,7 @@
   #:use-module (selected-guix-works packages crates-io)
   #:use-module (gnu packages compression)
   #:use-module (gnu packages version-control)
+  #:use-module (guix git-download)
 
   #:use-module (guix build-system cargo))
 
@@ -134,3 +135,37 @@ after a mistake.")
     (description "@code{gitu} is a git Terminal User Interface inspired
 by Emacs' Magit.")
     (license license:expat)))
+
+(define-public rust-stakeholder
+  ;; No tagged releases.
+  (let ((commit "52f64ad3d61c439b500bc893cbc96050e7a2c85a"))
+    (package
+      (name "rust-stakeholder")
+      (version commit)
+      (source (origin
+                (method git-fetch)
+                (uri (git-reference
+                      (url "https://github.com/giacomo-b/rust-stakeholder")
+                      (commit version)))
+                (file-name (git-file-name name version))
+                (sha256
+                 (base32
+                  "1j785mqgdiw1yzxn2fvfk6lj1caqmpc4nkhhpbmf6ywcl60s9ix8"))))
+      (build-system cargo-build-system)
+      (arguments
+       (list
+        #:install-source? #f
+        #:cargo-inputs
+        `(("rust-clap" ,rust-clap-4.5.32)
+          ("rust-colored" ,rust-colored-3)
+          ("rust-console" ,rust-console-0.15.11)
+          ("rust-indicatif" ,rust-indicatif-0.17.11)
+          ("rust-rand" ,rust-rand-0.9))))
+      (home-page "https://github.com/giacomo-b/rust-stakeholder")
+      (synopsis
+       "Generate impressive-looking terminal output to look busy")
+      (description
+       "@command{rust-stakeholder} is a joke program that generates nonsensical
+terminal output so one can look busy.  Comes in different developer flavours
+and varying levels of jargon.")
+      (license license:expat))))
