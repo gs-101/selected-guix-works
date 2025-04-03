@@ -45,7 +45,7 @@
   #:use-module (gnu packages gnome)
   #:use-module (guix gexp)
 
-  #:use-module (guix build-system cmake)
+  #:use-module (guix build-system qt)
   #:use-module (guix build-system copy)
   #:use-module (guix build-system gnu))
 
@@ -62,16 +62,28 @@
        (file-name (git-file-name name version))
        (sha256
         (base32 "0zqiskgn57zcrljpyk0py24izf77yngnj7586mb51rb1b4yd4n9b"))))
-    (build-system cmake-build-system)
+    (build-system qt-build-system)
     (arguments
-     '(#:tests? #f))
-    (native-inputs (list pkg-config qtdeclarative qtbase vulkan-headers gcc-14))
-    (inputs (list hyprutils polkit polkit-qt6))
-    (home-page "https://wiki.hyprland.org/Hypr-Ecosystem/hyprpolkitagent/")
+     (list #:qtbase qtbase
+           ;; No tests
+           #:tests? #f))
+    (native-inputs
+     (list gcc-14
+           pkg-config))
+    (inputs
+     (list hyprutils
+           libxkbcommon
+           polkit
+           polkit-qt6
+           qtdeclarative
+           qtwayland
+           vulkan-headers))
+    (home-page "https://wiki.hyprland.org/Hypr-Ecosystem/hyprpolkitagent")
     (synopsis "Hyprland polkit agent")
     (description
-     "@code{hyprpolkitagent} is the polkit agent of the Hyprland ecosystem.  A polkit agent
-is used for requesting authentication from the root user or a member of the @code{wheel} group.")
+     "@command{hyprpolkitagent} is the polkit agent of the Hyprland ecosystem.
+A polkit agent is used for requesting authentication from the root user or a
+member of the @code{wheel} group.")
     (license license:bsd-3)))
 
 (define-public hyprshot
