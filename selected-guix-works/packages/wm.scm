@@ -28,12 +28,14 @@
   #:use-module (guix git-download)
   #:use-module ((guix licenses)
                 #:prefix license:)
+  #:use-module (gnu packages base)
   #:use-module (gnu packages cpp)
   #:use-module (gnu packages gl)
   #:use-module (gnu packages freedesktop)
   #:use-module (gnu packages pkg-config)
   #:use-module (gnu packages gtk)
   #:use-module (gnu packages gcc)
+  #:use-module (gnu packages linux)
   #:use-module (gnu packages qt)
   #:use-module (gnu packages vulkan)
   #:use-module (gnu packages polkit)
@@ -102,11 +104,49 @@ member of the @code{wheel} group.")
     (build-system copy-build-system)
     (arguments
      (list
+      #:phases
+      #~(modify-phases %standard-phases
+          (add-after 'unpack 'fix-paths
+            (lambda* (#:key inputs #:allow-other-keys)
+              (substitute* "hyprshot"
+                (((string-append "\\<(" (string-join
+                                         '("cat"
+                                           "cut"
+                                           "date"
+                                           "echo"
+                                           "getopt"
+                                           "grim"
+                                           "hyprctl"
+                                           "hyprpicker"
+                                           "jq"
+                                           "mkdir"
+                                           "notify-send"
+                                           "printf"
+                                           "sleep"
+                                           "slurp"
+                                           "wc"
+                                           "wl-copy")
+                                         "|")
+                                 ")\\>")
+                  cmd)
+                 (search-input-file
+                  inputs (string-append "bin/" cmd)))
+                ;; pgrep and pkill issue a warning with the store names.
+                (("pgrep .*slurp") "pgrep slurp")
+                (("pkill .*hyprpicker") "pkill hyprpicker")))))
       #:install-plan
       #~'(("." "bin"
            #:include ("hyprshot")))))
-    (inputs (list hyprland jq))
-    (propagated-inputs (list grim slurp wl-clipboard libnotify hyprpicker))
+    (inputs
+     (list coreutils-minimal
+           grim
+           hyprland
+           hyprpicker
+           libnotify
+           slurp
+           util-linux+udev ; For getopt
+           jq
+           wl-clipboard))
     (home-page "https://github.com/Gustash/hyprshot")
     (synopsis "Hyprland screenshot utility")
     (description
