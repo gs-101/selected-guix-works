@@ -36,6 +36,11 @@
   #:use-module (gnu packages crates-apple)
   #:use-module (gnu packages crates-compression)
   #:use-module (gnu packages crates-crypto)
+  #:use-module (gnu packages compression)
+  #:use-module (gnu packages pkg-config)
+  #:use-module (gnu packages version-control)
+  #:use-module (gnu packages ssh)
+  #:use-module (gnu packages tls)
   #:use-module (guix gexp)
 
   #:use-module (guix build-system cargo))
@@ -1727,3 +1732,333 @@ useful types and distributions, and some randomness-related algorithms.")
      "This package provides a progress bar and cli reporting library for
 Rust.")
     (license license:expat)))
+
+(define-public rust-quick-xml-0.23
+  (package
+    (inherit rust-quick-xml-0.27)
+    (name "rust-quick-xml")
+    (version "0.23.1")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "quick-xml" version))
+       (file-name (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "1slry2g2wrj38fnzj9ybzq9wjyknrfg25x5vzfpzn5b8kj2zrfhi"))))
+    (arguments
+     `(#:cargo-test-flags
+       '("--"
+         "--skip=sample_1_full"
+         "--skip=sample_2_full")
+       #:cargo-inputs
+       (("rust-encoding-rs" ,rust-encoding-rs-0.8)
+        ("rust-memchr" ,rust-memchr-2)
+        ("rust-serde" ,rust-serde-1))
+       #:cargo-development-inputs
+       (("rust-criterion" ,rust-criterion-0.3)
+        ("rust-pretty-assertions" ,rust-pretty-assertions-1)
+        ("rust-regex" ,rust-regex-1)
+        ("rust-serde" ,rust-serde-1)
+        ("rust-serde-value" ,rust-serde-value-0.7))))))
+
+;; From the rust-team branch.
+(define-public rust-libssh2-sys-0.3
+  (package
+    (name "rust-libssh2-sys")
+    (version "0.3.1")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "libssh2-sys" version))
+       (file-name (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "1f8i31h3666rl6sq7v64ajdq03hmylkh6c1vaf9828aaml2ly3i2"))
+       (modules '((guix build utils)))
+       (snippet
+        '(begin (delete-file-recursively "libssh2")))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-cc" ,rust-cc-1)
+        ("rust-libc" ,rust-libc-0.2)
+        ("rust-libz-sys" ,rust-libz-sys-1)
+        ("rust-openssl-sys" ,rust-openssl-sys-0.9)
+        ("rust-pkg-config" ,rust-pkg-config-0.3)
+        ("rust-vcpkg" ,rust-vcpkg-0.2))))
+    (native-inputs
+     (list pkg-config))
+    (inputs
+     (list libssh2 openssl zlib))
+    (home-page "https://github.com/alexcrichton/ssh2-rs")
+    (synopsis "Native bindings to the libssh2 library")
+    (description
+     "This package provides native rust bindings to the @code{libssh2} library.")
+    (license (list license:expat license:asl2.0))))
+
+;; From the rust-team branch.
+(define-public rust-ssh2-0.9
+  (package
+    (name "rust-ssh2")
+    (version "0.9.5")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "ssh2" version))
+       (file-name (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32 "1j38p804b8sbgnfw1x8j2mkvh6yva7li36b2la8lw3ca7cxx311g"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:tests? #f      ;TODO: figure out why tests are failing
+       #:cargo-inputs (("rust-bitflags" ,rust-bitflags-2)
+                       ("rust-libc" ,rust-libc-0.2)
+                       ("rust-libssh2-sys" ,rust-libssh2-sys-0.3)
+                       ("rust-parking-lot" ,rust-parking-lot-0.12))))
+    (native-inputs (list pkg-config))
+    (inputs (list zlib libgit2-1.8 libssh2 openssl))
+    (home-page "https://github.com/alexcrichton/ssh2-rs")
+    (synopsis
+     "Bindings for libssh2 for interacting with SSH servers")
+    (description
+     "This package provides bindings for libssh2 for interacting with SSH
+servers and executing remote commands, forwarding local ports, etc.")
+    (license (list license:expat license:asl2.0))))
+
+(define-public rust-portable-pty-0.7
+  (package
+    (inherit rust-portable-pty-0.8)
+    (name "rust-portable-pty")
+    (version "0.7.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "portable-pty" version))
+       (file-name (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "1da6xiz2prv716734grd0y287kibfy1h2hswn6j7wsqa0pn1fkaf"))))
+    (arguments
+     `(#:cargo-inputs
+       (("rust-anyhow" ,rust-anyhow-1)
+        ("rust-bitflags" ,rust-bitflags-1)
+        ("rust-filedescriptor" ,rust-filedescriptor-0.8)
+        ("rust-lazy-static" ,rust-lazy-static-1)
+        ("rust-libc" ,rust-libc-0.2)
+        ("rust-log" ,rust-log-0.4)
+        ("rust-serde" ,rust-serde-1)
+        ("rust-serde-derive" ,rust-serde-derive-1)
+        ("rust-serial" ,rust-serial-0.4)
+        ("rust-shared-library" ,rust-shared-library-0.1)
+        ("rust-shell-words" ,rust-shell-words-1)
+        ("rust-ssh2" ,rust-ssh2-0.9)
+        ("rust-winapi" ,rust-winapi-0.3))
+       #:cargo-development-inputs
+       (("rust-futures" ,rust-futures-0.3)
+        ("rust-smol" ,rust-smol-1))))))
+
+(define-public rust-term-transcript-0.2
+  (package
+    (name "rust-term-transcript")
+    (version "0.2.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "term-transcript" version))
+       (file-name (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "11a2pprf5j7ypjfyki8hal4604qaf6gx3ggdzzj7ina1j062hxvd"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-atty" ,rust-atty-0.2)
+        ("rust-bytecount" ,rust-bytecount-0.6)
+        ("rust-handlebars" ,rust-handlebars-4)
+        ("rust-os-pipe" ,rust-os-pipe-1)
+        ("rust-portable-pty" ,rust-portable-pty-0.7)
+        ("rust-pretty-assertions" ,rust-pretty-assertions-1)
+        ("rust-quick-xml" ,rust-quick-xml-0.23)
+        ("rust-serde" ,rust-serde-1)
+        ("rust-termcolor" ,rust-termcolor-1)
+        ("rust-unicode-width" ,rust-unicode-width-0.1))
+       #:cargo-development-inputs
+       (("rust-anyhow" ,rust-anyhow-1)
+        ("rust-assert-matches" ,rust-assert-matches-1)
+        ("rust-doc-comment" ,rust-doc-comment-0.3)
+        ("rust-version-sync" ,rust-version-sync-0.9))))
+    (home-page "https://github.com/slowli/term-transcript")
+    (synopsis "Snapshotting and snapshot testing for CLI / REPL applications")
+    (description
+     "This package provides snapshotting and snapshot testing for
+CLI / REPL applications.")
+    (license (list license:expat license:asl2.0))))
+
+(define-public rust-snapbox-0.6
+  (package
+    (name "rust-snapbox")
+    (version "0.6.21")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "snapbox" version))
+       (file-name (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "0ss3nd9ky0fkq7idj7jzr22kvkhxz3ylrq9fmiq5sdg3h52zrp4n"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-anstream" ,rust-anstream-0.6)
+        ("rust-anstyle" ,rust-anstyle-1)
+        ("rust-anstyle-svg" ,rust-anstyle-svg-0.1)
+        ("rust-backtrace" ,rust-backtrace-0.3)
+        ("rust-content-inspector" ,rust-content-inspector-0.2)
+        ("rust-document-features" ,rust-document-features-0.2)
+        ("rust-dunce" ,rust-dunce-1)
+        ("rust-escargot" ,rust-escargot-0.5)
+        ("rust-filetime" ,rust-filetime-0.2)
+        ("rust-libc" ,rust-libc-0.2)
+        ("rust-normalize-line-endings" ,rust-normalize-line-endings-0.3)
+        ("rust-os-pipe" ,rust-os-pipe-1)
+        ("rust-regex" ,rust-regex-1)
+        ("rust-serde" ,rust-serde-1)
+        ("rust-serde-json" ,rust-serde-json-1)
+        ("rust-similar" ,rust-similar-2)
+        ("rust-snapbox-macros" ,rust-snapbox-macros-0.3)
+        ("rust-tempfile" ,rust-tempfile-3)
+        ("rust-wait-timeout" ,rust-wait-timeout-0.2)
+        ("rust-walkdir" ,rust-walkdir-2)
+        ("rust-windows-sys" ,rust-windows-sys-0.59))
+       #:cargo-development-inputs (("rust-automod" ,rust-automod-1))))
+    (home-page "https://github.com/assert-rs/trycmd/tree/main/crates/snapbox")
+    (synopsis "Snapshot testing toolbox")
+    (description "This package provides a snapshot testing toolbox.")
+    (license (list license:expat license:asl2.0))))
+
+(define-public rust-winnow-0.7
+  (package
+    (name "rust-winnow")
+    (version "0.7.4")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "winnow" version))
+       (file-name (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "0dmbsz6zfddcgsqzzqxw1h8f7zy19x407g7zl3hyp6vf2m2bb5qf"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-anstream" ,rust-anstream-0.3)
+        ("rust-anstyle" ,rust-anstyle-1)
+        ("rust-is-terminal" ,rust-is-terminal-0.4)
+        ("rust-memchr" ,rust-memchr-2)
+        ("rust-terminal-size" ,rust-terminal-size-0.4))
+       #:cargo-development-inputs
+       (("rust-annotate-snippets" ,rust-annotate-snippets-0.11)
+        ("rust-anyhow" ,rust-anyhow-1)
+        ("rust-automod" ,rust-automod-1)
+        ("rust-circular" ,rust-circular-0.3)
+        ("rust-criterion" ,rust-criterion-0.5)
+        ("rust-lexopt" ,rust-lexopt-0.3)
+        ("rust-proptest" ,rust-proptest-1)
+        ("rust-rustc-hash" ,rust-rustc-hash-1)
+        ("rust-snapbox" ,rust-snapbox-0.6)
+        ("rust-term-transcript" ,rust-term-transcript-0.2))))
+    (home-page "https://github.com/winnow-rs/winnow")
+    (synopsis "byte-oriented, zero-copy, parser combinators library")
+    (description
+     "This package provides a byte-oriented, zero-copy, parser combinators
+library.")
+    (license license:expat)))
+
+(define-public rust-askama-parser-0.13
+  (package
+    (name "rust-askama-parser")
+    (version "0.13.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "askama_parser" version))
+       (file-name (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "0kqd9pg96dd6w9pm4q7zdhmchhkdrwsljygz56qpp1acabk5qcfg"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs (("rust-memchr" ,rust-memchr-2)
+                       ("rust-serde" ,rust-serde-1)
+                       ("rust-serde-derive" ,rust-serde-derive-1)
+                       ("rust-winnow" ,rust-winnow-0.7))
+       #:cargo-development-inputs (("rust-criterion" ,rust-criterion-0.5))))
+    (home-page "https://github.com/askama-rs/askama")
+    (synopsis "Parser for Askama templates")
+    (description "This package provides a parser for @code{rust-askama}
+templates.")
+    (license (list license:expat license:asl2.0))))
+
+(define-public rust-askama-derive-0.13
+  (package
+    (name "rust-askama-derive")
+    (version "0.13.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "askama_derive" version))
+       (file-name (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "19i8iwahw0jsdwdx88g4bawlljf7y18v7xrmh5r2rlqzh838jfal"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-askama-parser" ,rust-askama-parser-0.13)
+        ("rust-basic-toml" ,rust-basic-toml-0.1)
+        ("rust-memchr" ,rust-memchr-2)
+        ("rust-proc-macro2" ,rust-proc-macro2-1)
+        ("rust-pulldown-cmark" ,rust-pulldown-cmark-0.13)
+        ("rust-quote" ,rust-quote-1)
+        ("rust-rustc-hash" ,rust-rustc-hash-2)
+        ("rust-serde" ,rust-serde-1)
+        ("rust-serde-derive" ,rust-serde-derive-1)
+        ("rust-syn" ,rust-syn-2))
+       #:cargo-development-inputs
+       (("rust-console" ,rust-console-0.15)
+        ("rust-prettyplease" ,rust-prettyplease-0.2)
+        ("rust-similar" ,rust-similar-2)
+        ("rust-syn" ,rust-syn-2))))
+    (home-page "https://github.com/askama-rs/askama")
+    (synopsis "Procedural macro package for @code{rust-askama}.")
+    (description "Procedural macros for @code{rust-askama}.")
+    (license (list license:expat license:asl2.0))))
+
+(define-public rust-askama-0.13
+  (package
+    (name "rust-askama")
+    (version "0.13.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "askama" version))
+       (file-name (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32 "0hr5272633jcx10kk76pznxl4c93d4klaba44vr0xq03namlckls"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-askama-derive" ,rust-askama-derive-0.13)
+        ("rust-itoa" ,rust-itoa-1)
+        ("rust-percent-encoding" ,rust-percent-encoding-2)
+        ("rust-serde" ,rust-serde-1)
+        ("rust-serde-json" ,rust-serde-json-1))
+       #:cargo-development-inputs
+       (("rust-assert-matches" ,rust-assert-matches-1)
+        ("rust-criterion" ,rust-criterion-0.5))))
+    (home-page "https://askama.readthedocs.io/")
+    (synopsis "Type-safe, compiled Jinja-like templates for Rust")
+    (description
+     "This package provides type-safe, compiled Jinja-like templates for Rust.")
+    (license (list license:expat license:asl2.0))))
