@@ -40,29 +40,32 @@
 (define-public pay-respects
   (package
     (name "pay-respects")
-    (version "0.6.14")
+    (version "0.7.0")
     (source
      (origin
        (method url-fetch)
        (uri (crate-uri "pay-respects" version))
        (file-name (string-append name "-" version ".tar.gz"))
        (sha256
-        (base32 "0g3vsp6xyw5isr7l10mbljvdclh2s3cmpm7sqxf5a8ir9mfmvkz2"))))
+        (base32
+         "1airp56pjh08ai1jwbvfi4mkr33y103j0hchyy0x4bgv4ckn5lh9"))))
     (build-system cargo-build-system)
     (arguments
-     `(#:cargo-inputs (("rust-colored" ,rust-colored-3)
-                       ("rust-inquire" ,rust-inquire-0.7)
-                       ("rust-pay-respects-parser" ,rust-pay-respects-parser-0.3)
-                       ("rust-pay-respects-utils" ,rust-pay-respects-utils-0.1)
-                       ("rust-regex-lite" ,rust-regex-lite-0.1)
-                       ("rust-rust-i18n" ,rust-rust-i18n-3)
-                       ("rust-sys-locale" ,rust-sys-locale-0.3))
+     `(#:cargo-inputs
+       (("rust-askama" ,rust-askama-0.13)
+        ("rust-colored" ,rust-colored-3)
+        ("rust-inquire" ,rust-inquire-0.7)
+        ("rust-pay-respects-parser" ,rust-pay-respects-parser-0.3)
+        ("rust-pay-respects-utils" ,rust-pay-respects-utils-0.1)
+        ("rust-regex-lite" ,rust-regex-lite-0.1)
+        ("rust-rust-i18n" ,rust-rust-i18n-3)
+        ("rust-sys-locale" ,rust-sys-locale-0.3))
        #:install-source? #f))
     (home-page "https://codeberg.org/iff/pay-respects")
     (synopsis
-     "Command suggestions, command-not-found and thefuck replacement written in Rust")
+     "Command suggestions, @code{command-not-found} and @code{thefuck} replacement")
     (description
-     "@code{pay-respects} suggests command corrections by simply pressing f
+     "@command{pay-respects} suggests command corrections by simply pressing f
 after a mistake.")
     (license license:agpl3+)))
 
