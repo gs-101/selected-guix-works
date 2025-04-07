@@ -364,10 +364,6 @@ My favourite of his works is “Expert Knob Twiddlers”, it has an album cover 
 
 * References
 
-[fn:1] Santos, G. (2025) “Gs-101/backgrounds.” Available at: https://github.com/gs-101/backgrounds (Accessed: February 10, 2025).
-
-[fn:2] Courtès, L. (2024) “Guix/guix-artwork.” Free Software Foundation. Available at: https://git.savannah.gnu.org/cgit/guix/guix-artwork.git (Accessed: February 10, 2025).
-
 [fn:3] McIntyre, R.L. (2025) “Ryanoasis/nerd-fonts.” Available at: https://github.com/ryanoasis/nerd-fonts (Accessed: February 10, 2025).
 
 [fn:4] “Hyprwm/hyprpaper” (2025). Hypr Development. Available at: https://github.com/hyprwm/hyprpaper (Accessed: February 10, 2025).
