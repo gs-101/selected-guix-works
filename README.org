@@ -34,14 +34,6 @@ Use this for adding this channel to your configuration:
 
 * Packages
 
-** Backgrounds
-
-- =selected-guix-works-backgrounds=
-
-Currently features and will only feature my backgrounds[fn:1] repository. It currently contains the Guix backgrounds[fn:2], which are licensed under the Creative Commons Attribution-ShareAlike license.
-
-On a system installation, they can be found under =/run/current-system/profile/share/backgrounds/selected-guix-works=, and on a home installation under =~/.guix-home/profile/share/backgrounds/selected-guix-works=.
-
 ** Fonts
 
 *** Nerd Fonts
