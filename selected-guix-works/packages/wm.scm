@@ -80,6 +80,7 @@
            qtdeclarative
            qtwayland
            vulkan-headers))
+    (propagated-inputs (list polkit))
     (home-page "https://wiki.hyprland.org/Hypr-Ecosystem/hyprpolkitagent")
     (synopsis "Hyprland polkit agent")
     (description
