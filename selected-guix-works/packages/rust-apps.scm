@@ -40,7 +40,7 @@
 (define-public pay-respects
   (package
     (name "pay-respects")
-    (version "0.7.1")
+    (version "0.7.2")
     (source
      (origin
        (method url-fetch)
@@ -48,13 +48,14 @@
        (file-name (string-append name "-" version ".tar.gz"))
        (sha256
         (base32
-         "16ilc58f5drixzgsjvzwv1s4liyn3ihfagpy9n6aif1084jfj83n"))))
+         "1krbqzg5syqndach80ylpgmnf1a541hk3hj5mclmf0r6c3lsq0zr"))))
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
        (("rust-askama" ,rust-askama-0.13)
         ("rust-colored" ,rust-colored-3)
         ("rust-inquire" ,rust-inquire-0.7)
+        ("rust-itertools" ,rust-itertools-0.14)
         ("rust-pay-respects-parser" ,rust-pay-respects-parser-0.3)
         ("rust-pay-respects-utils" ,rust-pay-respects-utils-0.1)
         ("rust-regex-lite" ,rust-regex-lite-0.1)
@@ -63,7 +64,7 @@
        #:install-source? #f))
     (home-page "https://codeberg.org/iff/pay-respects")
     (synopsis
-     "Command suggestions, @code{command-not-found} and @code{thefuck} replacement")
+     "Command suggestions, @command{command-not-found} and @command{thefuck} replacement")
     (description
      "@command{pay-respects} suggests command corrections by simply pressing f
 after a mistake.")
