@@ -82,7 +82,7 @@ This channel includes all[fn:10] Nerd Fonts[fn:3]. A meta package is available u
 
   Currently, the only available service is for [[https://github.com/BurntSushi/ripgrep][ripgrep]], a fast file-searching tool inspired by [[https://www.man7.org/linux/man-pages/man1/grep.1.html][grep]].
 
-  The service reference is given bellow.
+  The service reference is given below.
 
   - Variable: ~home-ripgrep-service-type~ ::
 
@@ -337,6 +337,36 @@ This channel includes all[fn:10] Nerd Fonts[fn:3]. A meta package is available u
     - ~extra-content~ (default: "") (type: string) ::
 
       Extra content appended as-is to the configuration file.
+
+- ~home-swww-service-type~ ::
+
+  Service used to configure swww[fn:16], a wallpaper manager for your Wayland session (most likely a window manager for one to use this).
+
+  I wouldn't recommend you to use this service, because, first it came to me as an epiphany: I was having issues with the version available in Guix, then hastely wrote a service to see it would help (it did not)—secondly, you can probably just start =swww= from your window manager. Hyprland at least support for this.
+
+  Well, with my warning message left, onwards with the documentation:
+
+  The =(selected-guix-works home services wm)= module provides services for configuring applications proper for a window manager-based system.
+
+  Currently, the only available service is for [[https://github.com/LGFae/swww][swww]], a wallpaper manager.
+
+  The service reference is given below.
+
+  - Variable: ~home-swww-service-type~ ::
+
+    Service used to configure =swww=. Its value could be a ~home-swww-configuration~, detailed in the next sentences, but the default should suffice.
+
+  - Variable: ~home-swww-configuration~ ::
+
+    The most notable one is ~extra-options~.
+
+    - ~swww~ (file-like) ::
+
+      The =swww= package to be used. Defaults to this channel's =swww-next=.
+
+    - ~extra-options~ (list-of-strings) ::
+
+      Command-line arguments to be passed to the =swww-daemon=.
 
 * Utilities
 
