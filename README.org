@@ -64,6 +64,10 @@ This channel includes all[fn:10] Nerd Fonts[fn:3]. A meta package is available u
 
   hyprshot[fn:7] is a shell script designed for optimizing screenshot utilities for Hyprland. It uses grim[fn:8] to take the screenshot, and slurp[fn:9] to select an area.
 
+- =swww-next= ::
+
+  Updated version of swww[fn:16].
+
 * Services
 
 ** Home
@@ -389,3 +393,5 @@ My favourite of his works is “Expert Knob Twiddlers”, it has an album cover 
 [fn:14] “magit/magit” (2025). Magit. Available at: https://github.com/magit/magit (Accessed: March 15, 2025).
 
 [fn:15] giacomo- b (2025) “Giacomo-b/rust-stakeholder.” Available at: https://github.com/giacomo-b/rust-stakeholder (Accessed: April 2, 2025).
+
+[fn:16] Faé, L.G. (2025) “Lgfae/swww.” Available at: https://github.com/LGFae/swww (Accessed: April 10, 2025).
