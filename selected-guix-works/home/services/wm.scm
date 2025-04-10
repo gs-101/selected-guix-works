@@ -31,6 +31,7 @@
   #:use-module (gnu services shepherd)
   #:use-module (guix gexp)
   #:use-module (guix records)
+  #:use-module (selected-guix-works packages wm)
   #:use-module (srfi srfi-26)
   #:export (home-swww-configuration
             home-swww-service-type))
@@ -41,7 +42,7 @@
   home-swww-configuration make-home-swww-configuration
   home-swww-configuration?
   (swww home-swww-swww ; file-like
-        (default swww))
+        (default swww-next))
   (extra-options home-swww-extra-options ; list of strings
                  (default '())))
 
@@ -50,11 +51,11 @@
   (match-record config <home-swww-configuration>
                 (swww extra-options)
     (let* ((swww (file-append swww "/bin/swww-daemon"))
-           (command #~'(#$swww "-f xrgb" #$@extra-options))
+           (command #~'(#$swww #$@extra-options))
            (log-file #~(string-append %user-log-dir "/swww.log")))
       (list (shepherd-service
              (documentation
-              "Run the @command{swww} daemon for Wayland wallpapers.")
+              "Run @command{swww-daemon} for Wayland wallpapers.")
              (provision '(kodi))
              (modules '((shepherd support))) ; for '%user-log-dir'
              (start #~(make-forkexec-constructor #$command
