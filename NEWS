@@ -87,4 +87,16 @@ nothing.  Makes for a nice screensaver.")
               (pt "rust-stakeholder é um programa de output de terminal
 parecido com o @command{cmatrix} e o @command{no-more-secrets}.  Ele gera
 output de terminal que pode parecer significante para usuários não-técnicos,
-mas que na verdade não é nada.  Pode ser um bom screensaver."))))
+mas que na verdade não é nada.  Pode ser um bom screensaver.")))
+ (entry (commit "63f9f9a649bb48ebbe6788c28f592e012a00251e")
+        (title (en "Add home-swww-service-type")
+               (pt "Adicionar home-swww-service-type"))
+        (body (en "This service is simply run the @command{swww-daemon} from
+your Guix Home configuration, if you choose to do so.  I would recommend running
+it from your window manager instead.  There are configuration options, but
+the default is already enough.")
+              (pt "Este serviço simplesmente executa o @command{swww-daemon}
+a partir da sua configuração Home do Guix, se você tiver vontade.  Eu mesmo
+recomendaria que você executasse o comando a partir do seu window manager
+no lugar disso.  Têm umas opções de configuração, mas o padrão já é o
+suficiente."))))
