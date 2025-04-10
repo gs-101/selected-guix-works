@@ -147,14 +147,14 @@ emitting, and manipulation of YAML data.")
 (define-public rust-pay-respects-parser-0.3
   (package
     (name "rust-pay-respects-parser")
-    (version "0.3.8")
+    (version "0.3.9")
     (source
      (origin
        (method url-fetch)
        (uri (crate-uri "pay-respects-parser" version))
        (file-name (string-append name "-" version ".tar.gz"))
        (sha256
-        (base32 "1riiyi48n6h5w11x39baxh7ip0xb3n9aqd563hk3fnkm9lkps0f5"))))
+        (base32 "0aww6qm0agzcx3g69bblkkhxz2gnbmvyk335jla0bayvhx6pczqy"))))
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs (("rust-proc-macro2" ,rust-proc-macro2-1)
