@@ -40,7 +40,7 @@
 (define-public pay-respects
   (package
     (name "pay-respects")
-    (version "0.7.3")
+    (version "0.7.5")
     (source
      (origin
        (method url-fetch)
@@ -48,7 +48,7 @@
        (file-name (string-append name "-" version ".tar.gz"))
        (sha256
         (base32
-         "02yzh4zpzksb32iakjz4llsg0sc8xi67pcgaimnkxz3a8da77hp8"))))
+         "0slwj5s53s0vpfvj2hsimaicgyv75av318z6hi1knpqf6adynk1w"))))
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
