@@ -1,16 +1,6 @@
 #+title: Selected Guix Works
 #+OPTIONS: f:t
 
-#+begin_quote
-[!NOTE]
-
-This channel was recenty force-pushed, as I made a mistake when using my new shared key. If you get an error when updating the channel, you can check the files and commit history to verify that nothing malitious was added.
-
-Sorry for this, and thank you for adding the channel to your configuration.
-
-This message will be removed in the next 2 weeks, to give some time for context.
-#+end_quote
-
 Guix channel featuring many packages that will probably make their way upstream, as I'll probably not package proprietary software (and even if I did, I'd just upstream it to Nonguix instead).
 
 Modules are in the layout of Guix source.
