@@ -131,7 +131,8 @@ member of the @code{wheel} group.")
                                            "sleep"
                                            "slurp"
                                            "wc"
-                                           "wl-copy")
+                                           "wl-copy"
+                                           "xdg-user-dir")
                                          "|")
                                  ")\\>")
                   cmd)
@@ -152,7 +153,8 @@ member of the @code{wheel} group.")
            slurp
            util-linux+udev ; For getopt
            jq
-           wl-clipboard))
+           wl-clipboard
+           xdg-user-dirs))
     (home-page "https://github.com/Gustash/hyprshot")
     (synopsis "Hyprland screenshot utility")
     (description
