@@ -30,6 +30,8 @@
   #:use-module (gnu packages crates-io)
   #:use-module (gnu packages crates-vcs)
   #:use-module (gnu packages crates-check)
+  #:use-module (gnu packages crates-crypto)
+  #:use-module (gnu packages crates-windows)
   #:use-module (selected-guix-works packages crates-io)
   #:use-module (gnu packages compression)
   #:use-module (gnu packages version-control)
@@ -173,3 +175,49 @@ by Emacs' Magit.")
 terminal output so one can look busy.  Comes in different developer flavours
 and varying levels of jargon.")
       (license license:expat))))
+
+(define-public git-credential-keepassxc
+  (package
+    (name "git-credential-keepassxc")
+    (version "0.14.1")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "git-credential-keepassxc" version))
+       (file-name (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32 "0xfn3vk9rq9awmbq578hjy208lwsrn2afb4yv7v575dw8j13zk3b"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs (("rust-aes-gcm" ,rust-aes-gcm-0.10)
+                       ("rust-anyhow" ,rust-anyhow-1)
+                       ("rust-base64" ,rust-base64-0.22)
+                       ("rust-clap" ,rust-clap-3)
+                       ("rust-crypto-box" ,rust-crypto-box-0.9)
+                       ("rust-directories-next" ,rust-directories-next-2)
+                       ("rust-named-pipe" ,rust-named-pipe-0.4)
+                       ("rust-notify-rust" ,rust-notify-rust-4)
+                       ("rust-num-enum" ,rust-num-enum-0.7)
+                       ("rust-once-cell" ,rust-once-cell-1)
+                       ("rust-prctl" ,rust-prctl-1)
+                       ("rust-rand" ,rust-rand-0.8)
+                       ("rust-serde" ,rust-serde-1)
+                       ("rust-serde-json" ,rust-serde-json-1)
+                       ("rust-slog" ,rust-slog-2)
+                       ("rust-slog-term" ,rust-slog-term-2)
+                       ("rust-strum" ,rust-strum-0.26)
+                       ("rust-sysinfo" ,rust-sysinfo-0.31)
+                       ("rust-tabwriter" ,rust-tabwriter-1)
+                       ("rust-which" ,rust-which-6)
+                       ("rust-yubico-manager" ,rust-yubico-manager-0.9))
+       #:cargo-development-inputs (("rust-hmac" ,rust-hmac-0.12)
+                                   ("rust-mockall" ,rust-mockall-0.13)
+                                   ("rust-sha-1" ,rust-sha-1-0.10))
+       #:features (list "all"))) ; Personal preference, nice stuff here.
+    (home-page "https://github.com/Frederick888/git-credential-keepassxc")
+    (synopsis
+     "Use KeePassXC as a command-line credential store")
+    (description
+     "@code{git-credential-keepassxc} is a @code{git} credential helper that
+enables command-line applications to interact with @code{keepassxc} databases.")
+    (license license:gpl3+)))
