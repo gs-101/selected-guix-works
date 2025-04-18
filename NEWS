@@ -99,4 +99,13 @@ the default is already enough.")
 a partir da sua configuração Home do Guix, se você tiver vontade.  Eu mesmo
 recomendaria que você executasse o comando a partir do seu window manager
 no lugar disso.  Têm umas opções de configuração, mas o padrão já é o
-suficiente."))))
+suficiente.")))
+ (entry (commit "f482a3052d9816cad4a849393ed81e25918bd560")
+        (title (en "Add git-credential-keepassxc")
+               (pt "Adicionar git-credential-keepassxc"))
+        (body (en "@code{git-credential-keepassxc} is a @code{git} credential
+helper that facilitates the use of passwords from @code{keepassxc} databases by
+command-line programs.")
+              (pt "@code{git-credential-keepassxc} é um helper de credenciais
+para o @code{git} que ajuda no use de senhas armazenadas em databases do
+@code{keepassxc} por programas baseados em terminal."))))
