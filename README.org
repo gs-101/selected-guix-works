@@ -44,6 +44,10 @@ This channel includes all[fn:10] Nerd Fonts[fn:3]. A meta package is available u
 
   rust-stakeholder[fn:15] is a joke program that generates nonsensical terminal output that makes it seem like you're busy. Makes for a nice screensaver.
 
+- =git-credential-keepassxc= ::
+
+  git-credential-keepassxc[fn:17] is a =git= credential helper. It allows the use of KeePassXC as a source for passwords in command-line applications.
+
 ** Window Management
 
 - =hyprpolkitagent= ::
@@ -415,3 +419,5 @@ My favourite of his works is “Expert Knob Twiddlers”, it has an album cover 
 [fn:15] giacomo- b (2025) “Giacomo-b/rust-stakeholder.” Available at: https://github.com/giacomo-b/rust-stakeholder (Accessed: April 2, 2025).
 
 [fn:16] Faé, L.G. (2025) “Lgfae/swww.” Available at: https://github.com/LGFae/swww (Accessed: April 10, 2025).
+
+[fn:17] Zhang, F. (2025) “Frederick888/git-credential-keepassxc.” Available at: https://github.com/Frederick888/git-credential-keepassxc (Accessed: April 18, 2025).
