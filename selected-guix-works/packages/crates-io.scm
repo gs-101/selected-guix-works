@@ -37,6 +37,7 @@
   #:use-module (gnu packages crates-compression)
   #:use-module (gnu packages crates-crypto)
   #:use-module (gnu packages compression)
+  #:use-module (gnu packages libusb)
   #:use-module (gnu packages pkg-config)
   #:use-module (gnu packages version-control)
   #:use-module (gnu packages ssh)
@@ -2062,3 +2063,184 @@ templates.")
     (description
      "This package provides type-safe, compiled Jinja-like templates for Rust.")
     (license (list license:expat license:asl2.0))))
+
+(define-public rust-structure-macro-impl-0.1
+  (package
+    (name "rust-structure-macro-impl")
+    (version "0.1.2")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "structure-macro-impl" version))
+       (file-name (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32 "1jksyxhp7z83rxm6x427pps8f03hgymzz3v8g1cbpj194jgm5h70"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs (("rust-proc-macro-hack" ,rust-proc-macro-hack-0.4)
+                       ("rust-quote" ,rust-quote-0.3))))
+    (home-page "https://github.com/liranringel/structure")
+    (synopsis "Procedural macro crate for the structure crate")
+    (description
+     "This package provides Procedural macros @code{rust-structure} crate.")
+    (license (list license:expat license:asl2.0))))
+
+(define-public rust-structure-0.1
+  (package
+    (name "rust-structure")
+    (version "0.1.2")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "structure" version))
+       (file-name (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32 "0ngss4aylxg0pjwj8x5pv159hvh92ldikn8lic0mp4zqkkmrldx8"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs (("rust-byteorder" ,rust-byteorder-1)
+                       ("rust-proc-macro-hack" ,rust-proc-macro-hack-0.4)
+                       ("rust-structure-macro-impl" ,rust-structure-macro-impl-0.1))))
+    (home-page "https://github.com/liranringel/structure")
+    (synopsis
+     "Use format strings to create strongly-typed data pack/unpack interfaces")
+    (description
+     "This package provides format strings used to create strongly-typed data
+pack/unpack interfaces.")
+    (license (list license:expat license:asl2.0))))
+
+(define-public rust-libusb1-sys-0.5
+  (package
+    (name "rust-libusb1-sys")
+    (version "0.5.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "libusb1-sys" version))
+       (file-name (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32 "0gq27za2av9gvdz1pgwlzaw3bflyhlxj0inlqp31cs5yig88jbp2"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs (("rust-cc" ,rust-cc-1)
+                       ("rust-libc" ,rust-libc-0.2)
+                       ("rust-pkg-config" ,rust-pkg-config-0.3)
+                       ("rust-vcpkg" ,rust-vcpkg-0.2))
+       ;; These tests are incompatible with an isolated environment, since they
+       ;; try to get the list of devices.
+       #:cargo-test-flags '("--" "--skip=test_init_and_exit"
+                            "--skip=test_get_device_list")))
+    (inputs (list libusb))
+    (home-page "https://github.com/a1ien/rusb")
+    (synopsis "FFI bindings for libusb")
+    (description "This package provides FFI bindings for @code{libusb}.")
+    (license license:expat)))
+
+(define-public rust-rusb-0.8
+  (package
+    (name "rust-rusb")
+    (version "0.8.1")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "rusb" version))
+       (file-name (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32 "1b80icrc7amkg1mz1cwi4hprslfcw1g3w2vm3ixyfnyc5130i9fr"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs (("rust-libc" ,rust-libc-0.2)
+                       ("rust-libusb1-sys" ,rust-libusb1-sys-0.5))
+       #:cargo-development-inputs (("rust-regex" ,rust-regex-1))))
+    (home-page "https://github.com/a1ien/rusb")
+    (synopsis "Rust library for accessing USB devices")
+    (description
+     "This package provides a library for accessing USB devices.")
+    (license license:expat)))
+
+(define-public rust-yubico-manager-0.9
+  (package
+    (name "rust-yubico-manager")
+    (version "0.9.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "yubico_manager" version))
+       (file-name (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32 "1vlf0vpfma3gfhlpdss9fhhmsispyakkzn9vd2w3cy7j3110jr7z"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs (("rust-aes" ,rust-aes-0.7)
+                       ("rust-bitflags" ,rust-bitflags-1)
+                       ("rust-block-modes" ,rust-block-modes-0.8)
+                       ("rust-hmac" ,rust-hmac-0.11)
+                       ("rust-rand" ,rust-rand-0.8)
+                       ("rust-rusb" ,rust-rusb-0.8)
+                       ("rust-sha-1" ,rust-sha-1-0.9)
+                       ("rust-structure" ,rust-structure-0.1))
+       #:cargo-development-inputs (("rust-hex" ,rust-hex-0.3))))
+    (home-page "https://github.com/wisespace-io/yubico-manager")
+    (synopsis "Yubikey Challenge-Response & Configuration")
+    (description
+     "This package provides Yubikey Challenge-Response & Configuration.")
+    (license (list license:expat license:asl2.0))))
+
+(define-public rust-prctl-1
+  (package
+    (name "rust-prctl")
+    (version "1.0.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "prctl" version))
+       (file-name (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32 "0lkgnid3sjfbqf3sbcgyihlw80a6n9l6m0n23b7f5pm927qk96h5"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs (("rust-libc" ,rust-libc-0.2)
+                       ("rust-nix" ,rust-nix-0.29))))
+    (home-page "https://github.com/viraptor/prctl-rs")
+    (synopsis
+     "Safe abstraction to the linux prctl() interface")
+    (description
+     "This package provides a safe abstraction to the linux @code{prctl()}
+interface.  Some functions may be architecture-specific.")
+    (license license:expat)))
+
+(define-public rust-crypto-box-0.9
+  (package
+    (name "rust-crypto-box")
+    (version "0.9.1")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "crypto_box" version))
+       (file-name (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32 "02ghw0frbq99d9r52dmk3nxnac6s1i6cqm8ihnkchbm8757jn60n"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs (("rust-aead" ,rust-aead-0.5)
+                       ("rust-blake2" ,rust-blake2-0.10)
+                       ("rust-chacha20" ,rust-chacha20-0.9)
+                       ("rust-crypto-secretbox" ,rust-crypto-secretbox-0.1)
+                       ("rust-curve25519-dalek" ,rust-curve25519-dalek-4)
+                       ("rust-salsa20" ,rust-salsa20-0.10)
+                       ("rust-serdect" ,rust-serdect-0.2)
+                       ("rust-subtle" ,rust-subtle-2)
+                       ("rust-zeroize" ,rust-zeroize-1))
+       #:cargo-development-inputs (("rust-bincode" ,rust-bincode-1)
+                                   ("rust-hex-literal" ,rust-hex-literal-0.4)
+                                   ("rust-rand" ,rust-rand-0.8)
+                                   ("rust-rmp-serde" ,rust-rmp-serde-1))))
+    (home-page "https://github.com/RustCrypto/nacl-compat")
+    (synopsis
+     "Pure Rust implementation of NaCl's crypto_box")
+    (description
+     "This package provides a Rust implementation of NaCl's @code{crypto_box}
+public-key authenticated encryption primitive, which combines the X25519
+Elliptic Curve Diffie-Hellman function and the XSalsa20Poly1305 authenticated
+encryption cipher.")
+    (license (list license:asl2.0 license:expat))))
