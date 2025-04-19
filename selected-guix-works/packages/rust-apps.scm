@@ -39,39 +39,50 @@
 
   #:use-module (guix build-system cargo))
 
-(define-public pay-respects
+(define-public git-credential-keepassxc
   (package
-    (name "pay-respects")
-    (version "0.7.5")
+    (name "git-credential-keepassxc")
+    (version "0.14.1")
     (source
      (origin
        (method url-fetch)
-       (uri (crate-uri "pay-respects" version))
+       (uri (crate-uri "git-credential-keepassxc" version))
        (file-name (string-append name "-" version ".tar.gz"))
        (sha256
-        (base32
-         "0slwj5s53s0vpfvj2hsimaicgyv75av318z6hi1knpqf6adynk1w"))))
+        (base32 "0xfn3vk9rq9awmbq578hjy208lwsrn2afb4yv7v575dw8j13zk3b"))))
     (build-system cargo-build-system)
     (arguments
-     `(#:cargo-inputs
-       (("rust-askama" ,rust-askama-0.13)
-        ("rust-colored" ,rust-colored-3)
-        ("rust-inquire" ,rust-inquire-0.7)
-        ("rust-itertools" ,rust-itertools-0.14)
-        ("rust-pay-respects-parser" ,rust-pay-respects-parser-0.3)
-        ("rust-pay-respects-utils" ,rust-pay-respects-utils-0.1)
-        ("rust-regex-lite" ,rust-regex-lite-0.1)
-        ("rust-rust-i18n" ,rust-rust-i18n-3)
-        ("rust-sys-locale" ,rust-sys-locale-0.3))
-       #:install-source? #f))
-    (home-page "https://codeberg.org/iff/pay-respects")
-    (synopsis
-     "Command suggestions, @command{command-not-found} and @command{thefuck} replacement")
+     `(#:cargo-inputs (("rust-aes-gcm" ,rust-aes-gcm-0.10)
+                       ("rust-anyhow" ,rust-anyhow-1)
+                       ("rust-base64" ,rust-base64-0.22)
+                       ("rust-clap" ,rust-clap-3)
+                       ("rust-crypto-box" ,rust-crypto-box-0.9)
+                       ("rust-directories-next" ,rust-directories-next-2)
+                       ("rust-named-pipe" ,rust-named-pipe-0.4)
+                       ("rust-notify-rust" ,rust-notify-rust-4)
+                       ("rust-num-enum" ,rust-num-enum-0.7)
+                       ("rust-once-cell" ,rust-once-cell-1)
+                       ("rust-prctl" ,rust-prctl-1)
+                       ("rust-rand" ,rust-rand-0.8)
+                       ("rust-serde" ,rust-serde-1)
+                       ("rust-serde-json" ,rust-serde-json-1)
+                       ("rust-slog" ,rust-slog-2)
+                       ("rust-slog-term" ,rust-slog-term-2)
+                       ("rust-strum" ,rust-strum-0.26)
+                       ("rust-sysinfo" ,rust-sysinfo-0.31)
+                       ("rust-tabwriter" ,rust-tabwriter-1)
+                       ("rust-which" ,rust-which-6)
+                       ("rust-yubico-manager" ,rust-yubico-manager-0.9))
+       #:cargo-development-inputs (("rust-hmac" ,rust-hmac-0.12)
+                                   ("rust-mockall" ,rust-mockall-0.13)
+                                   ("rust-sha-1" ,rust-sha-1-0.10))
+       #:features (list "all"))) ;Personal preference, nice stuff here.
+    (home-page "https://github.com/Frederick888/git-credential-keepassxc")
+    (synopsis "Use KeePassXC as a command-line credential store")
     (description
-     "@command{pay-respects} suggests command corrections by simply pressing f
-after a mistake.")
-    (license license:agpl3+)))
-
+     "@code{git-credential-keepassxc} is a @code{git} credential helper that
+enables command-line applications to interact with @code{keepassxc} databases.")
+    (license license:gpl3+)))
 
 (define-public gitu
   (package
@@ -85,8 +96,7 @@ after a mistake.")
        (sha256
         (base32 "1p8h3c2apz18za8pijb3v7yrvabx0xwdrm52f8cq511hl4qn1mva"))))
     (build-system cargo-build-system)
-    (native-inputs (list zlib
-                         git))
+    (native-inputs (list zlib git))
     (arguments
      `(#:cargo-inputs (("rust-arboard" ,rust-arboard-3.4.1)
                        ("rust-chrono" ,rust-chrono-0.4)
@@ -142,82 +152,65 @@ after a mistake.")
 by Emacs' Magit.")
     (license license:expat)))
 
+(define-public pay-respects
+  (package
+    (name "pay-respects")
+    (version "0.7.5")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "pay-respects" version))
+       (file-name (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32 "0slwj5s53s0vpfvj2hsimaicgyv75av318z6hi1knpqf6adynk1w"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs (("rust-askama" ,rust-askama-0.13)
+                       ("rust-colored" ,rust-colored-3)
+                       ("rust-inquire" ,rust-inquire-0.7)
+                       ("rust-itertools" ,rust-itertools-0.14)
+                       ("rust-pay-respects-parser" ,rust-pay-respects-parser-0.3)
+                       ("rust-pay-respects-utils" ,rust-pay-respects-utils-0.1)
+                       ("rust-regex-lite" ,rust-regex-lite-0.1)
+                       ("rust-rust-i18n" ,rust-rust-i18n-3)
+                       ("rust-sys-locale" ,rust-sys-locale-0.3))
+       #:install-source? #f))
+    (home-page "https://codeberg.org/iff/pay-respects")
+    (synopsis
+     "Command suggestions, @command{command-not-found} and @command{thefuck} replacement")
+    (description
+     "@command{pay-respects} suggests command corrections by simply pressing f
+after a mistake.")
+    (license license:agpl3+)))
+
 (define-public rust-stakeholder
   ;; No tagged releases.
   (let ((commit "52f64ad3d61c439b500bc893cbc96050e7a2c85a"))
     (package
       (name "rust-stakeholder")
       (version commit)
-      (source (origin
-                (method git-fetch)
-                (uri (git-reference
-                      (url "https://github.com/giacomo-b/rust-stakeholder")
-                      (commit version)))
-                (file-name (git-file-name name version))
-                (sha256
-                 (base32
-                  "1j785mqgdiw1yzxn2fvfk6lj1caqmpc4nkhhpbmf6ywcl60s9ix8"))))
+      (source
+       (origin
+         (method git-fetch)
+         (uri (git-reference
+               (url "https://github.com/giacomo-b/rust-stakeholder")
+               (commit version)))
+         (file-name (git-file-name name version))
+         (sha256
+          (base32 "1j785mqgdiw1yzxn2fvfk6lj1caqmpc4nkhhpbmf6ywcl60s9ix8"))))
       (build-system cargo-build-system)
       (arguments
        (list
         #:install-source? #f
-        #:cargo-inputs
-        `(("rust-clap" ,rust-clap-4.5.32)
-          ("rust-colored" ,rust-colored-3)
-          ("rust-console" ,rust-console-0.15.11)
-          ("rust-indicatif" ,rust-indicatif-0.17.11)
-          ("rust-rand" ,rust-rand-0.9))))
+        #:cargo-inputs `(("rust-clap" ,rust-clap-4.5.32)
+                         ("rust-colored" ,rust-colored-3)
+                         ("rust-console" ,rust-console-0.15.11)
+                         ("rust-indicatif" ,rust-indicatif-0.17.11)
+                         ("rust-rand" ,rust-rand-0.9))))
       (home-page "https://github.com/giacomo-b/rust-stakeholder")
-      (synopsis
-       "Generate impressive-looking terminal output to look busy")
+      (synopsis "Generate impressive-looking terminal output to look busy")
       (description
        "@command{rust-stakeholder} is a joke program that generates nonsensical
 terminal output so one can look busy.  Comes in different developer flavours
 and varying levels of jargon.")
       (license license:expat))))
-
-(define-public git-credential-keepassxc
-  (package
-    (name "git-credential-keepassxc")
-    (version "0.14.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "git-credential-keepassxc" version))
-       (file-name (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32 "0xfn3vk9rq9awmbq578hjy208lwsrn2afb4yv7v575dw8j13zk3b"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs (("rust-aes-gcm" ,rust-aes-gcm-0.10)
-                       ("rust-anyhow" ,rust-anyhow-1)
-                       ("rust-base64" ,rust-base64-0.22)
-                       ("rust-clap" ,rust-clap-3)
-                       ("rust-crypto-box" ,rust-crypto-box-0.9)
-                       ("rust-directories-next" ,rust-directories-next-2)
-                       ("rust-named-pipe" ,rust-named-pipe-0.4)
-                       ("rust-notify-rust" ,rust-notify-rust-4)
-                       ("rust-num-enum" ,rust-num-enum-0.7)
-                       ("rust-once-cell" ,rust-once-cell-1)
-                       ("rust-prctl" ,rust-prctl-1)
-                       ("rust-rand" ,rust-rand-0.8)
-                       ("rust-serde" ,rust-serde-1)
-                       ("rust-serde-json" ,rust-serde-json-1)
-                       ("rust-slog" ,rust-slog-2)
-                       ("rust-slog-term" ,rust-slog-term-2)
-                       ("rust-strum" ,rust-strum-0.26)
-                       ("rust-sysinfo" ,rust-sysinfo-0.31)
-                       ("rust-tabwriter" ,rust-tabwriter-1)
-                       ("rust-which" ,rust-which-6)
-                       ("rust-yubico-manager" ,rust-yubico-manager-0.9))
-       #:cargo-development-inputs (("rust-hmac" ,rust-hmac-0.12)
-                                   ("rust-mockall" ,rust-mockall-0.13)
-                                   ("rust-sha-1" ,rust-sha-1-0.10))
-       #:features (list "all"))) ; Personal preference, nice stuff here.
-    (home-page "https://github.com/Frederick888/git-credential-keepassxc")
-    (synopsis
-     "Use KeePassXC as a command-line credential store")
-    (description
-     "@code{git-credential-keepassxc} is a @code{git} credential helper that
-enables command-line applications to interact with @code{keepassxc} databases.")
-    (license license:gpl3+)))
