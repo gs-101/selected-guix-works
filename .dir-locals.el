@@ -16,6 +16,8 @@
 ;;; Copyright © 2024 Christopher Baines <mail@cbaines.net>
 ;;; Copyright © 2024 Tomas Volf <~@wolfsden.cz>
 ;;; Copyright © 2024 Nicolas Graves <ngraves@ngraves.fr>
+;;; Copyright © 2025 Gabriel Santos <gabrielsantosdesouza@disroot.org>
+;;;
 ;;; This file is part of GNU Guix.
 ;;;
 ;;; GNU Guix is free software; you can redistribute it and/or modify it
@@ -32,6 +34,7 @@
 ;;; along with GNU Guix.  If not, see <http://www.gnu.org/licenses/>.
 
 ;; Per-directory local variables for GNU Emacs 23 and later.
+
 ((nil
   . ((fill-column . 78)
      (tab-width   .  8)
