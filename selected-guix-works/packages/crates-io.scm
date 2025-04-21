@@ -716,37 +716,6 @@ emitting, and manipulation of YAML data.")
      "This package provides a lightweight logging facade for Rust.")
     (license (list license:expat license:asl2.0))))
 
-(define-public rust-notify-7
-  (package
-    (name "rust-notify")
-    (version "7.0.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "notify" version))
-       (file-name (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32 "02a0a1n0raxqslwhfprwmz7w34v54r42006q0m8bmy89jz1v8cy5"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs (("rust-bitflags" ,rust-bitflags-2)
-                       ("rust-crossbeam-channel" ,rust-crossbeam-channel-0.5)
-                       ("rust-filetime" ,rust-filetime-0.2)
-                       ("rust-fsevent-sys" ,rust-fsevent-sys-4)
-                       ("rust-inotify" ,rust-inotify-0.10)
-                       ("rust-kqueue" ,rust-kqueue-1)
-                       ("rust-libc" ,rust-libc-0.2)
-                       ("rust-log" ,rust-log-0.4.26)
-                       ("rust-mio" ,rust-mio-1)
-                       ("rust-notify-types" ,rust-notify-types-1)
-                       ("rust-walkdir" ,rust-walkdir-2)
-                       ("rust-windows-sys" ,rust-windows-sys-0.52))))
-    (home-page "https://github.com/notify-rs/notify")
-    (synopsis "Cross-platform filesystem notification library")
-    (description "This package contains a cross-platform filesystem
-notification library.")
-    (license license:cc0)))
-
 (define-public rust-notify-types-1
   (package
     (name "rust-notify-types")
