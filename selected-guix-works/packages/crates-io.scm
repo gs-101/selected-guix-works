@@ -223,6 +223,38 @@ assist in invoking the native C compiler to compile native C code into a static
 archive to be linked into Rustcode.")
     (license (list license:expat license:asl2.0))))
 
+(define-public rust-chrono-0.4.4
+  (package
+    (inherit rust-chrono-0.4)
+    (name "rust-chrono")
+    (version "0.4.40")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "chrono" version))
+       (file-name (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32 "0z334kqnvq5zx6xsq1k6zk8g9z14fgk2w3vkn4n13pvi3mhn8y8s"))))
+    (arguments
+     `(#:cargo-inputs
+       (("rust-android-tzdata" ,rust-android-tzdata-0.1)
+        ("rust-arbitrary" ,rust-arbitrary-1)
+        ("rust-iana-time-zone" ,rust-iana-time-zone-0.1)
+        ("rust-js-sys" ,rust-js-sys-0.3)
+        ("rust-num-traits" ,rust-num-traits-0.2)
+        ("rust-pure-rust-locales" ,rust-pure-rust-locales-0.8)
+        ("rust-rkyv" ,rust-rkyv-0.7)
+        ("rust-serde" ,rust-serde-1)
+        ("rust-wasm-bindgen" ,rust-wasm-bindgen-0.2)
+        ("rust-windows-link" ,rust-windows-link-0.1))
+       #:cargo-development-inputs
+       (("rust-bincode" ,rust-bincode-1)
+        ("rust-serde-derive" ,rust-serde-derive-1)
+        ("rust-serde-json" ,rust-serde-json-1)
+        ("rust-similar-asserts" ,rust-similar-asserts-1.7)
+        ("rust-wasm-bindgen-test" ,rust-wasm-bindgen-test-0.3)
+        ("rust-windows-bindgen" ,rust-windows-bindgen-0.60))))))
+
 (define-public rust-clap-4.5.32
   (package
     (name "rust-clap")
@@ -1225,6 +1257,19 @@ serialization and deserialization of Rust data structures to and
 from YAML format using the widely-used Serde framework.")
     (license (list license:expat license:asl2.0))))
 
+(define-public rust-similar-asserts-1.7
+  (package
+    (inherit rust-similar-asserts-1)
+    (name "rust-similar-asserts")
+    (version "1.7.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "similar-asserts" version))
+       (file-name (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32 "16pb45hmcl5hx3xc4bb48gzhr8q35zc2p8j7i1836zl15jb43d5m"))))))
+
 (define-public rust-siphasher-1
   (package
     (name "rust-siphasher")
@@ -2037,6 +2082,39 @@ attribute that is not in the shared backend crate.")
     (description
      "This package provides bindings for all Web APIs, a procedurally generated
 crate from WebIDL.")
+    (license (list license:expat license:asl2.0))))
+
+(define-public rust-windows-bindgen-0.60
+  (package
+    (inherit rust-windows-bindgen-0.58)
+    (name "rust-windows-bindgen")
+    (version "0.60.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "windows-bindgen" version))
+       (file-name (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32 "0s32v8sl07s0gb0c8lspnl8d0dzcgj9bppg09dih1gflv408sbyp"))))))
+
+(define-public rust-windows-link-0.1
+  (package
+    (name "rust-windows-link")
+    (version "0.1.1")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "windows-link" version))
+       (file-name (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32 "0f2cq7imbrppsmmnz8899hfhg07cp5gq6rh0bjhb1qb6nwshk13n"))))
+    (arguments
+     ;; Tests probably require a Windows system.
+     (list #:tests? #f))
+    (build-system cargo-build-system)
+    (home-page "https://github.com/microsoft/windows-rs")
+    (synopsis "Linking for Windows")
+    (description "This package provides linking for Windows.")
     (license (list license:expat license:asl2.0))))
 
 (define-public rust-winnow-0.7
