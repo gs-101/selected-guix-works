@@ -87,19 +87,19 @@ enables command-line applications to interact with @code{keepassxc} databases.")
 (define-public gitu
   (package
     (name "gitu")
-    (version "0.29.0")
+    (version "0.30.3")
     (source
      (origin
        (method url-fetch)
        (uri (crate-uri "gitu" version))
        (file-name (string-append name "-" version ".tar.gz"))
        (sha256
-        (base32 "1p8h3c2apz18za8pijb3v7yrvabx0xwdrm52f8cq511hl4qn1mva"))))
+        (base32 "1500dxfnr4i6w3m4s03jddc07z8klspflc05102k13rygbhscdqp"))))
     (build-system cargo-build-system)
     (native-inputs (list zlib git))
     (arguments
      `(#:cargo-inputs (("rust-arboard" ,rust-arboard-3.4.1)
-                       ("rust-chrono" ,rust-chrono-0.4)
+                       ("rust-chrono" ,rust-chrono-0.4.4)
                        ("rust-clap" ,rust-clap-4)
                        ("rust-crossterm" ,rust-crossterm-0.28)
                        ("rust-etcetera" ,rust-etcetera-0.8)
@@ -146,23 +146,23 @@ enables command-line applications to interact with @code{keepassxc} databases.")
                                    ("rust-temp-dir" ,rust-temp-dir-0.1)
                                    ("rust-unicode-width" ,rust-unicode-width-0.2))
        #:install-source? #f))
-    (home-page "")
+    (home-page "https://github.com/altsem/gitu")
     (synopsis "git client inspired by Magit")
     (description "@code{gitu} is a git Terminal User Interface inspired
-by Emacs' Magit.")
+by @code{emacs-magit}.")
     (license license:expat)))
 
 (define-public pay-respects
   (package
     (name "pay-respects")
-    (version "0.7.5")
+    (version "0.7.6")
     (source
      (origin
        (method url-fetch)
        (uri (crate-uri "pay-respects" version))
        (file-name (string-append name "-" version ".tar.gz"))
        (sha256
-        (base32 "0slwj5s53s0vpfvj2hsimaicgyv75av318z6hi1knpqf6adynk1w"))))
+        (base32 "0j13j0ajy77m39bm59rh37vxm0l8axw13bxjn5gj2k7fik4pa3ll"))))
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs (("rust-askama" ,rust-askama-0.13)
