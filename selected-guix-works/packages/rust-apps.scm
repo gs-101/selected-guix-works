@@ -87,19 +87,19 @@ enables command-line applications to interact with @code{keepassxc} databases.")
 (define-public gitu
   (package
     (name "gitu")
-    (version "0.30.3")
+    (version "0.29.0")
     (source
      (origin
        (method url-fetch)
        (uri (crate-uri "gitu" version))
        (file-name (string-append name "-" version ".tar.gz"))
        (sha256
-        (base32 "1500dxfnr4i6w3m4s03jddc07z8klspflc05102k13rygbhscdqp"))))
+        (base32 "1p8h3c2apz18za8pijb3v7yrvabx0xwdrm52f8cq511hl4qn1mva"))))
     (build-system cargo-build-system)
     (native-inputs (list zlib git))
     (arguments
      `(#:cargo-inputs (("rust-arboard" ,rust-arboard-3.4.1)
-                       ("rust-chrono" ,rust-chrono-0.4.4)
+                       ("rust-chrono" ,rust-chrono-0.4)
                        ("rust-clap" ,rust-clap-4)
                        ("rust-crossterm" ,rust-crossterm-0.28)
                        ("rust-etcetera" ,rust-etcetera-0.8)
