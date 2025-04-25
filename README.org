@@ -30,6 +30,12 @@ Use this for adding this channel to your configuration:
 
 This channel includes all[fn:10] Nerd Fonts[fn:3]. A meta package is available under the name of =fonts-nerd-fonts=, with all other packages following the same naming convention (=fonts-nerd-fonts-inconsolata=).
 
+** GNOME
+
+- =adw-gtk-theme= ::
+
+  adw[fn:18] is a theme for GTK 3 inspired on the current "Adwaita" design philosophy of GNOME, found on GTK 4. This theme enables styling by defining colors in the same way as it's done in GTK 4.
+
 ** Rust Apps
 
 - =pay-respects= ::
@@ -421,3 +427,5 @@ My favourite of his works is “Expert Knob Twiddlers”, it has an album cover 
 [fn:16] Faé, L.G. (2025) “Lgfae/swww.” Available at: https://github.com/LGFae/swww (Accessed: April 10, 2025).
 
 [fn:17] Zhang, F. (2025) “Frederick888/git-credential-keepassxc.” Available at: https://github.com/Frederick888/git-credential-keepassxc (Accessed: April 18, 2025).
+
+[fn:18] Mattias (2025) “Lassekongo83/adw-gtk3.” Available at: https://github.com/lassekongo83/adw-gtk3 (Accessed: April 25, 2025).
