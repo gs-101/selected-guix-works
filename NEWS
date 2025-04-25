@@ -108,4 +108,14 @@ helper that facilitates the use of passwords from @code{keepassxc} databases by
 command-line programs.")
               (pt "@code{git-credential-keepassxc} é um helper de credenciais
 para o @code{git} que ajuda no use de senhas armazenadas em databases do
-@code{keepassxc} por programas baseados em terminal."))))
+@code{keepassxc} por programas baseados em terminal.")))
+ (entry (commit "ee23b66fe91797755c04cc548ef7159125767ef8")
+        (title (en "Add adw-gtk-theme")
+               (pt "Adicionar adw-gtk-theme"))
+        (body (en "@code{adw-gtk-theme} is a theme for GTK 3 inspired on the
+current \"Adwaita\" design of GNOME, found on GTK 4.  It enables theming
+by using the same color names as GTK 4.")
+              (pt "@code{adw-gtk-theme} é um tema para o GTK 3 inspirado no
+atual design \"Adwaita\" do GNOME, encontrado no GTK 4.  Este tema permite
+personalização adicional das cores utilizando os mesmos nomes apara as cores
+que o GTK 4 usa."))))
