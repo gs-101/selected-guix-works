@@ -30,12 +30,6 @@ Use this for adding this channel to your configuration:
 
 This channel includes all[fn:10] Nerd Fonts[fn:3]. A meta package is available under the name of =fonts-nerd-fonts=, with all other packages following the same naming convention (=fonts-nerd-fonts-inconsolata=).
 
-** GNOME
-
-- =adw-gtk-theme= ::
-
-  adw[fn:18] is a theme for GTK 3 inspired on the current "Adwaita" design philosophy of GNOME, found on GTK 4. This theme enables styling by defining colors in the same way as it's done in GTK 4.
-
 ** Rust Apps
 
 - =pay-respects= ::
