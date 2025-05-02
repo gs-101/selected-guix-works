@@ -118,4 +118,18 @@ by using the same color names as GTK 4.")
               (pt "@code{adw-gtk-theme} é um tema para o GTK 3 inspirado no
 atual design \"Adwaita\" do GNOME, encontrado no GTK 4.  Este tema permite
 personalização adicional das cores utilizando os mesmos nomes apara as cores
-que o GTK 4 usa."))))
+que o GTK 4 usa.")))
+ (entry (commit "56bc493d0d44a35742f12b789bb09382d135f8fa")
+        (title (en "Deprecate adw-gtk-theme")
+               (pt "Aposentar adw-gtk-theme"))
+        (body (en "The @code{adw-gtk-theme} package has been deprecated,
+as it was recently upstreamed, on commit \"8f39ade\".  Deprecation was done
+instead of direct removal because the package was upstreamed under a different
+name.  It will be removed from this channel next week, so be sure to prepare
+for the migration.")
+              (pt "O pacote @code{adw-gtk-theme} foi aposentado (é assim que
+fala? Não sei, se você sabe português e estiver errado abra uma dicussão no
+GitHub por favor) já que foi recentemente adicionado ao Guix, no commit
+\"8f39ade\".  Essa \"aposentadoria\" foi feita em vez da remoção direta porque
+o pacot foi adicionado sob um nome diferente.  Ele será removido deste canal em
+uma semana, então se prepare para a migração."))))
