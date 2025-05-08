@@ -28,7 +28,7 @@ Use this for adding this channel to your configuration:
 
 *** Nerd Fonts
 
-This channel includes all[fn:10] Nerd Fonts[fn:3]. A meta package is available under the name of =fonts-nerd-fonts=, with all other packages following the same naming convention (=fonts-nerd-fonts-inconsolata=).
+This channel includes all Nerd Fonts[fn:3]. A meta package is available under the name of =fonts-nerd-fonts=, with all other packages following the same naming convention (=fonts-nerd-fonts-inconsolata=).
 
 ** Rust Apps
 
@@ -405,8 +405,6 @@ My favourite of his works is “Expert Knob Twiddlers”, it has an album cover 
 [fn:8] Ser, S. (2025) “emersion/grim.” Available at: https://sr.ht/~emersion/grim (Accessed: February 13, 2025).
 
 [fn:9] Ser, S. (2025) “emersion/slurp.” Available at: https://github.com/emersion/slurp (Accessed: February 13, 2025).
-
-[fn:10] CaskaydiaCove and CaskaydiaMono are excluded, as regular Cascadia Code already includes Nerd Fonts.
 
 [fn:11] Gallant, A. (2025) “Burntsushi/ripgrep.” Available at: https://github.com/BurntSushi/ripgrep (Accessed: March 5, 2025).
 
