@@ -42,6 +42,7 @@
     ("agave" . "139ck1q5nrhq07s3da4k3jzvf8xv4si822gcvkwj53ns34bnzmnd")
     ("anonymouspro" . "1176b879y89anxrkz68vkya02jmy31kbgscxqa4ijiw1bpa31y6h")
     ("arimo" . "1i04cq2l92brvc3fdk1ih1hrynygk05362hicdh41lw1lmkrcvzd")
+    ("atkinsonhyperlegiblemono" . "1l4nkvhyfgqj5hihzdghgppwwc4qcgm82nw6w02igpgq8hnkz5rv")
     ("aurulentsansmono" . "1qp4hh8nfvjzvyfs5kydrnkgvi763ja7yb4kwgvwnni5924dv2v0")
     ("bigblueterminal" . "0ji90yicla2nxfxd0884wpcbpzdi272knsbg344a3ll033n56ca5")
     ("bitstreamverasansmono" . "0i9g0k8n0nn24gi6n9kzzdy3fm3w2plvm2az6rs4nswcwllf8ig2")
@@ -196,6 +197,16 @@ The package is named @code{anonymice-pro} because Anonymous Pro is a reserved na
    "Nerd Fonts version of Arimo, a sans-serif font
 metrically similar to Arial, which includes a
 pan-European WGL character set."))
+
+(define-public font-nerd-fonts-atkinson-hyperlegible-mono
+  (make-nerd-font-custom-name
+   "atkinsonhyperlegiblemono"
+   "atkinson-hyperlegible-mono"
+   "Nerd Fonts patched version of Atkinson Hyperlegible Mono"
+   "Nerd Fonts version of Atkinson Hyperlegible Mono, a font designed for
+readers with low vision, using unique glyphs to improve reading comprehension.
+It is a comissioned work from Applied Design Works, requested by the Braille
+Institute."))
 
 (define-public font-nerd-fonts-aurulent-sans-mono
   (make-nerd-font-custom-name
@@ -765,6 +776,7 @@ Contains ligatures."))
                   font-nerd-fonts-agave
                   font-nerd-fonts-anonymice-pro
                   font-nerd-fonts-arimo
+                  font-nerd-fonts-atkinson-hyperlegible-mono
                   font-nerd-fonts-aurulent-sans-mono
                   font-nerd-fonts-big-blue-terminal
                   font-nerd-fonts-bitstrom-wera
