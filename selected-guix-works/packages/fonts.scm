@@ -33,12 +33,80 @@
                 #:prefix license:))
 
 (define nerd-fonts-version
-  "3.3.0")
+  "3.4.0")
 
-(define (make-nerd-font pkg hash synopsis description)
+(define nerd-fonts-hashes
+  '(("0xproto" . "07d15njvrp2bcbk29nwmyjij5qcq00hixw35dfcfpqgvkvn7y3p5")
+    ("3270" . "0bmj22iv2f3pvxj8ds6ry9q1xjd76j61k6670a1mb47vxax78ma5")
+    ("agave" . "139ck1q5nrhq07s3da4k3jzvf8xv4si822gcvkwj53ns34bnzmnd")
+    ("anonymouspro" . "1176b879y89anxrkz68vkya02jmy31kbgscxqa4ijiw1bpa31y6h")
+    ("arimo" . "1i04cq2l92brvc3fdk1ih1hrynygk05362hicdh41lw1lmkrcvzd")
+    ("aurulentsansmono" . "1qp4hh8nfvjzvyfs5kydrnkgvi763ja7yb4kwgvwnni5924dv2v0")
+    ("bigblueterminal" . "0ji90yicla2nxfxd0884wpcbpzdi272knsbg344a3ll033n56ca5")
+    ("bitstreamverasansmono" . "0i9g0k8n0nn24gi6n9kzzdy3fm3w2plvm2az6rs4nswcwllf8ig2")
+    ("ibmplexmono" . "0iqq9c2301avkr6x5y4xfbihpibsa27q9inpk4fxb2qdcn1xrsfn")
+    ("cascadiacode" . "03ll8p12gbcc9nnv6chzmzqw803j1c374p4fk6dbd9m0a4rrk04d")
+    ("cascadiamono" . "14qmli0kh7mc5c46cfsasm33zhi4xywjajaqzhs5g97m2v74mp4m")
+    ("codenewroman" . "0amyvbl5gb1xsd0wzl0qwd93jhapklaf0l57w7ak5awqydkyhgaa")
+    ("comicshannsmono" . "1hcn5rwbp5h0sskcp3q2zbhxfvx24g1mkfbs27scchw3a1prdldi")
+    ("commitmono" . "08vzlrx5wdz1czifrmjv5nl68fiq01ki8nb4xa53j153ar08qrgs")
+    ("cousine" . "10psgizrnamaxq5dq1j22pz7276hwyj4dbj97q3djj66wvphsbm6")
+    ("d2coding" . "0i8kar9pzkph4ddfm69jqn09qrx8882vqgaf8m76x8817f6az6nx")
+    ("daddytimemono" . "04zlziapf5fa0kch5yry7kqrj51k7gj9a5r2njkv2r6fklqf4l1k")
+    ("departuremono" . "12nypa73iv4z5axpkg03msrw2ghjc01qdg1akwpbfcdfzh78k1p1")
+    ("dejavusansmono" . "1a7pz0g73jd4h7fbf2iafx8v28i4gj72ny3i0pm1h4rkv9dfn5s6")
+    ("droidsansmono" . "123f62fyxdw01njcj7r8ipfd0rff9c7jys005y337j0734s2j0h3")
+    ("envycoder" . "08y15hlfpp038xn2sl6lgj38hds80mkabvwy7nqqqahawh9v1d5j")
+    ("fantasquesansmono" . "0hfdd89n2dkz3affvmlh57pwr15rv0krws4clxcgy7x640jgxii9")
+    ("firacode" . "02yax10vx7pa5pc403pllzvmy5lqha04kcdpv9693z51yzcgzi3w")
+    ("firamono" . "1r21i374qgivz9rhx0ms1l3aqjv53wd3p3qsf8cdajk1cj8vjdzg")
+    ("geistmono" . "1j9yvfppq3fqccqm7qyvjpnjf08rf47r89m5m57xna84gxxipxm9")
+    ("go-mono" . "07bp4n8jf93bic983hq4ris2k1kw4blph4wz467dhd0dmffvfij9")
+    ("gohu" . "0nbrrgr0zvxsm5cddhnwqypbdzdrq796cy49v0rj6irckjcb2696")
+    ("hack" . "15v8qdrl7y6r2rsjvszrh2j19adzy916rll05f3jsfciqxh3m8wc")
+    ("hasklig" . "1bx3h6zjjm4n3sa63mn70b8bwhmi3wrgx2qvb4f6ppda6ya2mnag")
+    ("heavydata" . "0x1mwvikphfi7lp4vd27di66ki7cr0fj15sgzadg2r48l4dr3gkz")
+    ("hermit" . "1a35hy48xhrz0ssx42r0bflllzgxhadf8y68n9hgyxf7x75p6fqj")
+    ("ia-writer" . "05pfnf54vj3cv7dqpdk9crz65zbjf2qqxfkqv67cyn990cghr5bh")
+    ("inconsolata" . "0syvn7083anlxdfhprznqb0m5rnx69k505w8hd782ilwkglh0dpc")
+    ("inconsolatago" . "1hpmirk7afly3yvg23p7fcsxh3lxxwspw6ibfd6m6sb2r530s7zy")
+    ("inconsolatalgc" . "03v6y2rb6450a6b685wia6cx2rnk1fs0m085306651askqjnbn29")
+    ("intelonemono" . "1ki98v7k2vlj71ssagvpnjjdnxvhlx9q7jv5jdaqdrfax0igvkjz")
+    ("iosevka" . "0bz0jykmb5k9bippxz7hqz12iw772w9ik2ki1k8w6g4kiyxyxisi")
+    ("iosevkaterm" . "0hf278p1p26gk7sj6bsnz243flhzcz399i0g2s58jlwj8m3h40fl")
+    ("iosevkatermslab" . "15rlcg8k6k2mlyjm0vicsgqsil7kmf3znllnpyhz1ixrz7hl8pgm")
+    ("jetbrainsmono" . "0g29gj9d6720grfr2vasnvdppzw4hycpfyd5di54d2p4mkrmzw3n")
+    ("lekton" . "1h4yqldrqkdp05fdcnbi8kyhmzn2if4nf5143l1b9cl0s2j6hqxp")
+    ("liberationmono" . "0mgb7r4s8x8j175kjycjk7skbpk2rmlrw07wk2hfvj6lsa155hn9")
+    ("lilex" . "1q94iflq0lbya5w185y47xgx89arswyp38aax693r4m27hxckazh")
+    ("martianmono" . "15c05kl49iy9b83bl9c08dsmqdkgr85mr697s24dcp01a68fbvvn")
+    ("meslo" . "0mxd35d2cx894w57hc5pbcbjpm1ww9h4a1hq20bd7n9bijn05d8k")
+    ("monaspace" . "0qiyz7paq4nnh1a189inav1iclsr69mqcyzwxqrwc27yadf0cb03")
+    ("monofur" . "15cr4kn6sgygic3agnsck6kizkw1y51br61dsk4626l2hlxnl7is")
+    ("monoid" . "0nspxa412l6fxx0yhp89cglrr1jl1f6k1z858nasg1678cyx66ws")
+    ("mononoki" . "0zcnvb76jq9hajf8pfw6hyi1iwfm7v0jvz5gi2cbxydq28ri20kc")
+    ("mplus" . "1l2jamxg3g39j9vyjhx2psd3wvgdihimzzxrrswc4bsx59kimd8y")
+    ("noto" . "1fa4nn8ghprfnv3hq6r43lq1qjlmfwi5nkrj6kpa78w8nyhki47b")
+    ("opendyslexic" . "15f8s4z59njy22x6yxgafxq6xavmssp3qsr9hzqmw04s8hdx6r6q")
+    ("overpass" . "0hxqxr5yswj22dwk14l328imfqnyjw4llwhidjmqc120rv0s9r9r")
+    ("profont" . "04q443j22kd9pb9jwkfgaiw2zms6lp7mnws23v5qqffg6c2j4slc")
+    ("proggyclean" . "1s9byn1cxcj19bpbfkl5arq1bwy7fv745i19xwi03bcp9ck3lbyq")
+    ("recursive" . "0bvhxnqy7y7vxi8aivh3riqw9kr8jpk0hj291199bdg2kpnk5n0b")
+    ("robotomono" . "17rw233h9mhg4zsnpl54f5hs25b3ydrsp0kd8z05apwbpk8fk944")
+    ("sharetechmono" . "0ciwnkhzzpsj494ykg215fjbcsi0slc5qilrbpb2jydlr2gk82fl")
+    ("sourcecodepro" . "0lxdqpsd5j102djdwb1gy44z2ak99bssyfn0lz1bhq8pdmbwbazq")
+    ("spacemono" . "1qa5209cn5d7irlrqjcdpxcv91jzwx8b727b6nicsm2cg7pnipay")
+    ("terminus" . "13kdsnl4irjwglwsgi1i72k42r80wklmmsk4d8wkh04jgd8raamm")
+    ("tinos" . "1qmqf2nmkbcqfgfz2k0xk3dfj6d6qvf17bpzviipg4w0mg9nw48m")
+    ("ubuntu" . "05a99m5g0n0wdaj7liiv2ma3md88rf5yp4icclik2l6g1izxw65d")
+    ("ubuntumono" . "17i0369rfn057a6jhhfkrgzdn2n5p4d3yaznkhc6r7k4lmkhw12x")
+    ("ubuntusans" . "1mrlji3pi2n1rfqc37wqlvd9szys13y1vp9j9q24zvm3dmkf4rhi")
+    ("victormono" . "0brz041waf9w4fsry6w0svaj5190930k2sihsddhrxjrzhkxhjwv")
+    ("zedmono" . "0g3bilp59amr42xpkd80b0gg6w91affs48rs5n8wi1kr056z5k8l")))
+
+(define (make-nerd-font pkg synopsis description)
   (package
-    (name (string-append "font-nerd-fonts-"
-                         (string-downcase pkg)))
+    (name (string-append "font-nerd-fonts-" pkg))
     (version nerd-fonts-version)
     (source
      (origin
@@ -50,18 +118,18 @@
                            pkg
                            ".zip"))
        (sha256
-        (base32 hash))))
+        (base32 (assoc-ref nerd-fonts-hashes pkg)))))
     (build-system font-build-system)
     (home-page "https://www.nerdfonts.com/")
     (synopsis synopsis)
     (description description)
     (license license:silofl1.1)))
 
-;; Used fonts with reserved names and compound names.
-(define (make-nerd-font-custom-name pkg custom-name hash synopsis description)
+;; Used for fonts with reserved names and compound names.
+(define (make-nerd-font-custom-name pkg custom-name synopsis description)
   (package
     (name (string-append "font-nerd-fonts-" custom-name))
-    (version "3.3.0")
+    (version nerd-fonts-version)
     (source
      (origin
        (method url-fetch)
@@ -72,39 +140,41 @@
                            pkg
                            ".zip"))
        (sha256
-        (base32 hash))))
+        ;; To keep it consistent with the previous procedure, "pkg" will be used.
+        (base32 (assoc-ref nerd-fonts-hashes pkg)))))
     (build-system font-build-system)
     (home-page "https://www.nerdfonts.com/")
     (synopsis synopsis)
     (description description)
     (license license:silofl1.1)))
 
-;; All Nerd Fonts
+;; All Nerd Fonts.
 
 (define-public font-nerd-fonts-0xproto
-  (make-nerd-font "0xproto"
-   "0ys8svpvcghn5sdly7njnlkvki26pdhpf43m5xwld2bfnbbbiplr"
+  (make-nerd-font
+   "0xproto"
    "Nerd Font patched version of 0xProto"
    "Nerd Fonts version of 0xProto, a programming font focused on
 code legibility."))
 
 (define-public font-nerd-fonts-3270
-  (make-nerd-font "3270"
-   "14zfh0r0a2849m66kl3q4rj74n05qahba4x0z00jm1pgbqfp1c2r"
+  (make-nerd-font
+   "3270"
    "Nerd Fonts patched version of x3270"
    "Nerd Fonts version of the font used in the
 IBM 3270, an IBM machine introduced to the public in 1971."))
 
 (define-public font-nerd-fonts-agave
-  (make-nerd-font "agave"
-   "0nyqgp6linw48idsb0mbnislmbzz1f7n6hhx0pjdmzyh8vm91v22"
+  (make-nerd-font
+   "agave"
    "Nerd Fonts patched version of Agave"
    "Nerd Fonts version of Agave, a monospace font focused on simplicity
 and consistency.  Almost looks cartoonish."))
 
 (define-public font-nerd-fonts-anonymice-pro
-  (make-nerd-font-custom-name "anonymouspro" "anonymice-pro"
-   "1h5abw6k9raplsn4m3i432ch109awjxb6pfpzxp3ph6xdskdv7vv"
+  (make-nerd-font-custom-name
+   "anonymouspro"
+   "anonymice-pro"
    "Nerd Fonts patched version of Anonymous Pro"
    "Nerd Fonts version of Anonymous Pro, a font inspired by the
 Anonymous 9, the bitmap font used in the Macintosh.
@@ -112,66 +182,95 @@ Anonymous 9, the bitmap font used in the Macintosh.
 The package is named @code{anonymice-pro} because Anonymous Pro is a reserved name."))
 
 (define-public font-nerd-fonts-arimo
-  (make-nerd-font "arimo"
-                  "0vxl4k3g017zv8sgzhb7mbjfrgczcxl0qi13rxk5h49ls5mjakph"
-                  "Nerd Fonts patched version of Arimo"
-                  "Nerd Fonts version of Arimo, a sans-serif font
+  (make-nerd-font
+   "arimo"
+   "Nerd Fonts patched version of Arimo"
+   "Nerd Fonts version of Arimo, a sans-serif font
 metrically similar to Arial, which includes a
 pan-European WGL character set."))
 
 (define-public font-nerd-fonts-aurulent-sans-mono
-  (make-nerd-font-custom-name "aurulentsansmono" "aurulent-sans-mono"
-   "0wknyflvyvqsw0ybqs27n8wa78xl4503lw3lr5zqiyb44dl0blas"
+  (make-nerd-font-custom-name
+   "aurulentsansmono"
+   "aurulent-sans-mono"
    "Nerd Fonts patched version of Aurulent Sans Mono"
    "Nerd Fonts version of Aurulent Sans Mono, a sans-serif
 font designed by Stephen G. Hartke."))
 
 (define-public font-nerd-fonts-big-blue-terminal
-  (make-nerd-font-custom-name "bigblueterminal" "big-blue-terminal"
-   "1h8z1wl6wwz5xalkyxgnbkdikv28iya72sk6lbzm74b4lx7kixqv"
+  (make-nerd-font-custom-name
+   "bigblueterminal"
+   "big-blue-terminal"
    "Nerd Fonts patched version of the IBM 8x14 charset"
    "Nerd Fonts version of the 8x14 character set once used by IBM."))
 
 (define-public font-nerd-fonts-bitstrom-wera
-  (make-nerd-font-custom-name "bitstreamverasansmono" "bitstrom-wera"
-   "1x7n1zdly18m190b71s352j41z1wki3bsqrjf0bsndzfyrcqbx10"
+  (make-nerd-font-custom-name
+   "bitstreamverasansmono"
+   "bitstrom-wera"
    "Nerd Fonts patched version of Bitstream Vera Sans Mono"
    "Nerd Fonts version of Bitstream Vera Sans Mono,
 a font originally designed by the (since 2012) defunct Bitstream Inc.  It features clearly distinguished
 characters, such as a dotted zero.
 
-The package is named @{bitstromwera} because Bitstream Vera Sans Mono is a reserved name."))
+The package is named @code{bitstromwera} because Bitstream Vera Sans Mono is a reserved name."))
 
 (define-public font-nerd-fonts-blex-mono
-  (make-nerd-font-custom-name "ibmplexmono" "blex-mono"
-   "18pf1alw3kjxkpx5fysdrlc3fm1q3f818682ps9g4jz9g83f90qw"
+  (make-nerd-font-custom-name
+   "ibmplexmono"
+   "blex-mono"
    "Nerd Fonts patched version of IBM Plex Mono"
    "Nerd Fonts version of IBM Plex Mono, a typeface
 currently used by IBM.
 
-The package is named @{blexmono} because IBM Plex Mono is a reserved name."))
+The package is named @code{blexmono} because IBM Plex Mono is a reserved name."))
 
-;; CaskaydiaCove and CaskaydiaMono should be here,
-;; but are excluded as the original Cascadia Code
-;; already includes Nerd Fonts.
+(define-public font-nerd-fonts-caskaydia-cove
+  (make-nerd-font-custom-name
+   "cascadiacode"
+   "caskaydia-cove"
+   "Original Nerd Fonts patched version of Cascadia Code"
+   "Nerd Fonts version of @code{font-microsoft-cascadia}, a Microsoft font that
+first starred in the Windows Terminal program.  Nowadays, and included in the
+version packaged with Guix, @code{font-microsoft-cascadia} is already patched
+with Nerd Fonts, though the icons can look small because of the monospacing.
+Consider this font only after seeing the look of the icons in
+@code{font-microsoft-cascadia}, as it seems that this font won't get that much
+maintainence anymore."))
+
+(define-public font-nerd-fonts-caskaydia-mono
+  (make-nerd-font-custom-name
+   "cascadiamono"
+   "caskaydia-mono"
+   "Original Nerd Fonts patched version of Cascadia Mono"
+   "Nerd Fonts version of the monospaced version of
+@code{font-microsoft-cascadia}, a Microsoft font that first starred in the
+Windows Terminal program.  Nowadays, and included in the version packaged with
+Guix, @code{font-microsoft-cascadia} is already patched with Nerd Fonts, though
+the icons can look small because of the monospacing.  Consider this font only
+after seeing the look of the icons in @code{font-microsoft-cascadia}, as it
+seems that this font won't get that much maintainence anymore."))
 
 (define-public font-nerd-fonts-code-new-roman
-  (make-nerd-font-custom-name "CodeNewRoman" "code-new-roman"
-   "0jdg0hya4msmx4m2lcsibvg3bdjk2ll8q1xx3vpqmxyl5m1l0v6f"
+  (make-nerd-font-custom-name
+   "codenewroman"
+   "code-new-roman"
    "Nerd Fonts patched version of Code New Roman"
    "Nerd Fonts version of Code New Roman, a programming font
 designed to be compact and to have easily distinguishable characters."))
 
 (define-public font-nerd-fonts-comic-shanns-mono
-  (make-nerd-font-custom-name "ComicShannsMono" "comic-shanns-mono"
-   "0rzpnqagn4l9wr9x5agd5s9j8ysg3ag5ksiv88b6wv0pbdxkjxk0"
+  (make-nerd-font-custom-name
+   "comicshannsmono"
+   "comic-shanns-mono"
    "Nerd Fonts patched version of Comic Shanns"
    "Nerd Fonts version of Comic Shanns, a Comic Sans inspired
 monospace font designed for programming."))
 
 (define-public font-nerd-fonts-commit-mono
-  (make-nerd-font-custom-name "commitmono" "commit-mono"
-   "0bxk8mqalg2sf8pnm85p083imcjcnzz4h5lg0920dljqbz95w1gj"
+  (make-nerd-font-custom-name
+   "commitmono"
+   "commit-mono"
    "Nerd Fonts patched version of Commit Mono"
    "Nerd Fonts version of Commit Mono, a programming font designed
 to be as neutral as possible, so one can rather focus on the code.
@@ -179,15 +278,16 @@ It also features smart kerning, to automatically improve the spacing
 between characters."))
 
 (define-public font-nerd-fonts-cousine
-  (make-nerd-font "cousine"
-   "0pq4ixs0jq6xr7cjaahdim8nnpywknbr6431yk18wikivca9hx6i"
+  (make-nerd-font
+   "cousine"
    "Nerd Fonts patched version of Cousine"
    "Nerd Fonts version of Cousine, a font metrically compatible
 with Courier New, but offering improved on-screen readability."))
 
 (define-public font-nerd-fonts-d2-coding-ligature
-  (make-nerd-font-custom-name "d2coding" "d2-coding-ligature"
-   "1x60lpkf4aqf1yc4015ks1kpz9nfz81plgpsdhinps30zq7jgi28"
+  (make-nerd-font-custom-name
+   "d2coding"
+   "d2-coding-ligature"
    "Nerd Fonts patched version of D2 Coding Ligature"
    "Nerd Fonts version of D2 Coding Ligature, a ligaturized
 version of the D2 Coding font, designed for koreans working with code.
@@ -195,35 +295,38 @@ version of the D2 Coding font, designed for koreans working with code.
 Contains ligatures."))
 
 (define-public font-nerd-fonts-daddytimemono
-  (make-nerd-font "daddytimemono"
-   "0fhall4s0nl2bc3zfdpxjpkndkl6n8yrgw1bk2wcakaypa1lyl31"
+  (make-nerd-font
+   "daddytimemono"
    "Nerd Fonts patched version of Daddy Time Mono"
    "Nerd Fonts version of Daddy Time Mono, a programming font."))
 
 (define-public font-nerd-fonts-departure-mono
-  (make-nerd-font-custom-name "departuremono" "departure-mono"
-   "1zvacf3x1886b5f4xfsh8qp00nblizkayjpcrwr3cvsarl3z68a7"
+  (make-nerd-font-custom-name
+   "departuremono"
+   "departure-mono"
    "Nerd Fonts patched version of Departure Mono"
    "Nerd Fonts version of Departure Mono, a pixel font designed
 for nostalgia."))
 
 (define-public font-nerd-fonts-dejavu-sans-mono
-  (make-nerd-font-custom-name "dejavusansmono" "dejavu-sans-mono"
-   "1h862406lg7ggcxdcxkygclfgjqk3r2xz8y8lnvqfd2dpm133qgz"
+  (make-nerd-font-custom-name
+   "dejavusansmono"
+   "dejavu-sans-mono"
    "Nerd Fonts patched version of Dejavu Sans Mono"
    "Nerd Fonts version of Dejavu Sans Mono, a font inspided
 by the Bitstream Vera family, but with the goal of providing a wider range of characters."))
 
 (define-public font-nerd-fonts-droid-sans-mono
-  (make-nerd-font-custom-name "droidsansmono" "droid-sans-mono"
-   "18hfqhrqfb8z3r4gkmjlv6l9xvgrpkd97ahk2j8fx89qbpa3mab0"
+  (make-nerd-font-custom-name
+   "droidsansmono"
+   "droid-sans-mono"
    "Nerd Fonts patched version of Droid Sans Mono"
    "Nerd Fonts version of Droid Sans Mono, the monospaced version
 of the Droid font fimaly.  The Droid family was first released in 2007 for use in Android."))
 
 (define-public font-nerd-fonts-envycoder
-  (make-nerd-font "envycoder"
-   "1xqnpi8rmcshz4wglqvzqzbn0bi6z1blqg244vczmfgjjd2xh10l"
+  (make-nerd-font
+   "envycoder"
    "Nerd Fonts patched version of Envy Code R"
    "Nerd Fonts version of Envy Code R, a font designed for programming and
 working with a terminal.
@@ -231,8 +334,9 @@ working with a terminal.
 The package is named @code{envycoder} because Envy Code R is a reserved name."))
 
 (define-public font-nerd-fonts-fantasque-sans-mono
-  (make-nerd-font-custom-name "fantasquesansmono" "fantasque-sans-mono"
-   "1r9z57k5k191lb19i85qg42zawnm1vwrrvnq7nvabywcwq66d6l4"
+  (make-nerd-font-custom-name
+   "fantasquesansmono"
+   "fantasque-sans-mono"
    "Nerd Fonts patched version of Fantasque Sans Mono"
    "Nerd Fonts version of Fantasque Sans Mono, a font
 designed for a handwritten look.  It's inspired by Inconsolata and Monaco.
@@ -240,49 +344,53 @@ designed for a handwritten look.  It's inspired by Inconsolata and Monaco.
 Contains ligatures."))
 
 (define-public font-nerd-fonts-fira-code
-  (make-nerd-font-custom-name "firacode" "fira-code"
-   "15xks0619yip4gkgwandn529fmk1v5g1s5irlf34410dhxpqx5w9"
+  (make-nerd-font-custom-name
+   "firacode"
+   "fira-code"
    "Nerd Fonts patched version of Fira Code"
    "Nerd Fonts version of Fira Code, a programming font
 containing various ligatures."))
 
 (define-public font-nerd-fonts-fira-mono
-  (make-nerd-font-custom-name "firamono" "fira-mono"
-   "0jiacwyylzwzw7gp06sqqh8dr6jy5ljmjd69ad9300kk7nh6w109"
+  (make-nerd-font-custom-name
+   "firamono"
+   "fira-mono"
    "Nerd Fonts patched version of Fira Mono"
    "Nerd Fonts version of Fira Mono, a typeface used by Mozilla."))
 
 (define-public font-nerd-fonts-geist-mono
-  (make-nerd-font-custom-name "geistmono" "geist-mono"
-   "0z4y84ag56lgfhqw5l2l332narli09ln1zyl1yl8n44dxc9q1pcq"
+  (make-nerd-font-custom-name
+   "geistmono"
+   "geist-mono"
    "Nerd Fonts patched version of Geist Mono"
    "Nerd Fonts version of Geist Mono, a programming font.
 
 Contains ligatures."))
 
 (define-public font-nerd-fonts-go-mono
-  (make-nerd-font "go-mono"
-                  "14ypxgx5qrdzpnp8fm0qc9jmcwbh1qlghs8aqsj9vzzv1n6v995v"
-                  "Nerd Fonts patched version of Go Mono"
-                  "Nerd Fonts version of Go Mono, a font designed for the Go
+  (make-nerd-font
+   "go-mono"
+   "Nerd Fonts patched version of Go Mono"
+   "Nerd Fonts version of Go Mono, a font designed for the Go
 programming language."))
 
 (define-public font-nerd-fonts-gohu
-  (make-nerd-font "gohu"
-                  "0y9ykn3cx9gxha2rbw2clwiw8w4f2m0jr5dg1954n8kcfgmj7bz3"
-                  "Nerd Fonts patched version of Gohu"
-                  "Nerd Fonts version of Gohu, a monospaced, bitmap font."))
+  (make-nerd-font
+   "gohu"
+   "Nerd Fonts patched version of Gohu"
+   "Nerd Fonts version of Gohu, a monospaced, bitmap font."))
 
 (define-public font-nerd-fonts-hack
-  (make-nerd-font "hack"
-                  "13bv7kin842k3bwvj3z9dqyyqz6rchnj9prvvaq2bxpg0m31b7m0"
-                  "Nerd Fonts patched version of Hack"
-                  "Nerd Fonts version of Hack, a font that expands on
+  (make-nerd-font
+   "hack"
+   "Nerd Fonts patched version of Hack"
+   "Nerd Fonts version of Hack, a font that expands on
 Bitstream Vera and DejaVu.  Designed for programming."))
 
 (define-public font-nerd-fonts-hasklug
-  (make-nerd-font-custom-name "hasklig" "hasklug"
-   "1z6yzkrydbfj3xd6mv6w6whp97hwf8ky7q4p7k4pvvbqs9ws50dd"
+  (make-nerd-font-custom-name
+   "hasklig"
+   "hasklug"
    "Nerd Fonts patched version of Hasklig"
    "Nerd Fonts version of Hasklig, a font designed for the
 Haskell programming language.
@@ -292,15 +400,17 @@ The package is named @code{hasklug} because Hasklig is a reserved name.
 Contains ligatures."))
 
 (define-public font-nerd-fonts-heavy-data
-  (make-nerd-font-custom-name "heavydata" "heavy-data"
-   "1bwpai3bl7ypkigg74lqm1r77xqj7bz4xpibmi8xjkj0l1kgl5b8"
+  (make-nerd-font-custom-name
+   "heavydata"
+   "heavy-data"
    "Nerd Fonts patched version of Heavy Data"
    "Nerd Fonts version of Heavy Data, a cartoonish font with a
 unique design."))
 
 (define-public font-nerd-fonts-hurmit
-  (make-nerd-font-custom-name "hermit" "hurmit"
-   "1diq63ks9g86nc2ix5vq3lrs08phki9hixggjp3z5mb40jlpl7ya"
+  (make-nerd-font-custom-name
+   "hermit"
+   "hurmit"
    "Nerd Fonts patched version of Hermit"
    "Nerd Fonts version of Hermit, a programming font designed
 to have symbols clearly distinguishable from regular text.
@@ -308,54 +418,58 @@ to have symbols clearly distinguishable from regular text.
 The package is named @code{hurmit} because Hermit is a reserved name."))
 
 (define-public font-nerd-fonts-im-writing
-  (make-nerd-font-custom-name "ia-writer" "im-writing"
-   "18a5xjhcj720hz9c01aqgsy25fmqcljg4b5m5av2ahfgi39ml071"
+  (make-nerd-font-custom-name
+   "ia-writer"
+   "im-writing"
    "Nerd Fonts patched version of iA Writer"
    "Nerd Fonts version of iA Writer, a heavily modified version of
-IBM's Plex font.  Use on the proprietraary document software iA Writer.
+IBM's Plex font.  Used on the proprietary document program iA Writer.
 
 The package is named @code{im-writing} because iA Writer is a reserved name."))
 
 (define-public font-nerd-fonts-inconsolata
-  (make-nerd-font "inconsolata"
-   "175689wdlb53j7gi1m39axz1z04jffjaf4aib9yxingni61gcywq"
+  (make-nerd-font
+   "inconsolata"
    "Nerd Fonts patched version of Inconsolata"
    "Nerd Fonts version of Inconsolata, a programming font inspired by the
 proprietary font Consolas."))
 
 (define-public font-nerd-fonts-inconsolatago
-  (make-nerd-font "inconsolatago"
-   "158zx4xzii9x36id2nk81zmrliq5mjin2064v1d2drk3n6zm8gdw"
+  (make-nerd-font
+   "inconsolatago"
    "Nerd Fonts patched version of InconsolataGo"
    "Nerd Fonts version of InconsolataGo, an alternative version of
 Inconsolata which features stratight quotes."))
 
 (define-public font-nerd-fonts-inconsolata-lgc
-  (make-nerd-font-custom-name "inconsolatalgc" "inconsolata-lgc"
-   "0d516kjjvk2h21x1x2r8c9r236khylda51lgzsv19znnx5c09hqj"
+  (make-nerd-font-custom-name
+   "inconsolatalgc"
+   "inconsolata-lgc"
    "Nerd Fonts patched version of Inconsolata LGC"
    "Nerd Fonts version of Inconsolata LGC, an alternative version of
 Inconsolata that features the Cyrillic alphabet."))
 
 (define-public font-nerd-fonts-intone-mono
-  (make-nerd-font-custom-name "intelonemono" "intone-mono"
-   "1kjqd425cbi6335ap6maxwqia4f7vvpl60srg6g7c406v59md4qa"
+  (make-nerd-font-custom-name
+   "intelonemono"
+   "intone-mono"
    "Nerd Fonts patched version of Intel One Mono"
    "Nerd Fonts version of Intel One Mono, a programming font
 designed by Intel with low-vision and legally blind developers in mind.  The highlight is
 definitely the design of the curly brackets, which are really exaggerated."))
 
 (define-public font-nerd-fonts-iosevka
-  (make-nerd-font "iosevka"
-                  "10w24pir4flr0zhm0n6v6kblgmcx7dpnqv2xkp8d0rgh3rnlwpm5"
-                  "Nerd Fonts patched version of Iosevka"
-                  "Nerd Fonts version of Iosevka, a programming font.
+  (make-nerd-font
+   "iosevka"
+   "Nerd Fonts patched version of Iosevka"
+   "Nerd Fonts version of Iosevka, a programming font.
 
 Contains ligatures."))
 
 (define-public font-nerd-fonts-iosevka-term
-  (make-nerd-font-custom-name "iosevkaterm" "iosevka-term"
-   "0bjvq2k7n65nan0vvdhbgicd114hjx5v5i8wwi47cykfkcp58s7r"
+  (make-nerd-font-custom-name
+   "iosevkaterm"
+   "iosevka-term"
    "Nerd Fonts patched version of Iosevka Term"
    "Nerd Fonts version of Iosevka Term, an Iosevka
 variant for working on the terminal.
@@ -363,8 +477,9 @@ variant for working on the terminal.
 Contains ligatures."))
 
 (define-public font-nerd-fonts-iosevka-term-slab
-  (make-nerd-font-custom-name "iosevkatermslab" "iosevka-term-slab"
-   "03n3a0damfq3gxry4jgbqrya4qa0mrc3xrfg72q87h5x2v94n54i"
+  (make-nerd-font-custom-name
+   "iosevkatermslab"
+   "iosevka-term-slab"
    "Nerd Fonts patched version of Iosevka Term Slab"
    "Nerd Fonts version of Iosevka Term Slab,
 an Iosevka variant for working on the terminal, featuring slab serifs.
@@ -372,8 +487,9 @@ an Iosevka variant for working on the terminal, featuring slab serifs.
 Contains ligatures."))
 
 (define-public font-nerd-fonts-jetbrains-mono
-  (make-nerd-font-custom-name "jetbrainsmono" "jetbrains-mono"
-   "1r6v5naj0g6wkhpr53zc7rygg9s199h81s7wf3x4nq0b6lm7i0rd"
+  (make-nerd-font-custom-name
+   "jetbrainsmono"
+   "jetbrains-mono"
    "Nerd Fonts patched version of JetBrains Mono"
    "Nerd Fonts version of JetBrains Mono, a programming font
 designed by JetBrains, famous for their suite of IDEs.
@@ -381,40 +497,43 @@ designed by JetBrains, famous for their suite of IDEs.
 Contains ligatures."))
 
 (define-public font-nerd-fonts-lekton
-  (make-nerd-font "lekton"
-   "1jpjfvxfpcx9y2xkr4icnnvlyhz6imph5rwbdacn9fqjix2k6sph"
+  (make-nerd-font
+   "lekton"
    "Nerd Fonts patched version of Lekton"
    "Nerd Fonts version of Lekton, a font designed inj Italy, inspired bu
 the typefaces used on the Olivetti typewritters."))
 
 (define-public font-nerd-fonts-literation-mono
-  (make-nerd-font-custom-name "liberationmono" "literation-mono"
-   "1mz9wi4wgjrfbf9xwmqd2kpwl6k21cnzqmlz6y3wg4swvrp52dip"
+  (make-nerd-font-custom-name
+   "liberationmono"
+   "literation-mono"
    "Nerd Fonts patched version of Liberation Mono"
    "Nerd Fonts version of Liberation Mono, a member of the
 Liberation font family, designed for compatibility with the most popular Microsoft Windows
 fonts.
 
-The package is named code@{literation-mono} because Liberation Mono is a reserved name."))
+The package is named @code{literation-mono} because Liberation Mono is a reserved name."))
 
 (define-public font-nerd-fonts-lilex
-  (make-nerd-font "lilex"
-   "0bx802vlpd975giligcv7fgqkg389sks93lpi2lhfxl6ngq2xbfg"
+  (make-nerd-font
+   "lilex"
    "Nerd Fonts patched version of Lilex"
    "Nerd Fonts version of Lilex, a programming font that extends IBM Plex Mono.
 
 Contains ligatures."))
 
 (define-public font-nerd-fonts-martian-mono
-  (make-nerd-font-custom-name "martianmono" "martian-mono"
-   "1cj3yarlp3h2hsj61wg2r1v70z7mix5kd42gdqq9n0d3waf56vkh"
+  (make-nerd-font-custom-name
+   "martianmono"
+   "martian-mono"
    "Nerd Fonts patched version of Martian Mono"
    "Nerd Fonts version of Martian Mono, a design font
 which is a monospaced version of the Martian Grotesk font."))
 
 (define-public font-nerd-fonts-meslo-lg
-  (make-nerd-font-custom-name "meslo" "meslo-lg"
-   "13k446z6abxdwb8406yhbb5g7gswhwxnqap5wp67ajvhv9r3lb9j"
+  (make-nerd-font-custom-name
+   "meslo"
+   "meslo-lg"
    "Nerd Fonts patched version of Meslo LG"
    "Nerd Fonts version of Meslo LG, a programming font
 which is a customized version of Apple's Menlo font (which, in turn, comes descends from
@@ -422,8 +541,9 @@ Bitstream Vera Sans Mono).  The LG in the name stands for \"Line Gap\", as it fe
 variants for control over vertical spacing."))
 
 (define-public font-nerd-fonts-monaspice
-  (make-nerd-font-custom-name "monaspace" "monaspice"
-   "0nclxqjbpd4iaxrrn1szcv0s2zlc025hw36snqlm101m6lrkp8ci"
+  (make-nerd-font-custom-name
+   "monaspace"
+   "monaspice"
    "Nerd Fonts patched version of Monaspace"
    "Nerd Fonts version of Monaspace, a programming font
 that features texture healing.  Texture healing is a technique that evens out the density
@@ -432,85 +552,90 @@ of monospaced text, providing better proportions.
 The package is named @code{monaspice} because Monaspace is a reserved name."))
 
 (define-public font-nerd-fonts-monofur
-  (make-nerd-font "monofur"
-   "1h29m9gcg3xyplix5m3lspx1vg91h8qwklfyzqm4g8wwgiyzz5yk"
+  (make-nerd-font
+   "monofur"
    "Nerd Fonts patched version of Monofur"
    "Nerd Fonts version of Monofur, a font with compact characters."))
 
 (define-public font-nerd-fonts-monoid
-  (make-nerd-font "monoid"
-                  "08r6srlpq1zmj3bf0kalzbx862416qpmg8wb55kmjqzjl059qg7z"
-                  "Nerd Fonts patched version of Monoid"
-                  "Nerd Fonts version of Monoid, a programming font.
+  (make-nerd-font
+   "monoid"
+   "Nerd Fonts patched version of Monoid"
+   "Nerd Fonts version of Monoid, a programming font.
 
 Contains ligatures."))
 
 (define-public font-nerd-fonts-mononoki
-  (make-nerd-font "mononoki"
-   "13wxhxaxmpi7cl5hzb1vav589qy69zb81p3sxycqddl3djfl3wmp"
+  (make-nerd-font
+   "mononoki"
    "Nerd Fonts patched version of Mononoki"
    "Nerd Fonts version of Mononoki, a programming font.
 
 Despite having a reserved name, the Nerd Fonts version uses the same name."))
 
 (define-public font-nerd-fonts-m-plus
-  (make-nerd-font-custom-name "mplus" "m-plus"
-   "0lmr2fjyn0iwnh6g9h5547lw7ma5ni75k0y537slaz3kcw8bk19z"
+  (make-nerd-font-custom-name
+   "mplus"
+   "m-plus"
    "Nerd Fonts patched version of M+"
    "Nerd Fonts version of M+, a programming font
 featuring japaneses glyphs."))
 
 (define-public font-nerd-fonts-noto
-  (make-nerd-font "noto"
-   "14mna22dam0kx0axi53rjvkr97wlv161a9w2ap771890cjxnw70k"
+  (make-nerd-font
+   "noto"
    "Nerd Fonts patched version of Noto"
    "Nerd Fonts version of Noto, Google's standard font family."))
 
 (define-public font-nerd-fonts-opendyslexic
-  (make-nerd-font "opendyslexic"
-   "06v4iizzjj6ljvj68vv3rb4dl51dm8gsccx524zz0bp73f9f57gb"
+  (make-nerd-font
+   "opendyslexic"
    "Nerd Fonts patched version of OpenDyslexic"
    "Nerd Fonts version of OpenDyslexic, a font designed for those
 with Dyslexia."))
 
 (define-public font-nerd-fonts-overpass
-  (make-nerd-font "overpass"
-                  "0yxng4774m5crwnq15rjf0rilj8nqcnvs87pykv7z1pj8xjvpjv9"
-                  "Nerd Fonts patched version of Overpass"
-                  "Nerd Fonts version of Overpass, a font inspired by
+  (make-nerd-font
+   "overpass"
+   "Nerd Fonts patched version of Overpass"
+   "Nerd Fonts version of Overpass, a font inspired by
 Highway Gothic."))
 
 (define-public font-nerd-fonts-profont
-  (make-nerd-font "profont"
-   "1pfyav9cs7pwkq6pifrvmmbnl25hc6y8mwyjvdkr6j2nm3lrpskl"
+  (make-nerd-font
+   "profont"
    "Nerd Fonts patched version of ProFont"
    "Nerd Fonts version of ProFont, a programming font.
 Looks best with anti-aliasing turned off, as it features some sharp characters."))
 
 (define-public font-nerd-fonts-proggy-clean
-  (make-nerd-font-custom-name "proggyclean" "proggy-clean"
-   "1qlb0s8gc7kl4rh5jzm1zwwr7x1362xvnzcvqjm31lzxdhajamip"
+  (make-nerd-font-custom-name
+   "proggyclean"
+   "proggy-clean"
    "Nerd Fonts patched version of Proggy Clean"
    "Nerd Fonts version of Proggy Clean, a bitmap programming
 font."))
 
 (define-public font-nerd-fonts-recursive-mono
-  (make-nerd-font-custom-name "recursive" "recursive-mono"
-   "01zf2japw3lnwsm3i4d8wc06zc0jc84zi5i641prqwd1894allm0"
+  (make-nerd-font-custom-name
+   "recursive"
+   "recursive-mono"
    "Nerd Fonts patched version of Recursive Mono"
    "Nerd Fonts version of Recursive Mono, a programming font
 inspired by casual script signpainting."))
 
 (define-public font-nerd-fonts-roboto-mono
-  (make-nerd-font-custom-name "robotomono" "roboto-mono"
-   "1ak5cz2qyp99850n7zaz52p2hk86w2z5aqziawr4nizp50r39dn8"
+  (make-nerd-font-custom-name
+   "robotomono"
+   "roboto-mono"
    "Nerd Fonts patched version of Roboto Mono"
    "Nerd Fonts version of the monospaced member of the
 Roboto font family."))
 
 (define-public font-nerd-fonts-shure-tech-mono
-  (make-nerd-font-custom-name "ShareTechMono" "shure-tech-mono"
-   "09nbv8g8mg4kbnkqs1rvvn2fw4xibbmrn9v231ci3dywlz0ag3qj"
+  (make-nerd-font-custom-name
+   "sharetechmono"
+   "shure-tech-mono"
    "Nerd Fonts patched version of Share Tech Mono"
    "Nerd Fonts version of Share Tech Mono,
 a font featuring distinct characters.
@@ -518,59 +643,65 @@ a font featuring distinct characters.
 The package is named @code{shure-tech-mono} because Share Tech Mono is a reserved name."))
 
 (define-public font-nerd-fonts-sauce-code-pro
-  (make-nerd-font-custom-name "SourceCodePro" "sauce-code-pro"
-   "1ihaz75xfka66cwzb086dw5wrk6skjm2sxnbszvmgiabl2yx3gji"
+  (make-nerd-font-custom-name
+   "sourcecodepro"
+   "sauce-code-pro"
    "Nerd Fonts patched version of Source Code Pro"
    "Nerd Fonts version of Source Code Pro,
 a monospaced font family explicitly designed for working with code."))
 
 (define-public font-nerd-fonts-space-mono
-  (make-nerd-font-custom-name "SpaceMono" "space-mono"
-   "09dw1rvjc0g7zkdmzh0lg60ivl9az7yv4b1y3bq5bad4nclnvb8v"
+  (make-nerd-font-custom-name
+   "spacemono"
+   "space-mono"
    "Nerd Fonts patched version of Space Mono"
    "Nerd Fonts version of Space Mono, a typeface designed
 by the Colophon design foundtry.  It's explicitly designed for headlines and displays."))
 
 (define-public font-nerd-fonts-terminess
-  (make-nerd-font-custom-name "Terminus" "terminess"
-   "0msqm9rnc5rzmwmfs2sx534hqz3apmfja00m6iib8627nr30n2yl"
+  (make-nerd-font-custom-name
+   "terminus"
+   "terminess"
    "Nerd Fonts patched version of Terminus"
    "Nerd Fonts version of Terminus, a font designed
 for long work hours with computers.
 
-The package is named @{terminess} because Terminus is a reserved name."))
+The package is named @code{terminess} because Terminus is a reserved name."))
 
 (define-public font-nerd-fonts-tinos
-  (make-nerd-font "tinos"
-   "1lwkpi6da1jihq461ancf74rymxdp3wcziprh9763drjvqmsjf90"
+  (make-nerd-font
+   "tinos"
    "Nerd Fonts patched version of Tinos"
    "Nerd Fonts version of Tinos,
 a font similar to Times New Roman, designed by Steve Matteson."))
 
 (define-public font-nerd-fonts-ubuntu
-  (make-nerd-font "ubuntu"
-   "167mqiz55v5cdvcgr0vxhcfsa3x39ka9jf92y2v5qksvmc6njr5a"
+  (make-nerd-font
+   "ubuntu"
    "Nerd Fonts patched version of Ubuntu"
    "Nerd Fonts version of Ubuntu,
 a font designed by Canonical for sans-serif use in the Ubuntu GNU/Linux distribution."))
 
 (define-public font-nerd-fonts-ubuntu-mono
-  (make-nerd-font-custom-name "UbuntuMono" "ubuntu-mono"
-   "03v9r2nlws6h2hsca7vc8jdwlacxmb7zygbfzwhhh00lkchzz4ap"
+  (make-nerd-font-custom-name
+   "ubuntumono"
+   "ubuntu-mono"
    "Nerd Fonts patched version of Ubuntu Mono"
    "Nerd Fonts version of Ubuntu Mono,
 a font designed by Canonical for monospace use in the Ubuntu GNU/Linux distribution."))
 
 (define-public font-nerd-fonts-ubuntu-sans
-  (make-nerd-font-custom-name "UbuntuSans" "ubuntu-sans"
-   "1sfyymr8ijdfdgj7pci9ia43l4yckw0dms5bnrzl9m5msgb4pmv5"
+  (make-nerd-font-custom-name
+   "ubuntusans"
+   "ubuntu-sans"
    "Nerd Fonts patched version of Ubuntu Sans"
    "Nerd Fonts version of Ubuntu Sans,
 a font designed by Canonical for sans use in the Ubuntu GNU/Linux distribution."))
 
 (define-public font-nerd-fonts-victor-mono
-  (make-nerd-font-custom-name "VictorMono" "victor-mono"
-   "1l45d7wnfh6fw1y5ql59y4zj9mrywybg32ciyrrw8aw23ypakra5"
+  (make-nerd-font-custom-name
+   "victormono"
+   "victor-mono"
    "Nerd Fonts patched version of Victor Mono"
    "Nerd Fonts version of Victor Mono,
 a programming font with cursive italics, distinct glyphs and pretty defined heights.
@@ -578,13 +709,32 @@ a programming font with cursive italics, distinct glyphs and pretty defined heig
 Contains ligatures."))
 
 (define-public font-nerd-fonts-zed-mono
-  (make-nerd-font-custom-name "ZedMono" "zed-mono"
-   "0v41swj3d5z1zxcdjl3yigbnsvvxscbiaf6fxw1cw2v8s5p3q3mk"
+  (make-nerd-font-custom-name
+   "zedmono"
+   "zed-mono"
    "Nerd Fonts patched version of Zed Mono"
    "Nerd Fonts version of Zed Mono, a Iosevka variant built
-by the team behind the Zed editor.  It's more rounded than regular Iosveka.
+by the team behind the Zed editor.  It's rounder than regular Iosveka.
 
 Contains ligatures."))
+
+(define-public font-nerd-fonts-symbols
+  (package
+    (name "font-nerd-fonts-symbols")
+    (version "3.3.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (string-append "https://github.com/ryanoasis/nerd-fonts/"
+                           "releases/download/v" version
+                           "/NerdFontsSymbolsOnly.zip"))
+       (sha256
+        (base32 "0h53ldrkydxaps4kv087k71xgmb40b1s2nv2kvxc4bvs3qy60y10"))))
+    (build-system font-build-system)
+    (home-page "https://www.nerdfonts.com/")
+    (synopsis "Nerd Font including only the symbols")
+    (description "Nerd Font that includes only the icons.")
+    (license license:silofl1.1)))
 
 (define-public font-nerd-fonts
   (package
@@ -610,6 +760,8 @@ Contains ligatures."))
                   font-nerd-fonts-big-blue-terminal
                   font-nerd-fonts-bitstrom-wera
                   font-nerd-fonts-blex-mono
+                  font-nerd-fonts-caskaydia-cove
+                  font-nerd-fonts-caskaydia-mono
                   font-nerd-fonts-code-new-roman
                   font-nerd-fonts-comic-shanns-mono
                   font-nerd-fonts-commit-mono
@@ -666,28 +818,10 @@ Contains ligatures."))
                   font-nerd-fonts-ubuntu-sans
                   font-nerd-fonts-victor-mono
                   font-nerd-fonts-zed-mono))
-    (synopsis "The Full Nerd Fonts family")
+    (synopsis "The full Nerd Fonts family")
     (home-page "https://www.nerdfonts.com/")
     (description
-     "Nerd Fonts is a family of fonts featuring a high number of glyphs,
+     "Nerd Fonts is a font family featuring a high number of glyphs,
 as it introduces icon fonts from sources such as Font Awesome, Devicons and Octicons.
 These icons are primarily used for programming.")
-    (license license:silofl1.1)))
-
-(define-public font-nerd-fonts-symbols
-  (package
-    (name "font-nerd-fonts-symbols")
-    (version "3.3.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (string-append "https://github.com/ryanoasis/nerd-fonts/"
-                           "releases/download/v" version
-                           "/NerdFontsSymbolsOnly.zip"))
-       (sha256
-        (base32 "0h53ldrkydxaps4kv087k71xgmb40b1s2nv2kvxc4bvs3qy60y10"))))
-    (build-system font-build-system)
-    (home-page "https://www.nerdfonts.com/")
-    (synopsis "Nerd Font including only the symbols")
-    (description "Nerd Font that includes only the icons.")
     (license license:silofl1.1)))
