@@ -38,6 +38,7 @@
 (define nerd-fonts-hashes
   '(("0xproto" . "07d15njvrp2bcbk29nwmyjij5qcq00hixw35dfcfpqgvkvn7y3p5")
     ("3270" . "0bmj22iv2f3pvxj8ds6ry9q1xjd76j61k6670a1mb47vxax78ma5")
+    ("adwaitamono" . "1qa0y88mh21kk9k1s81q7f0i6qjg7qz9bgxy19p1j264vhr3w3kg")
     ("agave" . "139ck1q5nrhq07s3da4k3jzvf8xv4si822gcvkwj53ns34bnzmnd")
     ("anonymouspro" . "1176b879y89anxrkz68vkya02jmy31kbgscxqa4ijiw1bpa31y6h")
     ("arimo" . "1i04cq2l92brvc3fdk1ih1hrynygk05362hicdh41lw1lmkrcvzd")
@@ -163,6 +164,13 @@ code legibility."))
    "Nerd Fonts patched version of x3270"
    "Nerd Fonts version of the font used in the
 IBM 3270, an IBM machine introduced to the public in 1971."))
+
+(define-public font-nerd-fonts-adwaita-mono
+  (make-nerd-font-custom-name
+   "adwaitamono"
+   "adwaita-mono"
+   "Nerd Fonts patched version of Adwaita"
+   "Nerd Fonts version of Adwaita, the Iosveka variant used by the GNOME project."))
 
 (define-public font-nerd-fonts-agave
   (make-nerd-font
@@ -753,6 +761,7 @@ Contains ligatures."))
                       (union-build (assoc-ref %outputs "out") directories) #t)))))
     (inputs (list font-nerd-fonts-0xproto
                   font-nerd-fonts-3270
+                  font-nerd-fonts-adwaita-mono
                   font-nerd-fonts-agave
                   font-nerd-fonts-anonymice-pro
                   font-nerd-fonts-arimo
