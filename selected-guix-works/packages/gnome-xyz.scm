@@ -30,6 +30,3 @@
   #:use-module ((guix licenses)
                 #:prefix license:)
   #:use-module (gnu packages gnome-xyz))
-
-(define-public adw-gtk-theme
-  (deprecated-package "adw-gtk-theme" adw-gtk3-theme))
