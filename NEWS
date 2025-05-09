@@ -132,4 +132,11 @@ fala? Não sei, se você sabe português e estiver errado abra uma dicussão no
 GitHub por favor) já que foi recentemente adicionado ao Guix, no commit
 \"8f39ade\".  Essa \"aposentadoria\" foi feita em vez da remoção direta porque
 o pacot foi adicionado sob um nome diferente.  Ele será removido deste canal em
-uma semana, então se prepare para a migração."))))
+uma semana, então se prepare para a migração.")))
+ (entry (commit "a0b266caa91731ceb016ba66bb1f56bb2da317ad")
+        (title (en "Remove adw-gtk-theme")
+               (pt "Remover adw-gtk-theme"))
+        (body (en "As scheduled in the previous entry, this package has been
+removed.  You can find it upstream under the name of @code{adw-gtk3-theme}.")
+              (pt "Como agendado na notícia anterior, esse pacote foi removido.
+Você pode encontrá-lo no Guix pelo nome @code{adw-gtk3-theme}."))))
