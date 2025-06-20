@@ -155,14 +155,14 @@ by @code{emacs-magit}.")
 (define-public pay-respects
   (package
     (name "pay-respects")
-    (version "0.7.6")
+    (version "0.7.8")
     (source
      (origin
        (method url-fetch)
        (uri (crate-uri "pay-respects" version))
        (file-name (string-append name "-" version ".tar.gz"))
        (sha256
-        (base32 "0j13j0ajy77m39bm59rh37vxm0l8axw13bxjn5gj2k7fik4pa3ll"))))
+        (base32 "14hrfmwhisc98ba1hyg86v20g9qaa6jhx051m1ylkmajbklvzmgz"))))
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs (("rust-askama" ,rust-askama-0.13)
