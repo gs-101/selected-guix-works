@@ -36,20 +36,6 @@
 
 ;; From <https://issues.guix.gnu.org/78047>.
 ;; Thanks Ludovic Courtès.
+;; DEPRECATED: As of <2025-06-23>, this fix was upstreamed.
 (define-public fixed-network-manager
-  (package
-    (inherit network-manager)
-    (name "fixed-network-manager")
-    (version "1.52.0")
-    (source (origin
-              (method git-fetch)
-              (uri (git-reference
-                    (url (string-append "https://gitlab.freedesktop.org/"
-                                        "NetworkManager/NetworkManager"))
-                    (commit version)))
-              (file-name (git-file-name name version))
-              (patches (search-patches "network-manager-plugin-path.patch"
-                                       (from-patches "network-manager-remove-root-check.patch")))
-              (sha256
-               (base32
-                "0fx3yvqrwc9fqphhwvchxls0lgizlz7bxww3riijlvx3pkypqbyr"))))))
+  (deprecated-package "fixed-network-manager" network-manager))
