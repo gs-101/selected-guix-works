@@ -50,10 +50,6 @@ This channel includes all Nerd Fonts[fn:3]. A meta package is available under th
 
 ** Window Management
 
-- =hyprpolkitagent= ::
-
-  hyprpolkitagent[fn:6] is the polkit agent of the Hyprland ecosystem.
-
 - =hyprshot= ::
 
   hyprshot[fn:7] is a shell script designed for optimizing screenshot utilities for Hyprland. It uses grim[fn:8] to take the screenshot, and slurp[fn:9] to select an area.
@@ -397,8 +393,6 @@ My favourite of his works is “Expert Knob Twiddlers”, it has an album cover 
 [fn:4] “Hyprwm/hyprpaper” (2025). Hypr Development. Available at: https://github.com/hyprwm/hyprpaper (Accessed: February 10, 2025).
 
 [fn:5] “Hyprwm/hyprland” (2025). Hypr Development. Available at: https://github.com/hyprwm/Hyprland (Accessed: February 10, 2025).
-
-[fn:6] “Hyprwm/hyprpolkitagent” (2025). Hypr Development. Available at: https://github.com/hyprwm/hyprpolkitagent (Accessed: February 12, 2025).
 
 [fn:7] Gustash (2024) “Gustash/hyprshot.” Available at: https://github.com/Gustash/Hyprshot (Accessed: February 13, 2025).
 

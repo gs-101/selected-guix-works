@@ -30,66 +30,29 @@
                 #:prefix license:)
   #:use-module (gnu packages base)
   #:use-module (gnu packages cpp)
-  #:use-module (gnu packages crates-io)
   #:use-module (gnu packages crates-check)
   #:use-module (gnu packages crates-compression)
+  #:use-module (gnu packages crates-io)
   #:use-module (gnu packages crates-graphics)
-  #:use-module (gnu packages gl)
   #:use-module (gnu packages freedesktop)
+  #:use-module (gnu packages gl)  
+  #:use-module (gnu packages image)
   #:use-module (gnu packages pkg-config)
-  #:use-module (gnu packages gtk)
   #:use-module (gnu packages gcc)
+  
+  #:use-module (gnu packages gtk)
   #:use-module (gnu packages linux)
   #:use-module (gnu packages qt)
   #:use-module (gnu packages man)
   #:use-module (gnu packages vulkan)
-  #:use-module (gnu packages polkit)
   #:use-module (gnu packages wm)
   #:use-module (gnu packages web)
-  #:use-module (gnu packages image)
   #:use-module (gnu packages xdisorg)
   #:use-module (gnu packages xorg)
   #:use-module (gnu packages gnome)
-  #:use-module (guix gexp)
-
-  #:use-module (guix build-system qt)
   #:use-module (guix build-system copy)
-  #:use-module (guix build-system gnu))
-
-(define-public hyprpolkitagent
-  (package
-    (name "hyprpolkitagent")
-    (version "0.1.2")
-    (source
-     (origin
-       (method git-fetch)
-       (uri (git-reference
-             (url "https://github.com/hyprwm/hyprpolkitagent")
-             (commit (string-append "v" version))))
-       (file-name (git-file-name name version))
-       (sha256
-        (base32 "0zqiskgn57zcrljpyk0py24izf77yngnj7586mb51rb1b4yd4n9b"))))
-    (build-system qt-build-system)
-    (arguments
-     (list
-      #:tests? #f ; No tests.
-      #:qtbase qtbase))
-    (native-inputs (list gcc-14 pkg-config))
-    (inputs (list hyprutils
-                  libxkbcommon
-                  polkit
-                  polkit-qt6
-                  qtdeclarative
-                  qtwayland
-                  vulkan-headers))
-    (propagated-inputs (list polkit))
-    (home-page "https://wiki.hyprland.org/Hypr-Ecosystem/hyprpolkitagent")
-    (synopsis "Hyprland polkit agent")
-    (description
-     "@command{hyprpolkitagent} is the polkit agent of the Hyprland ecosystem.
-A polkit agent is used for requesting authentication from the root user or a
-member of the @code{wheel} group.")
-    (license license:bsd-3)))
+  #:use-module (guix build-system gnu)
+  #:use-module (guix gexp))
 
 (define-public hyprshot
   (package
@@ -99,8 +62,8 @@ member of the @code{wheel} group.")
      (origin
        (method git-fetch)
        (uri (git-reference
-             (url "https://github.com/Gustash/hyprshot")
-             (commit version)))
+              (url "https://github.com/Gustash/hyprshot")
+              (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0w3qhj59g31gxcairdl5fwvdyxmb9drkgbn1jjhcbvgrbncr7mpn"))))
