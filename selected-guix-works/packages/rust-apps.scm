@@ -193,8 +193,8 @@ after a mistake.")
        (origin
          (method git-fetch)
          (uri (git-reference
-               (url "https://github.com/giacomo-b/rust-stakeholder")
-               (commit version)))
+                (url "https://github.com/giacomo-b/rust-stakeholder")
+                (commit version)))
          (file-name (git-file-name name version))
          (sha256
           (base32 "1j785mqgdiw1yzxn2fvfk6lj1caqmpc4nkhhpbmf6ywcl60s9ix8"))))
@@ -205,6 +205,7 @@ after a mistake.")
         #:cargo-inputs `(("rust-clap" ,rust-clap-4.5.32)
                          ("rust-colored" ,rust-colored-3)
                          ("rust-console" ,rust-console-0.15.11)
+                         ("rust-ctrlc" ,rust-ctrlc-3)
                          ("rust-indicatif" ,rust-indicatif-0.17.11)
                          ("rust-rand" ,rust-rand-0.9))))
       (home-page "https://github.com/giacomo-b/rust-stakeholder")

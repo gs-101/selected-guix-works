@@ -329,30 +329,6 @@ Command Line Argument Parser.")
     (description "This package provides the procedural macro crate for Clap.")
     (license (list license:expat license:asl2.0))))
 
-(define-public rust-colored-3
-  (package
-    (name "rust-colored")
-    (version "3.0.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "colored" version))
-       (file-name (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32 "0plizddhxc4vgkzdbzky5zggyaqfrmyim2d0n6sb7py9j3nf1q7x"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs (("rust-windows-sys" ,rust-windows-sys-0.59)
-                       ("rust-ansi-term" ,rust-ansi-term-0.12)
-                       ("rust-insta" ,rust-insta-1.42.2)
-                       ("rust-rspec" ,rust-rspec-1))
-       ;; tests expect a real terminal
-       #:tests? #f))
-    (home-page "https://github.com/mackwic/colored")
-    (synopsis "Add colors in your terminal")
-    (description "The most simple way to add colors in your terminal.")
-    (license license:mpl2.0)))
-
 (define-public rust-console-0.15.11
   (package
     (name "rust-console")
@@ -466,34 +442,6 @@ char, u8 and u16.")
 retrieving random data from system source.")
     (license (list license:expat license:asl2.0))))
 
-(define-public rust-git2-0.20
-  (package
-    (name "rust-git2")
-    (version "0.20.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "git2" version))
-       (file-name (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32 "1zwav0r76njd9chqxh7wj4r4zfn08nzsisrg05liyd6cjf4piniz"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs (("rust-bitflags" ,rust-bitflags-2)
-                       ("rust-libc" ,rust-libc-0.2)
-                       ("rust-libgit2-sys" ,rust-libgit2-sys-0.18)
-                       ("rust-log" ,rust-log-0.4.26)
-                       ("rust-openssl-probe" ,rust-openssl-probe-0.1)
-                       ("rust-openssl-sys" ,rust-openssl-sys-0.9)
-                       ("rust-url" ,rust-url-2))))
-    (home-page "https://github.com/rust-lang/git2-rs")
-    (synopsis "Rust bindings to libgit2")
-    (description
-     "This package provides bindings to libgit2 for interoperating with git
-repositories.  This library is both threadsafe and memory safe and allows both
-reading and writing git repositories.")
-    (license (list license:expat license:asl2.0))))
-
 (define-public rust-indicatif-0.17.11
   (package
     (name "rust-indicatif")
@@ -563,31 +511,6 @@ Rust.")
     (synopsis "Snapshot testing library for Rust")
     (description "This package provides a snapshot testing library for Rust.")
     (license license:asl2.0)))
-
-(define-public rust-itertools-0.14
-  (package
-    (name "rust-itertools")
-    (version "0.14.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "itertools" version))
-       (file-name (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32 "118j6l1vs2mx65dqhwyssbrxpawa90886m3mzafdvyip41w2q69b"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs (("rust-either" ,rust-either-1)
-                       ("rust-criterion" ,rust-criterion-0.4)
-                       ("rust-permutohedron" ,rust-permutohedron-0.2)
-                       ("rust-quickcheck" ,rust-quickcheck-0.9))))
-    (home-page "https://github.com/rust-itertools/itertools")
-    (synopsis
-     "Extra iterator adaptors, iterator methods, free functions, and macros")
-    (description
-     "This package provides extra iterator adaptors, iterator methods, free
- functions, and macros.")
-    (license (list license:expat license:asl2.0))))
 
 (define-public rust-js-sys-0.3.77
   (package
@@ -962,34 +885,6 @@ including most strategies and the testing framework itself.")
                                    ("rust-regex" ,rust-regex-1)
                                    ("rust-serde" ,rust-serde-1)
                                    ("rust-serde-value" ,rust-serde-value-0.7))))))
-
-(define-public rust-rand-0.9
-  (package
-    (name "rust-rand")
-    (version "0.9.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "rand" version))
-       (file-name (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32 "156dyvsfa6fjnv6nx5vzczay1scy5183dvjchd7bvs47xd5bjy9p"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs (("rust-libc" ,rust-libc-0.2)
-                       ("rust-log" ,rust-log-0.4)
-                       ("rust-packed-simd-2" ,rust-packed-simd-2-0.3)
-                       ("rust-rand-chacha" ,rust-rand-chacha-0.9)
-                       ("rust-rand-core" ,rust-rand-core-0.6)
-                       ("rust-serde" ,rust-serde-1))
-       #:cargo-development-inputs (("rust-bincode" ,rust-bincode-1)
-                                   ("rust-rand-pcg" ,rust-rand-pcg-0.9))))
-    (home-page "https://crates.io/crates/rand")
-    (synopsis "Random number generators and other randomness functionality")
-    (description
-     "Rand provides utilities to generate random numbers, to convert them to
-useful types and distributions, and some randomness-related algorithms.")
-    (license (list license:expat license:asl2.0))))
 
 (define-public rust-rand-chacha-0.9
   (package
@@ -1878,7 +1773,8 @@ with tree-sitter.")
         (base32 "0krnqbz59j2fhd3rkqaanms2d4xqv831qflkkchcqi95jy50svpb"))))
     (build-system cargo-build-system)
     (arguments
-     `(#:cargo-inputs (("rust-itertools" ,rust-itertools-0.13)
+     `(#:cargo-inputs (("rust-color-eyre" ,rust-color-eyre-0.6)
+                       ("rust-itertools" ,rust-itertools-0.13)
                        ("rust-ratatui" ,rust-ratatui-0.29)
                        ("rust-ratatui-macros" ,rust-ratatui-macros-0.6)
                        ("rust-rstest" ,rust-rstest-0.23))))
