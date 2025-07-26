@@ -3148,26 +3148,6 @@ emitting, and manipulation of YAML data.")
     (synopsis "LRU cache implementation")
     (description "This package provides a LRU cache implementation.")
     (license license:expat)))
-(define-public rust-nom-1
-  (package
-    (name "rust-nom")
-    (version "1.2.4")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "nom" version))
-       (file-name (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32 "1kjh42w67z1hh1dw3jrilgqrf54jk2xcvhw4rcdm4wclzmbc5f55"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs (("rust-lazy-static" ,rust-lazy-static-0.2)
-                       ("rust-regex" ,rust-regex-0.1))))
-    (home-page "https://github.com/rust-bakery/nom")
-    (synopsis "byte-oriented, zero-copy, parser combinators library")
-    (description
-     "This package provides a byte-oriented, zero-copy, parser combinators library.")
-    (license license:expat)))
 
 (define-public rust-macho-0.4
   (package
@@ -3415,6 +3395,27 @@ std's `Cow` but it implements `From<T>` and `From<&'a T>` and does not require
     (synopsis "Minimal non-blocking I/O layer")
     (description "This package provides Minimal non-blocking I/O layer.")
     (license (list license:expat license:asl2.0))))
+
+(define-public rust-nom-1
+  (package
+    (name "rust-nom")
+    (version "1.2.4")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "nom" version))
+       (file-name (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32 "1kjh42w67z1hh1dw3jrilgqrf54jk2xcvhw4rcdm4wclzmbc5f55"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs (("rust-lazy-static" ,rust-lazy-static-0.2)
+                       ("rust-regex" ,rust-regex-0.1))))
+    (home-page "https://github.com/rust-bakery/nom")
+    (synopsis "byte-oriented, zero-copy, parser combinators library")
+    (description
+     "This package provides a byte-oriented, zero-copy, parser combinators library.")
+    (license license:expat)))
 
 (define-public rust-notify-types-1
   (package
@@ -6175,6 +6176,29 @@ implementations.")
     (description
      "This package provides a library to generate and parse UUIDs.")
     (license (list license:asl2.0 license:expat))))
+
+(define-public rust-uuid-0.3
+  (package
+    (name "rust-uuid")
+    (version "0.3.1")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "uuid" version))
+       (file-name (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32 "0qni2i2h45h7rfprsh935j2990ffyvcckwxs6wpy5xyaarqzb7qs"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs (("rust-rand" ,rust-rand-0.3)
+                       ("rust-rustc-serialize" ,rust-rustc-serialize-0.3)
+                       ("rust-serde" ,rust-serde-0.8)
+                       ("rust-sha1" ,rust-sha1-0.2))))
+    (home-page "https://github.com/uuid-rs/uuid")
+    (synopsis "library to generate and parse UUIDs.")
+    (description
+     "This package provides a library to generate and parse UUIDs.")
+    (license (list license:expat license:asl2.0))))
 
 (define-public rust-uuid-macro-internal-1
   (package
