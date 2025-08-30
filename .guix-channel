@@ -4,7 +4,7 @@
   (news-file "NEWS")
   (dependencies
    (channel
-     (name 'guix-rust-past-crates)
+     (name guix-rust-past-crates)
      (url "https://codeberg.org/guix/guix-rust-past-crates.git")
      (branch "trunk")
      (introduction
