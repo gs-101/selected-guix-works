@@ -25,7 +25,12 @@
 ;;; Code:
 
 (define-module (selected-guix-works packages crates-io)
+  #:use-module (gnu packages compression)
+  #:use-module (gnu packages libusb)
+  #:use-module (gnu packages pkg-config)
+  #:use-module (gnu packages version-control)
   #:use-module (gnu packages ssh)
+  #:use-module (gnu packages tls)
   #:use-module (guix packages)
   #:use-module (guix download)
   #:use-module ((guix licenses)
