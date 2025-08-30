@@ -23,23 +23,13 @@
 ;;; Code:
 
 (define-module (selected-guix-works packages wm)
-  #:use-module (guix build utils)
-  #:use-module (guix packages)
-  #:use-module (guix git-download)
-  #:use-module ((guix licenses)
-                #:prefix license:)
   #:use-module (gnu packages base)
   #:use-module (gnu packages cpp)
-  #:use-module (gnu packages crates-check)
-  #:use-module (gnu packages crates-compression)
-  #:use-module (gnu packages crates-io)
-  #:use-module (gnu packages crates-graphics)
   #:use-module (gnu packages freedesktop)
-  #:use-module (gnu packages gl)  
+  #:use-module (gnu packages gl)
   #:use-module (gnu packages image)
   #:use-module (gnu packages pkg-config)
   #:use-module (gnu packages gcc)
-  
   #:use-module (gnu packages gtk)
   #:use-module (gnu packages linux)
   #:use-module (gnu packages qt)
@@ -50,9 +40,15 @@
   #:use-module (gnu packages xdisorg)
   #:use-module (gnu packages xorg)
   #:use-module (gnu packages gnome)
+  #:use-module (guix build utils)
   #:use-module (guix build-system copy)
   #:use-module (guix build-system gnu)
-  #:use-module (guix gexp))
+  #:use-module (guix gexp)
+  #:use-module (guix git-download)
+  #:use-module ((guix licenses)
+                #:prefix license:)
+  #:use-module (guix packages)
+  #:use-module (past-crates packages crates-io))
 
 (define-public hyprshot
   (package

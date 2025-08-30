@@ -23,17 +23,17 @@
 ;;; Code:
 
 (define-module (selected-guix-works packages rust-apps)
-  #:use-module (guix packages)
-  #:use-module (guix download)
-  #:use-module ((guix licenses)
-                #:prefix license:)
-  #:use-module (past-crates packages crates-io)
   #:use-module (selected-guix-works packages crates-io)
   #:use-module (gnu packages compression)
   #:use-module (gnu packages version-control)
-  #:use-module (guix git-download)
 
-  #:use-module (guix build-system cargo))
+  #:use-module (guix build-system cargo)
+  #:use-module (guix download)
+  #:use-module (guix git-download)
+  #:use-module ((guix licenses)
+                #:prefix license:)
+  #:use-module (guix packages)
+  #:use-module (past-crates packages crates-io))
 
 (define-public git-credential-keepassxc
   (package
