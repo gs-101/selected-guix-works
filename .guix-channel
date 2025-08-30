@@ -1,4 +1,14 @@
 (channel
- (version 0)
- (url "https://github.com/gs-101/selected-guix-works.git")
- (news-file "NEWS"))
+  (version 0)
+  (url "https://github.com/gs-101/selected-guix-works.git")
+  (news-file "NEWS")
+  (dependencies
+   (channel
+     (name 'guix-rust-past-crates)
+     (url "https://codeberg.org/guix/guix-rust-past-crates.git")
+     (branch "trunk")
+     (introduction
+      (make-channel-introduction
+       "1db24ca92c28255b28076792b93d533eabb3dc6a"
+       (openpgp-fingerprint
+        "F4C2 D1DF 3FDE EA63 D1D3  0776 ACC6 6D09 CA52 8292"))))))
