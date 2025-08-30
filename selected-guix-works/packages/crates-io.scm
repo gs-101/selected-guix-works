@@ -25,6 +25,7 @@
 ;;; Code:
 
 (define-module (selected-guix-works packages crates-io)
+  #:use-module (gnu packages ssh)
   #:use-module (guix packages)
   #:use-module (guix download)
   #:use-module ((guix licenses)
