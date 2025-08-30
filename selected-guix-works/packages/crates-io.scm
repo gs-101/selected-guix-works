@@ -685,51 +685,6 @@ emitting, and manipulation of YAML data.")
     (description "This package provides types used by the notify crate.")
     (license (list license:expat license:asl2.0))))
 
-(define-public rust-pay-respects-parser-0.3
-  (package
-    (name "rust-pay-respects-parser")
-    (version "0.3.9")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "pay-respects-parser" version))
-       (file-name (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32 "0aww6qm0agzcx3g69bblkkhxz2gnbmvyk335jla0bayvhx6pczqy"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs (("rust-proc-macro2" ,rust-proc-macro2-1)
-                       ("rust-quote" ,rust-quote-1)
-                       ("rust-serde" ,rust-serde-1.0.219)
-                       ("rust-syn" ,rust-syn-2)
-                       ("rust-toml" ,rust-toml-0.8))))
-    (home-page "https://github.com/iffse/pay-respects")
-    (synopsis "Compile time rule parser for the @code{pay-respects} CLI tool")
-    (description "This package provides a compile time rule parser for the
- @code{pay-respects} CLI tool.")
-    (license license:mpl2.0)))
-
-(define-public rust-pay-respects-utils-0.1
-  (package
-    (name "rust-pay-respects-utils")
-    (version "0.1.8")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "pay-respects-utils" version))
-       (file-name (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32 "191z4xjsdzn8k821071z4m8zl0jnd2r7j8ki2wpzdkdjha2g5mvn"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs (("rust-itertools" ,rust-itertools-0.14)
-                       ("rust-regex-lite" ,rust-regex-lite-0.1))))
-    (home-page "https://codeberg.org/iff/pay-respects")
-    (synopsis "Utilities for the @code{pay-respects} CLI tool")
-    (description
-     "This package provides utilities for the @code{pay-respects} CLI tool.")
-    (license license:mpl2.0)))
-
 (define-public rust-portable-pty-0.7
   (package
     (inherit rust-portable-pty-0.8)

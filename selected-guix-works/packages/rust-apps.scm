@@ -148,37 +148,6 @@ enables command-line applications to interact with @code{keepassxc} databases.")
 by @code{emacs-magit}.")
     (license license:expat)))
 
-(define-public pay-respects
-  (package
-    (name "pay-respects")
-    (version "0.7.8")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "pay-respects" version))
-       (file-name (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32 "14hrfmwhisc98ba1hyg86v20g9qaa6jhx051m1ylkmajbklvzmgz"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs (("rust-askama" ,rust-askama-0.13)
-                       ("rust-colored" ,rust-colored-3)
-                       ("rust-inquire" ,rust-inquire-0.7)
-                       ("rust-itertools" ,rust-itertools-0.14)
-                       ("rust-pay-respects-parser" ,rust-pay-respects-parser-0.3)
-                       ("rust-pay-respects-utils" ,rust-pay-respects-utils-0.1)
-                       ("rust-regex-lite" ,rust-regex-lite-0.1)
-                       ("rust-rust-i18n" ,rust-rust-i18n-3)
-                       ("rust-sys-locale" ,rust-sys-locale-0.3))
-       #:install-source? #f))
-    (home-page "https://codeberg.org/iff/pay-respects")
-    (synopsis
-     "Command suggestions, @command{command-not-found} and @command{thefuck} replacement")
-    (description
-     "@command{pay-respects} suggests command corrections by simply pressing f
-after a mistake.")
-    (license license:agpl3+)))
-
 (define-public rust-stakeholder
   ;; No tagged releases.
   (let ((commit "52f64ad3d61c439b500bc893cbc96050e7a2c85a"))

@@ -32,10 +32,6 @@ This channel includes all Nerd Fonts[fn:3]. A meta package is available under th
 
 ** Rust Apps
 
-- =pay-respects= ::
-
-  pay-respects[fn:12] is a command line program that suggests corrections on incorrect commands. You can use the suggestion by pressing =F= (to pay respects).
-
 - =gitu= ::
 
   gitu[fn:13] is a terminal user interface for Git inspired by Magit[fn:14]. It features Vim-like keybinds by default, but [[https://github.com/altsem/gitu/blob/master/src/default_config.toml][that can be configured]].
@@ -401,8 +397,6 @@ My favourite of his works is “Expert Knob Twiddlers”, it has an album cover 
 [fn:9] Ser, S. (2025) “emersion/slurp.” Available at: https://github.com/emersion/slurp (Accessed: February 13, 2025).
 
 [fn:11] Gallant, A. (2025) “Burntsushi/ripgrep.” Available at: https://github.com/BurntSushi/ripgrep (Accessed: March 5, 2025).
-
-[fn:12] iff (2025) “iff/pay-respects.” Available at: https://codeberg.org/iff/pay-respects (Accessed: March 7, 2025).
 
 [fn:13] altsem (2025) “altsem/gitu.” Available at: https://github.com/altsem/gitu (Accessed: March 14, 2025).
 
