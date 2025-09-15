@@ -348,7 +348,7 @@ This channel includes all Nerd Fonts[fn:3]. A meta package is available under th
 
     - ~swww~ (file-like) ::
 
-      The =swww= package to be used. Defaults to this channel's =swww-next=.
+      The =swww= package to be used.
 
     - ~extra-options~ (list-of-strings) ::
 
