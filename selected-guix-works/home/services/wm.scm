@@ -42,7 +42,7 @@
   home-swww-configuration make-home-swww-configuration
   home-swww-configuration?
   (swww home-swww-swww ; file-like
-        (default swww-next))
+        (default swww))
   (extra-options home-swww-extra-options ; list of strings
                  (default '())))
 
