@@ -33,9 +33,3 @@
 
 (define (from-patches patch)
   (string-append patches-path patch))
-
-;; From <https://issues.guix.gnu.org/78047>.
-;; Thanks Ludovic Courtès.
-;; DEPRECATED: As of <2025-06-23>, this fix was upstreamed.
-(define-public fixed-network-manager
-  (deprecated-package "fixed-network-manager" network-manager))
