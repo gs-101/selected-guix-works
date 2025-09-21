@@ -115,6 +115,3 @@
      "@code{hyprshot} is a simple shell script used for taking screenshots in Hyprland.
 It's primarily optimized for mouse usage, due to the ability of selection regions.")
     (license license:gpl3)))
-
-
-(deprecated-package "swww-next" swww)
