@@ -30,6 +30,12 @@ Use this for adding this channel to your configuration:
 
 This channel includes all Nerd Fonts[fn:3]. A meta package is available under the name of =fonts-nerd-fonts=, with all other packages following the same naming convention (=fonts-nerd-fonts-inconsolata=).
 
+** QT
+
+- =hyprqt6engine= ::
+
+  hyprqt6egnine[fn:19] is the QT theme engine of the Hyprland ecosystem. Think of it as like a qt6ct[fn:20].
+
 ** Rust Apps
 
 - =gitu= ::
@@ -403,3 +409,7 @@ My favourite of his works is “Expert Knob Twiddlers”, it has an album cover 
 [fn:17] Zhang, F. (2025) “Frederick888/git-credential-keepassxc.” Available at: https://github.com/Frederick888/git-credential-keepassxc (Accessed: April 18, 2025).
 
 [fn:18] Mattias (2025) “Lassekongo83/adw-gtk3.” Available at: https://github.com/lassekongo83/adw-gtk3 (Accessed: April 25, 2025).
+
+[fn:19] “Hyprwm/hyprqt6engine” (2025). Hypr Development. Available at: https://github.com/hyprwm/hyprqt6engine (Accessed: December 21, 2025).
+
+[fn:20] Kotov, I. (2025) “Trialuser02/qt6ct.” Available at: https://github.com/trialuser02/qt6ct (Accessed: December 21, 2025).
