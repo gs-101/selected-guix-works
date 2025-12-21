@@ -139,4 +139,13 @@ uma semana, então se prepare para a migração.")))
         (body (en "As scheduled in the previous entry, this package has been
 removed.  You can find it upstream under the name of @code{adw-gtk3-theme}.")
               (pt "Como agendado na notícia anterior, esse pacote foi removido.
-Você pode encontrá-lo no Guix pelo nome @code{adw-gtk3-theme}."))))
+Você pode encontrá-lo no Guix pelo nome @code{adw-gtk3-theme}.")))
+ (entry (commit "5f140ab9eb2721e809ceace72e837e5727234b7f")
+        (title (en "Add hyprqt6engine")
+               (pt "Adicionar hyprqt6engine"))
+        (body (en "@code{hyprqt6engine} is a Hyprland program for theming
+QT applications.  It is like @code{qt6ct} but made specifically with Hyprland
+in mind.")
+              (pt "@code{hyprqt6engine} é um programa Hyprland usado para
+tematizar programas que usam QT.  É tipo o @code{qt6ct} só que feito com o
+Hyprland em mente."))))
