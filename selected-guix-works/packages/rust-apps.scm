@@ -23,12 +23,15 @@
 ;;; Code:
 
 (define-module (selected-guix-works packages rust-apps)
+  #:use-module (gnu packages bash)
   #:use-module (gnu packages compression)
   #:use-module (gnu packages rust)
   #:use-module (gnu packages version-control)
+  #:use-module (guix build utils)
   #:use-module (guix build-system cargo)
   #:use-module (guix download)
   #:use-module (guix git-download)
+  #:use-module (guix gexp)
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (guix packages))
 
@@ -73,13 +76,23 @@ enables command-line applications to interact with @code{keepassxc} databases.")
     (build-system cargo-build-system)
     (arguments
      (list
-      #:rust rust-1.88
       #:install-source? #f
+      #:rust rust-1.88
+      #:phases
+      #~(modify-phases %standard-phases
+          (add-after 'install 'wrap-git-bin
+            (lambda* (#:key inputs outputs #:allow-other-keys)
+              (wrap-program (string-append #$output "/bin/gitu")
+                `("PATH" ":" prefix
+                  (,(string-append #$git-minimal "/bin")))))))
       ;; Tests use some unsupported feature.
       #:tests? #f))
-    (inputs (cargo-inputs 'gitu
-                          #:module
-                          '(selected-guix-works packages rust-crates)))
+    (inputs (cons bash-minimal
+                  (cargo-inputs
+                   'gitu
+                   #:module
+                   '(selected-guix-works packages rust-crates))))
+    (native-inputs (list git-minimal zlib))
     (home-page "https://github.com/altsem/gitu")
     (synopsis "git client inspired by Magit")
     (description "@code{gitu} is a git Terminal User Interface inspired
