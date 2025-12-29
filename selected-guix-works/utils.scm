@@ -28,7 +28,7 @@
   #:use-module (gnu packages)
 
   #:export (home-profile-package-service
-            local-file-from-env))
+            from-patches))
 
 (define (home-profile-package-service package)
   (if (list? package)
@@ -42,3 +42,8 @@
         (simple-service service-name
                         home-profile-service-type
                         (list (specification->package package))))))
+
+(define patches-path "selected-guix-works/packages/patches/")
+
+(define (from-patches patch)
+  (string-append patches-path patch))
