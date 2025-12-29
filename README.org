@@ -34,7 +34,11 @@ This channel includes all Nerd Fonts[fn:3]. A meta package is available under th
 
 - =hyprqt6engine= ::
 
-  hyprqt6egnine[fn:19] is the QT theme engine of the Hyprland ecosystem. Think of it as like a qt6ct[fn:20].
+  hyprqt6egnine[fn:19] is the Qt theme engine of the Hyprland ecosystem. Think of it as like a qt6ct[fn:20].
+
+- =qt5ct-kde= ::
+
+  qt5ct-kde[fn:21] is a version of qt5ct[fn:22] from the Arch User Repository (AUR) patched to work with KDE applications.
 
 ** Rust Apps
 
@@ -413,3 +417,7 @@ My favourite of his works is “Expert Knob Twiddlers”, it has an album cover 
 [fn:19] “Hyprwm/hyprqt6engine” (2025). Hypr Development. Available at: https://github.com/hyprwm/hyprqt6engine (Accessed: December 21, 2025).
 
 [fn:20] Kotov, I. (2025) “Trialuser02/qt6ct.” Available at: https://github.com/trialuser02/qt6ct (Accessed: December 21, 2025).
+
+[fn:21] ilya-fedin (2024) “Qt5ct-kde.” Available at: https://aur.archlinux.org/packages/qt5ct-kde (Accessed: December 29, 2025).
+
+[fn:22] trialuser02 (2025) “Qt5ct.” Available at: https://sourceforge.net/projects/qt5ct/ (Accessed: December 29, 2025).
