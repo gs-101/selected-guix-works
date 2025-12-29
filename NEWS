@@ -155,4 +155,11 @@ Hyprland em mente.")))
         (body (en "@code{qt5ct-kde} is a version of @code{qt5ct} from the
 Arch User Repository (AUR) that was patched to work with KDE applications.")
               (pt "@code{qt5ct-kde} é uma versão do @code{qt5ct} do
+Arch User Repository (AUR) com um patch que o faz funcionar com programas do KDE.")))
+ (entry (commit "e01923ebbb502188a723c68310c6cd0ba1904723")
+        (title (en "Add qt6ct-kde")
+               (pt "Adicionar qt6ct-kde"))
+        (body (en "@code{qt6ct-kde} is a version of @code{qt6ct} from the
+Arch User Repository (AUR) that was patched to work with KDE applications.")
+              (pt "@code{qt6ct-kde} é uma versão do @code{qt6ct} do
 Arch User Repository (AUR) com um patch que o faz funcionar com programas do KDE."))))
