@@ -99,3 +99,21 @@
     (synopsis "Qt5 Configuration Tool, patched to work with KDE applications")
     (description "Qt5CT-KDE is an Arch User Repository (AUR) version of
 @code{qt5ct} that works with KDE applications.")))
+
+(define-public qt6ct-kde
+  (package
+    (inherit qt6ct)
+    (name "qt6ct-kde")
+    (version "0.11-5")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+              (url "https://www.opencode.net/trialuser/qt6ct")
+              (commit (string-drop-right version 2))))
+       (sha256
+        (base32 "17hfx90wnc40a1sq0qcdp2hml5mkjhlj5rwm95pc40p03nicpn67"))
+       (patches (search-patches (from-patches "qt6ct-shenanigans.patch")))))
+    (synopsis "Qt6 Configuration Tool, patched to work with KDE applications")
+    (description "Qt6CT-KDE is an Arch User Repository (AUR) version of
+@code{qt6ct} that works with KDE applications.")))
