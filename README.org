@@ -40,6 +40,10 @@ This channel includes all Nerd Fonts[fn:3]. A meta package is available under th
 
   qt5ct-kde[fn:21] is a version of qt5ct[fn:22] from the Arch User Repository (AUR) patched to work with KDE applications.
 
+- =qt6ct-kde= ::
+
+  Same as the above[fn:23], but for Qt6[fn:20].
+
 ** Rust Apps
 
 - =gitu= ::
@@ -421,3 +425,5 @@ My favourite of his works is “Expert Knob Twiddlers”, it has an album cover 
 [fn:21] ilya-fedin (2024) “Qt5ct-kde.” Available at: https://aur.archlinux.org/packages/qt5ct-kde (Accessed: December 29, 2025).
 
 [fn:22] trialuser02 (2025) “Qt5ct.” Available at: https://sourceforge.net/projects/qt5ct/ (Accessed: December 29, 2025).
+
+[fn:23] ilya-fedin (2025) “Qt6ct-kde.” Available at: https://aur.archlinux.org/packages/qt6ct-kde (Accessed: December 29, 2025).
