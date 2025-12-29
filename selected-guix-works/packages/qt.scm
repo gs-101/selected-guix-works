@@ -23,16 +23,18 @@
 ;;; Code:
 
 (define-module (selected-guix-works packages qt)
+  #:use-module (gnu packages)
   #:use-module (gnu packages cpp)
   #:use-module (gnu packages kde-frameworks)
   #:use-module (gnu packages pkg-config)
   #:use-module (gnu packages qt)
+  #:use-module (guix build-system qt)
+  #:use-module (guix download)
   #:use-module (guix gexp)
   #:use-module (guix git-download)
-  #:use-module (guix packages)
   #:use-module ((guix licenses) #:prefix license:)
-
-  #:use-module (guix build-system qt))
+  #:use-module (guix packages)
+  #:use-module (selected-guix-works utils))
 
 (define-public hyprqt6engine
   (package
@@ -72,3 +74,28 @@
     (synopsis "QT6 Theme Provider for Hyprland")
     (description "@code{hyprqt6engine} provides a theme for QT6 apps.")
     (license license:bsd-3)))
+
+(define-public qt5ct-kde
+  (package
+    (inherit qt5ct)
+    (name "qt5ct-kde")
+    (version "1.8-15")
+    (source
+     (origin
+       (method url-fetch)
+       (uri
+        (string-append "mirror://sourceforge/qt5ct/qt5ct-" (string-drop-right version 3) ".tar.bz2"))
+       (sha256
+        (base32 "1s88v3x5vxrz981jiqb9cnwak0shz6kgjbkp511i592y85a41dr3"))
+       (patches (search-patches (from-patches "qt5ct-shenanigans.patch")))))
+    (inputs
+     (modify-inputs (package-inputs qt5ct)
+       (append kconfig-5
+               kconfigwidgets-5
+               kcoreaddons-5
+               kiconthemes-5
+               qtdeclarative-5
+               qtquickcontrols2-5)))
+    (synopsis "Qt5 Configuration Tool, patched to work with KDE applications")
+    (description "Qt5CT-KDE is an Arch User Repository (AUR) version of
+@code{qt5ct} that works with KDE applications.")))
