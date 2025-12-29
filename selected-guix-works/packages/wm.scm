@@ -47,8 +47,7 @@
   #:use-module (guix git-download)
   #:use-module ((guix licenses)
                 #:prefix license:)
-  #:use-module (guix packages)
-  #:use-module (past-crates packages crates-io))
+  #:use-module (guix packages))
 
 (define-public hyprshot
   (package
