@@ -148,4 +148,11 @@ QT applications.  It is like @code{qt6ct} but made specifically with Hyprland
 in mind.")
               (pt "@code{hyprqt6engine} é um programa Hyprland usado para
 tematizar programas que usam QT.  É tipo o @code{qt6ct} só que feito com o
-Hyprland em mente."))))
+Hyprland em mente.")))
+ (entry (commit "dfed172dd634630a11f23483261b199a1dd9db84")
+        (title (en "Add qt5ct-kde")
+               (pt "Adicionar qt5ct-kde"))
+        (body (en "@code{qt5ct-kde} is a version of @code{qt5ct} from the
+Arch User Repository (AUR) that was patched to work with KDE applications.")
+              (pt "@code{qt5ct-kde} é uma versão do @code{qt5ct} do
+Arch User Repository (AUR) com um patch que o faz funcionar com programas do KDE."))))
