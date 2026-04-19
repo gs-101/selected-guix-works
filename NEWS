@@ -162,4 +162,11 @@ Arch User Repository (AUR) com um patch que o faz funcionar com programas do KDE
         (body (en "@code{qt6ct-kde} is a version of @code{qt6ct} from the
 Arch User Repository (AUR) that was patched to work with KDE applications.")
               (pt "@code{qt6ct-kde} é uma versão do @code{qt6ct} do
-Arch User Repository (AUR) com um patch que o faz funcionar com programas do KDE."))))
+Arch User Repository (AUR) com um patch que o faz funcionar com programas do KDE.")))
+ (entry (commit "4cf9e6459472974ceed098364683bb08073f53ea")
+        (title (en "Stepping down as maintainer")
+               (pt "Deixando de ser maintainer"))
+        (body (en "I have switched from Guix to NixOS, so I no longer have
+plans to maintain this channel. Thanks for using it.")
+              (pt "Eu troquei do Guix pro NixOS, então eu não tenho mais planos
+de continuar sendo o maintainer desse canal. Obrigado por usá-lo."))))
